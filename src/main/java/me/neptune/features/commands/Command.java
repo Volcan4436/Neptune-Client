@@ -1,7 +1,7 @@
-package me.alpha432.oyvey.features.commands;
+package me.neptune.features.commands;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.Feature;
+import me.neptune.Neptune;
+import me.neptune.features.Feature;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -24,7 +24,7 @@ public abstract class Command
     }
 
     public static void sendMessage(String message) {
-        Command.sendSilentMessage(OyVey.commandManager.getClientMessage() + " " + Formatting.GRAY + message);
+        Command.sendSilentMessage(Neptune.commandManager.getClientMessage() + " " + Formatting.GRAY + message);
     }
 
     public static void sendSilentMessage(String message) {
@@ -36,7 +36,7 @@ public abstract class Command
     }
 
     public static String getCommandPrefix() {
-        return OyVey.commandManager.getPrefix();
+        return Neptune.commandManager.getPrefix();
     }
 
     public abstract void execute(String[] var1);

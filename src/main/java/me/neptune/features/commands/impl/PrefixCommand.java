@@ -1,7 +1,7 @@
-package me.alpha432.oyvey.features.commands.impl;
+package me.neptune.features.commands.impl;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.commands.Command;
+import me.neptune.Neptune;
+import me.neptune.features.commands.Command;
 import net.minecraft.util.Formatting;
 
 public class PrefixCommand
@@ -13,10 +13,10 @@ public class PrefixCommand
     @Override
     public void execute(String[] commands) {
         if (commands.length == 1) {
-            Command.sendMessage(Formatting.GREEN + "Current prefix is " + OyVey.commandManager.getPrefix());
+            Command.sendMessage(Formatting.GREEN + "Current prefix is " + Neptune.commandManager.getPrefix());
             return;
         }
-        OyVey.commandManager.setPrefix(commands[0]);
+        Neptune.commandManager.setPrefix(commands[0]);
         Command.sendMessage("Prefix changed to " + Formatting.GRAY + commands[0]);
     }
 }
