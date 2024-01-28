@@ -1,10 +1,9 @@
-package me.alpha432.oyvey.features.modules.combat;
+package me.neptune.features.modules.combat;
 
 import com.google.common.eventbus.Subscribe;
-import me.alpha432.oyvey.event.impl.PacketEvent;
-import me.alpha432.oyvey.features.modules.Module;
-import me.alpha432.oyvey.util.models.Timer;
+import me.neptune.event.impl.PacketEvent;
 import me.neptune.features.modules.Module;
+import me.neptune.util.models.Timer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.EndCrystalEntity;

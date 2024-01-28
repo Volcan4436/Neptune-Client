@@ -1,7 +1,7 @@
 package me.neptune.manager;
 
-import me.alpha432.oyvey.features.gui.Component;
-import me.alpha432.oyvey.features.modules.client.ClickGui;
+import me.neptune.features.gui.Component;
+import me.neptune.features.modules.client.ClickGui;
 import me.neptune.util.ColorUtil;
 
 import java.awt.*;

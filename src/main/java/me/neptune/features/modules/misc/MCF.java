@@ -1,8 +1,7 @@
-package me.alpha432.oyvey.features.modules.misc;
+package me.neptune.features.modules.misc;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.commands.Command;
-import me.alpha432.oyvey.features.modules.Module;
+import me.neptune.Neptune;
+import me.neptune.features.commands.Command;
 import me.neptune.features.modules.Module;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,11 +21,11 @@ public class MCF extends Module {
                 if (!(targetedEntity instanceof PlayerEntity)) return;
                 String name = ((PlayerEntity) targetedEntity).getGameProfile().getName();
 
-                if (OyVey.friendManager.isFriend(name)) {
-                    OyVey.friendManager.removeFriend(name);
+                if (Neptune.friendManager.isFriend(name)) {
+                    Neptune.friendManager.removeFriend(name);
                     Command.sendMessage(Formatting.RED + name + Formatting.RED + " has been unfriended.");
                 } else {
-                    OyVey.friendManager.addFriend(name);
+                    Neptune.friendManager.addFriend(name);
                     Command.sendMessage(Formatting.AQUA + name + Formatting.AQUA + " has been friended.");
                 }
 
