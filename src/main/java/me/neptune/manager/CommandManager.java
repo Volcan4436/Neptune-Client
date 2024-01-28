@@ -2,9 +2,10 @@ package me.neptune.manager;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import me.neptune.modules.Feature;
-import me.neptune.modules.commands.Command;
-import me.neptune.modules.commands.command.*;
+import me.alpha432.oyvey.features.Feature;
+import me.alpha432.oyvey.features.commands.Command;
+import me.alpha432.oyvey.features.commands.impl.*;
+import me.alpha432.oyvey.util.traits.Jsonable;
 import me.neptune.util.traits.Jsonable;
 import net.minecraft.util.Formatting;
 

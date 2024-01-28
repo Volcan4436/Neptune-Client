@@ -1,6 +1,6 @@
 package me.neptune.event.impl;
 
-import me.neptune.event.Event;
+import me.alpha432.oyvey.event.Event;
 import net.minecraft.network.packet.Packet;
 
 public abstract class PacketEvent extends Event {

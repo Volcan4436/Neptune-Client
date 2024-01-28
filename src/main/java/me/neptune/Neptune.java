@@ -1,12 +1,16 @@
 package me.neptune;
 
 import me.neptune.manager.*;
+import me.neptune.manager.ColorManager;
+import me.neptune.manager.ServerManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Neptune implements ModInitializer, ClientModInitializer {
     public static final String NAME = "Neptune";
-    public static final String VERSION = "0.0.1 - BETA";
+    public static final String VERSION = "0.0.1 - Beta";
 
     public static float TIMER = 1f;
 

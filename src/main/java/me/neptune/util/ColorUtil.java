@@ -1,6 +1,6 @@
 package me.neptune.util;
 
-import me.neptune.modules.module.client.ClickGui;
+import me.alpha432.oyvey.features.modules.client.ClickGui;
 
 import java.awt.*;
 

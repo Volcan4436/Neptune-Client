@@ -1,6 +1,6 @@
 package me.neptune.event.impl;
 
-import me.neptune.event.Event;
+import me.alpha432.oyvey.event.Event;
 import net.minecraft.entity.LivingEntity;
 
 public class DeathEvent extends Event {

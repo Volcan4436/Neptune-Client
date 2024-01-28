@@ -1,11 +1,11 @@
 package me.neptune.manager;
 
 import com.google.gson.*;
+import me.alpha432.oyvey.features.Feature;
+import me.alpha432.oyvey.features.settings.Bind;
+import me.alpha432.oyvey.features.settings.EnumConverter;
+import me.alpha432.oyvey.features.settings.Setting;
 import me.neptune.Neptune;
-import me.neptune.modules.Feature;
-import me.neptune.modules.settings.Bind;
-import me.neptune.modules.settings.EnumConverter;
-import me.neptune.modules.settings.Setting;
 import me.neptune.util.traits.Jsonable;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -14,7 +14,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class ConfigManager {
-    private static final Path OYVEY_PATH = FabricLoader.getInstance().getGameDir().resolve("oyvey");
+    private static final Path NEPTUNE_PATH = FabricLoader.getInstance().getGameDir().resolve("neptune");
     private static final Gson gson = new GsonBuilder()
             .setLenient()
             .setPrettyPrinting()
@@ -59,10 +59,10 @@ public class ConfigManager {
     }
 
     public void load() {
-        if (!OYVEY_PATH.toFile().exists()) OYVEY_PATH.toFile().mkdirs();
+        if (!NEPTUNE_PATH.toFile().exists()) NEPTUNE_PATH.toFile().mkdirs();
         for (Jsonable jsonable : jsonables) {
             try {
-                String read = Files.readString(OYVEY_PATH.resolve(jsonable.getFileName()));
+                String read = Files.readString(NEPTUNE_PATH.resolve(jsonable.getFileName()));
                 jsonable.fromJson(JsonParser.parseString(read));
             } catch (Throwable e) {
                 e.printStackTrace();
@@ -71,11 +71,11 @@ public class ConfigManager {
     }
 
     public void save() {
-        if (!OYVEY_PATH.toFile().exists()) OYVEY_PATH.toFile().mkdirs();
+        if (!NEPTUNE_PATH.toFile().exists()) NEPTUNE_PATH.toFile().mkdirs();
         for (Jsonable jsonable : jsonables) {
             try {
                 JsonElement json = jsonable.toJson();
-                Files.writeString(OYVEY_PATH.resolve(jsonable.getFileName()), gson.toJson(json));
+                Files.writeString(NEPTUNE_PATH.resolve(jsonable.getFileName()), gson.toJson(json));
             } catch (Throwable e) {
             }
         }

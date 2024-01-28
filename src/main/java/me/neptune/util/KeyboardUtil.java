@@ -1,6 +1,6 @@
 package me.neptune.util;
 
-import me.neptune.modules.settings.Bind;
+import me.alpha432.oyvey.features.settings.Bind;
 
 public class KeyboardUtil {
     public static String getKeyName(int key) {

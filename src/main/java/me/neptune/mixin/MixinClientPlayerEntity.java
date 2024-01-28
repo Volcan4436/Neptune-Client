@@ -1,8 +1,8 @@
 package me.neptune.mixin;
 
-import me.neptune.event.Stage;
-import me.neptune.event.impl.UpdateEvent;
-import me.neptune.event.impl.UpdateWalkingPlayerEvent;
+import me.alpha432.oyvey.event.Stage;
+import me.alpha432.oyvey.event.impl.UpdateEvent;
+import me.alpha432.oyvey.event.impl.UpdateWalkingPlayerEvent;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

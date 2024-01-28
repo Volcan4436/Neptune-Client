@@ -1,10 +1,12 @@
 package me.neptune.manager;
 
-import me.neptune.modules.Feature;
+import me.alpha432.oyvey.features.Feature;
 import me.neptune.util.models.Timer;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
+
+import static me.neptune.util.traits.Util.mc;
 
 public class ServerManager
         extends Feature {

@@ -1,15 +1,18 @@
 package me.neptune.manager;
 
 import com.google.common.eventbus.Subscribe;
+import me.neptune.event.impl.*;
+import me.alpha432.oyvey.features.Feature;
+import me.alpha432.oyvey.features.commands.Command;
 import me.neptune.Neptune;
 import me.neptune.event.Stage;
-import me.neptune.event.impl.*;
-import me.neptune.modules.Feature;
-import me.neptune.modules.commands.Command;
 import me.neptune.util.models.Timer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.WorldTimeUpdateS2CPacket;
 import net.minecraft.util.Formatting;
+
+import static me.neptune.util.traits.Util.EVENT_BUS;
+import static me.neptune.util.traits.Util.mc;
 
 public class EventManager extends Feature {
     private final Timer logoutTimer = new Timer();
@@ -24,7 +27,6 @@ public class EventManager extends Feature {
 
     @Subscribe
     public void onUpdate(UpdateEvent event) {
-        mc.getWindow().setTitle("OyVey 0.0.3");
         if (!fullNullCheck()) {
 //            OyVey.inventoryManager.update();
             Neptune.moduleManager.onUpdate();

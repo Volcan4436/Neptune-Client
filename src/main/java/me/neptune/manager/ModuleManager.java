@@ -2,18 +2,18 @@ package me.neptune.manager;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import me.alpha432.oyvey.features.Feature;
+import me.alpha432.oyvey.features.modules.Module;
+import me.alpha432.oyvey.features.modules.client.ClickGui;
+import me.alpha432.oyvey.features.modules.client.HudModule;
+import me.alpha432.oyvey.features.modules.combat.Criticals;
+import me.alpha432.oyvey.features.modules.misc.MCF;
+import me.alpha432.oyvey.features.modules.movement.ReverseStep;
+import me.alpha432.oyvey.features.modules.movement.Step;
+import me.alpha432.oyvey.features.modules.player.FastPlace;
+import me.alpha432.oyvey.features.modules.player.Velocity;
 import me.neptune.event.impl.Render2DEvent;
 import me.neptune.event.impl.Render3DEvent;
-import me.neptune.modules.Feature;
-import me.neptune.modules.module.Module;
-import me.neptune.modules.module.client.ClickGui;
-import me.neptune.modules.module.client.HudModule;
-import me.neptune.modules.module.combat.Criticals;
-import me.neptune.modules.module.misc.MCF;
-import me.neptune.modules.module.movement.ReverseStep;
-import me.neptune.modules.module.movement.Step;
-import me.neptune.modules.module.player.FastPlace;
-import me.neptune.modules.module.player.Velocity;
 import me.neptune.util.traits.Jsonable;
 import me.neptune.util.traits.Util;
 

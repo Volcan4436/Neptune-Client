@@ -1,8 +1,8 @@
 package me.neptune.event.impl;
 
-import me.neptune.event.Event;
-import me.neptune.modules.Feature;
-import me.neptune.modules.settings.Setting;
+import me.alpha432.oyvey.event.Event;
+import me.alpha432.oyvey.features.Feature;
+import me.alpha432.oyvey.features.settings.Setting;
 
 public class ClientEvent extends Event {
     private Feature feature;

@@ -1,8 +1,8 @@
 package me.neptune.manager;
 
 import com.google.common.eventbus.Subscribe;
+import me.alpha432.oyvey.features.Feature;
 import me.neptune.event.impl.UpdateEvent;
-import me.neptune.modules.Feature;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -11,6 +11,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static me.neptune.util.traits.Util.EVENT_BUS;
+import static me.neptune.util.traits.Util.mc;
 
 public class HoleManager extends Feature {
     private final int range = 8;
