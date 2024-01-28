@@ -1,6 +1,6 @@
-package me.alpha432.oyvey.features.modules.movement;
+package me.neptune.features.modules.movement;
 
-import me.alpha432.oyvey.features.modules.Module;
+import me.neptune.features.modules.Module;
 
 public class ReverseStep extends Module {
     public ReverseStep() {
