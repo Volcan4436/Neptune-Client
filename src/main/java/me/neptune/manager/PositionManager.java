@@ -1,6 +1,6 @@
 package me.neptune.manager;
 
-import me.alpha432.oyvey.features.Feature;
+import me.neptune.features.Feature;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 
 import static me.neptune.util.traits.Util.mc;

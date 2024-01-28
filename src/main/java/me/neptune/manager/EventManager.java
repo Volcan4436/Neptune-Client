@@ -2,10 +2,10 @@ package me.neptune.manager;
 
 import com.google.common.eventbus.Subscribe;
 import me.neptune.event.impl.*;
-import me.alpha432.oyvey.features.Feature;
-import me.alpha432.oyvey.features.commands.Command;
 import me.neptune.Neptune;
 import me.neptune.event.Stage;
+import me.neptune.features.Feature;
+import me.neptune.features.commands.Command;
 import me.neptune.util.models.Timer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.WorldTimeUpdateS2CPacket;
