@@ -1,13 +1,12 @@
-package me.alpha432.oyvey.features.gui;
+package me.neptune.features.gui;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.Feature;
 import me.alpha432.oyvey.features.gui.items.Item;
 import me.alpha432.oyvey.features.gui.items.buttons.Button;
 import me.alpha432.oyvey.features.modules.client.ClickGui;
-import me.alpha432.oyvey.util.ColorUtil;
-import me.alpha432.oyvey.util.RenderUtil;
 import me.neptune.features.Feature;
+import me.neptune.features.gui.OyVeyGui;
+import me.neptune.util.ColorUtil;
+import me.neptune.util.RenderUtil;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.sound.SoundEvents;

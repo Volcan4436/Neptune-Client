@@ -1,10 +1,9 @@
-package me.alpha432.oyvey.features.gui;
+package me.neptune.features.gui;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.Feature;
 import me.alpha432.oyvey.features.gui.items.Item;
 import me.alpha432.oyvey.features.gui.items.buttons.ModuleButton;
-import me.alpha432.oyvey.features.modules.Module;
+import me.neptune.Neptune;
+import me.neptune.features.Feature;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
@@ -46,13 +45,13 @@ public class OyVeyGui extends Screen {
 
     private void load() {
         int x = -84;
-        for (final Module.Category category : OyVey.moduleManager.getCategories()) {
+        for (final Module.Category category : Neptune.moduleManager.getCategories()) {
             this.components.add(new Component(category.getName(), x += 90, 4, true) {
 
                 @Override
                 public void setupItems() {
                     counter1 = new int[]{1};
-                    OyVey.moduleManager.getModulesByCategory(category).forEach(module -> {
+                    Neptune.moduleManager.getModulesByCategory(category).forEach(module -> {
                         if (!module.hidden) {
                             this.addButton(new ModuleButton(module));
                         }
