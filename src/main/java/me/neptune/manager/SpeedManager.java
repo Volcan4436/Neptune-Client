@@ -1,5 +1,6 @@
 package me.neptune.manager;
-import me.alpha432.oyvey.features.Feature;
+
+import me.neptune.features.Feature;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;

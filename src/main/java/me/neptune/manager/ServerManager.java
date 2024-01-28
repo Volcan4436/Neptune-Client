@@ -1,6 +1,6 @@
 package me.neptune.manager;
 
-import me.alpha432.oyvey.features.Feature;
+import me.neptune.features.Feature;
 import me.neptune.util.models.Timer;
 
 import java.text.DecimalFormat;
