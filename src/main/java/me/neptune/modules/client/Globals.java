@@ -9,9 +9,6 @@ public class Globals extends Module
 {
     public static Globals INSTANCE;
 
-    public final Setting<Boolean> windowTitle =
-            add(new BoolSetting("Title", true));
-
     public Globals()
     {
         super("Globals", Category.CLIENT);

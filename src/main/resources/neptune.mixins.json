@@ -8,7 +8,6 @@
   ],
   "client": [
     "client.MixinGameOptions",
-    "client.MixinMinecraftClient",
     "render.MixinInGameHud"
   ],
   "injectors": {
