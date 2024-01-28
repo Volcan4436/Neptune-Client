@@ -1,0 +1,69 @@
+{
+  "Hud": {
+    "Enabled": "true",
+    "Drawn": "true",
+    "Keybind": -1,
+    "DisplayName": "Hud",
+    "Watermark": "true"
+  },
+  "ClickGui": {
+    "Enabled": "false",
+    "Drawn": "true",
+    "Keybind": 344,
+    "DisplayName": "ClickGui",
+    "Prefix": ".",
+    "CustomFov": "false",
+    "Fov": "104.0",
+    "Red": "37",
+    "Green": "77",
+    "Blue": "194",
+    "Alpha": "180",
+    "SecondRed": "0",
+    "SecondGreen": "0",
+    "SecondBlue": "150",
+    "HoverAlpha": "240",
+    "Rainbow": "false",
+    "HRainbowMode": "Static",
+    "ARainbowMode": "Static",
+    "Delay": "240",
+    "Brightness ": "150.0",
+    "Saturation": "150.0"
+  },
+  "Criticals": {
+    "Enabled": "false",
+    "Drawn": "true",
+    "Keybind": -1,
+    "DisplayName": "Criticals"
+  },
+  "MCF": {
+    "Enabled": "false",
+    "Drawn": "true",
+    "Keybind": -1,
+    "DisplayName": "MCF"
+  },
+  "Step": {
+    "Enabled": "false",
+    "Drawn": "true",
+    "Keybind": 66,
+    "DisplayName": "Step",
+    "Height": "2.0"
+  },
+  "ReverseStep": {
+    "Enabled": "false",
+    "Drawn": "true",
+    "Keybind": -1,
+    "DisplayName": "ReverseStep"
+  },
+  "FastPlace": {
+    "Enabled": "false",
+    "Drawn": "true",
+    "Keybind": -1,
+    "DisplayName": "FastPlace"
+  },
+  "Velocity": {
+    "Enabled": "false",
+    "Drawn": "false",
+    "Keybind": -1,
+    "DisplayName": "Velocity"
+  }
+}
