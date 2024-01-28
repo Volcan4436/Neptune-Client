@@ -1,19 +1,21 @@
-package me.alpha432.oyvey.features.gui.items.buttons;
+package me.neptune.features.gui.items.buttons;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.gui.OyVeyGui;
 import me.alpha432.oyvey.features.modules.client.ClickGui;
-import me.alpha432.oyvey.features.settings.Setting;
-import me.alpha432.oyvey.util.RenderUtil;
-import me.alpha432.oyvey.util.models.Timer;
+import me.neptune.features.gui.OyVeyGui;
+import me.neptune.features.settings.Setting;
+import me.neptune.util.RenderUtil;
+import me.neptune.util.models.Timer;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Formatting;
 
+import static javax.swing.plaf.basic.BasicGraphicsUtils.drawString;
+import static me.neptune.util.traits.Util.mc;
+
 public class StringButton
-        extends Button {
+        extends me.alpha432.oyvey.features.gui.items.buttons.Button {
     private static final Timer idleTimer = new Timer();
     private static boolean idle;
     private final Setting<String> setting;
