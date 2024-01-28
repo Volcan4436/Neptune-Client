@@ -1,11 +1,6 @@
 package me.neptune.features.gui.items.buttons;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.gui.Component;
-import me.alpha432.oyvey.features.gui.OyVeyGui;
 import me.alpha432.oyvey.features.modules.client.ClickGui;
-import me.alpha432.oyvey.features.settings.Setting;
-import me.alpha432.oyvey.util.RenderUtil;
 import me.neptune.Neptune;
 import me.neptune.features.gui.Component;
 import me.neptune.features.gui.OyVeyGui;
@@ -19,7 +14,7 @@ import static javax.swing.plaf.basic.BasicGraphicsUtils.drawString;
 import static me.neptune.util.traits.Util.mc;
 
 public class Slider
-        extends me.alpha432.oyvey.features.gui.items.buttons.Button {
+        extends Button {
     private final Number min;
     private final Number max;
     private final int difference;

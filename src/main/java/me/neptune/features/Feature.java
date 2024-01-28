@@ -1,6 +1,6 @@
 package me.neptune.features;
 
-import me.alpha432.oyvey.features.settings.Setting;
+import me.neptune.features.settings.Setting;
 import me.neptune.util.traits.Util;
 
 import java.util.ArrayList;

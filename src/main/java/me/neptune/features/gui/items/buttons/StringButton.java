@@ -1,6 +1,7 @@
 package me.neptune.features.gui.items.buttons;
 
 import me.alpha432.oyvey.features.modules.client.ClickGui;
+import me.neptune.Neptune;
 import me.neptune.features.gui.OyVeyGui;
 import me.neptune.features.settings.Setting;
 import me.neptune.util.RenderUtil;
@@ -15,7 +16,7 @@ import static javax.swing.plaf.basic.BasicGraphicsUtils.drawString;
 import static me.neptune.util.traits.Util.mc;
 
 public class StringButton
-        extends me.alpha432.oyvey.features.gui.items.buttons.Button {
+        extends Button {
     private static final Timer idleTimer = new Timer();
     private static boolean idle;
     private final Setting<String> setting;
@@ -38,7 +39,7 @@ public class StringButton
 
     @Override
     public void drawScreen(DrawContext context, int mouseX, int mouseY, float partialTicks) {
-        RenderUtil.rect(context.getMatrices(), this.x, this.y, this.x + (float) this.width + 7.4f, this.y + (float) this.height - 0.5f, this.getState() ? (!this.isHovering(mouseX, mouseY) ? OyVey.colorManager.getColorWithAlpha(OyVey.moduleManager.getModuleByClass(ClickGui.class).hoverAlpha.getValue()) : OyVey.colorManager.getColorWithAlpha(OyVey.moduleManager.getModuleByClass(ClickGui.class).alpha.getValue())) : (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
+        RenderUtil.rect(context.getMatrices(), this.x, this.y, this.x + (float) this.width + 7.4f, this.y + (float) this.height - 0.5f, this.getState() ? (!this.isHovering(mouseX, mouseY) ? Neptune.colorManager.getColorWithAlpha(Neptune.moduleManager.getModuleByClass(ClickGui.class).hoverAlpha.getValue()) : Neptune.colorManager.getColorWithAlpha(Neptune.moduleManager.getModuleByClass(ClickGui.class).alpha.getValue())) : (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
         if (this.isListening) {
             drawString(this.currentString.string() + "_", this.x + 2.3f, this.y - 1.7f - (float) OyVeyGui.getClickGui().getTextOffset(), this.getState() ? -1 : -5592406);
         } else {

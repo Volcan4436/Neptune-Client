@@ -13,7 +13,7 @@ import net.minecraft.util.Formatting;
 import static javax.swing.plaf.basic.BasicGraphicsUtils.drawString;
 
 public class EnumButton
-        extends me.alpha432.oyvey.features.gui.items.buttons.Button {
+        extends Button {
     public Setting<Enum<?>> setting;
 
     public EnumButton(Setting<Enum<?>> setting) {

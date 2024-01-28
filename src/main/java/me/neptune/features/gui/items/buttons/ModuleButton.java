@@ -17,7 +17,7 @@ import java.util.List;
 import static me.neptune.util.traits.Util.mc;
 
 public class ModuleButton
-        extends me.alpha432.oyvey.features.gui.items.buttons.Button {
+        extends Button {
     private final Module module;
     private List<Item> items = new ArrayList<>();
     private boolean subOpen;
@@ -33,10 +33,10 @@ public class ModuleButton
         if (!this.module.getSettings().isEmpty()) {
             for (Setting<?> setting : this.module.getSettings()) {
                 if (setting.getValue() instanceof Boolean && !setting.getName().equals("Enabled")) {
-                    newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.BooleanButton((Setting<Boolean>) setting));
+                    newItems.add(new BooleanButton((Setting<Boolean>) setting));
                 }
                 if (setting.getValue() instanceof Bind && !setting.getName().equalsIgnoreCase("Keybind") && !this.module.getName().equalsIgnoreCase("Hud")) {
-                    newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.BindButton((Setting<Bind>) setting));
+                    newItems.add(new BindButton((Setting<Bind>) setting));
                 }
                 if ((setting.getValue() instanceof String || setting.getValue() instanceof Character) && !setting.getName().equalsIgnoreCase("displayName")) {
                     newItems.add(new StringButton((Setting<String>) setting));
@@ -46,10 +46,10 @@ public class ModuleButton
                     continue;
                 }
                 if (!setting.isEnumSetting()) continue;
-                newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.EnumButton((Setting<Enum<?>>) setting));
+                newItems.add(new EnumButton((Setting<Enum<?>>) setting));
             }
         }
-        newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.BindButton((Setting<Bind>) this.module.getSettingByName("Keybind")));
+        newItems.add(new BindButton((Setting<Bind>) this.module.getSettingByName("Keybind")));
         this.items = newItems;
     }
 
