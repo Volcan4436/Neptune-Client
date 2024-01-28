@@ -20,11 +20,10 @@ public class Neptune implements ClientModInitializer, ModInitializer
     public void onInitializeClient()
     {
         long startTime = System.currentTimeMillis();
-        LOGGER.info("[NEPTUNE] Initializing Neptune by heedi.");
+        LOGGER.info("Initializing Neptune.");
 
         /* initialize shit here. */
-        LOGGER.info("[NEPTUNE] All finished initializing Neptune, took {}ms", (System.currentTimeMillis() - startTime));
-        LOGGER.info("[NEPTUNE] Neptune Utility Mod by heedi has launched!");
+        LOGGER.info("all done, took {}ms", (System.currentTimeMillis() - startTime));
     }
 
     @Override
