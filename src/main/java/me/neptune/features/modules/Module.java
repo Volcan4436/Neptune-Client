@@ -12,6 +12,7 @@ import me.alpha432.oyvey.features.settings.Bind;
 import me.alpha432.oyvey.features.settings.Setting;
 import me.alpha432.oyvey.manager.ConfigManager;
 import me.alpha432.oyvey.util.traits.Jsonable;
+import me.neptune.util.traits.Jsonable;
 import net.minecraft.util.Formatting;
 
 public class Module extends Feature implements Jsonable {
