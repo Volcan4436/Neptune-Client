@@ -4,6 +4,7 @@ import com.google.common.eventbus.Subscribe;
 import me.neptune.Neptune;
 import me.neptune.event.impl.KeyEvent;
 import me.neptune.features.commands.Command;
+import me.neptune.features.modules.Module;
 import me.neptune.features.settings.Bind;
 import me.neptune.util.KeyboardUtil;
 import net.minecraft.util.Formatting;

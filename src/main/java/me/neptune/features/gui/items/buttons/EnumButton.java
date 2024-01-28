@@ -1,8 +1,8 @@
 package me.neptune.features.gui.items.buttons;
 
-import me.alpha432.oyvey.features.modules.client.ClickGui;
 import me.neptune.Neptune;
 import me.neptune.features.gui.OyVeyGui;
+import me.neptune.features.modules.client.ClickGui;
 import me.neptune.features.settings.Setting;
 import me.neptune.util.RenderUtil;
 import net.minecraft.client.gui.DrawContext;

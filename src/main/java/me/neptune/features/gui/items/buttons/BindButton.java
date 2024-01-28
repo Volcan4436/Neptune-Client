@@ -1,9 +1,9 @@
 package me.neptune.features.gui.items.buttons;
 
-import me.alpha432.oyvey.features.modules.client.ClickGui;
 import me.neptune.Neptune;
 import me.neptune.features.gui.OyVeyGui;
 import me.neptune.features.gui.items.buttons.Button;
+import me.neptune.features.modules.client.ClickGui;
 import me.neptune.features.settings.Bind;
 import me.neptune.features.settings.Setting;
 import me.neptune.util.ColorUtil;
