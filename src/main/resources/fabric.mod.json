@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "neptune",
+  "version": "${version}",
+  "name": "Neptune",
+  "description": "kool klient",
+  "authors": [
+    "heedi"
+  ],
+  "contact": {
+    "repo": "https://github.com/cattyngmd/oyvey-portedvey-ported"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "accessWidener": "neptune.accesswidener",
+  "entrypoints": {
+    "client": [
+      "me.neptune.Neptune"
+    ],
+    "main": [
+      "me.neptune.Neptune"
+    ]
+  },
+  "mixins": [
+    "neptune.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
