@@ -2,6 +2,7 @@ package me.neptune.features.commands.impl;
 
 import me.neptune.Neptune;
 import me.neptune.features.commands.Command;
+import me.neptune.features.modules.Module;
 
 public class ToggleCommand extends Command {
     public ToggleCommand() {

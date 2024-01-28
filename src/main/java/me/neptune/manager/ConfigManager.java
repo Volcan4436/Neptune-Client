@@ -53,7 +53,7 @@ public class ConfigManager {
                 }
             }
             default -> {
-                Neptune.LOGGER.error("Unknown Setting type for: " + feature.getName() + " : " + setting.getName());
+                //Neptune.LOGGER.error("Unknown Setting type for: " + feature.getName() + " : " + setting.getName());
             }
         }
     }

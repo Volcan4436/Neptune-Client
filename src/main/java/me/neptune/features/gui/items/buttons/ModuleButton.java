@@ -4,6 +4,7 @@ import me.neptune.features.gui.Component;
 import me.neptune.features.gui.items.Item;
 import me.neptune.features.gui.items.buttons.Slider;
 import me.neptune.features.gui.items.buttons.StringButton;
+import me.neptune.features.modules.Module;
 import me.neptune.features.settings.Bind;
 import me.neptune.features.settings.Setting;
 import net.minecraft.client.gui.DrawContext;
