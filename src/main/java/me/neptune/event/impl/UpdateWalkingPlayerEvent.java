@@ -1,7 +1,7 @@
 package me.neptune.event.impl;
 
-import me.alpha432.oyvey.event.Event;
-import me.alpha432.oyvey.event.Stage;
+import me.neptune.event.Event;
+import me.neptune.event.Stage;
 
 public class UpdateWalkingPlayerEvent extends Event {
     private final Stage stage;
