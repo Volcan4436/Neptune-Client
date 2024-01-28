@@ -14,10 +14,6 @@ repositories {
     // for more information about repositories.
 }
 
-loom {
-    accessWidenerPath = file("src/main/resources/neptune.accesswidener")
-}
-
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -51,6 +47,10 @@ tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         it.options.release = targetJavaVersion
     }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/neptune.accesswidener")
 }
 
 java {

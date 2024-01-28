@@ -3,16 +3,13 @@
   "id": "neptune",
   "version": "${version}",
   "name": "Neptune",
-  "description": "kool klient",
+  "description": "stay with me, as we cross the empty skies",
   "authors": [
-    "heedi"
+    "nuk"
   ],
-  "contact": {
-    "repo": "https://github.com/cattyngmd/oyvey-portedvey-ported"
-  },
-  "license": "MIT",
+  "contact": {},
+  "license": "unlicense",
   "environment": "client",
-  "accessWidener": "neptune.accesswidener",
   "entrypoints": {
     "client": [
       "me.neptune.Neptune"

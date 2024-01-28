@@ -1,18 +1,15 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.neptune.mixin",
+  "package": "me.neptune.asm.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MixinClientConnection"
+    "network.MixinClientConnection"
   ],
   "client": [
-    "MixinClientPlayerEntity",
-    "MixinClientPlayNetworkHandler",
-    "MixinInGameHud",
-    "MixinKeyboard",
-    "MixinRenderTickCounter",
-    "MixinWorldRenderer"
+    "client.MixinGameOptions",
+    "client.MixinMinecraftClient",
+    "render.MixinInGameHud"
   ],
   "injectors": {
     "defaultRequire": 1
