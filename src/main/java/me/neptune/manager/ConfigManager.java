@@ -1,11 +1,11 @@
 package me.neptune.manager;
 
 import com.google.gson.*;
-import me.alpha432.oyvey.features.Feature;
-import me.alpha432.oyvey.features.settings.Bind;
-import me.alpha432.oyvey.features.settings.EnumConverter;
-import me.alpha432.oyvey.features.settings.Setting;
 import me.neptune.Neptune;
+import me.neptune.features.Feature;
+import me.neptune.features.settings.Bind;
+import me.neptune.features.settings.EnumConverter;
+import me.neptune.features.settings.Setting;
 import me.neptune.util.traits.Jsonable;
 import net.fabricmc.loader.api.FabricLoader;
 

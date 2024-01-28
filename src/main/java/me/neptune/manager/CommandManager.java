@@ -2,13 +2,9 @@ package me.neptune.manager;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import me.alpha432.oyvey.features.Feature;
-import me.alpha432.oyvey.features.commands.Command;
+import me.neptune.features.Feature;
+import me.neptune.features.commands.Command;
 import me.neptune.features.commands.impl.*;
-import me.alpha432.oyvey.features.commands.impl.FriendCommand;
-import me.alpha432.oyvey.features.commands.impl.HelpCommand;
-import me.alpha432.oyvey.features.commands.impl.ModuleCommand;
-import me.alpha432.oyvey.features.commands.impl.PrefixCommand;
 import me.neptune.util.traits.Jsonable;
 import net.minecraft.util.Formatting;
 
@@ -24,8 +20,8 @@ public class CommandManager
 
     public CommandManager() {
         super("Command");
-        commands.add(new me.alpha432.oyvey.features.commands.impl.ToggleCommand());
-        commands.add(new me.alpha432.oyvey.features.commands.impl.BindCommand());
+        commands.add(new ToggleCommand());
+        commands.add(new BindCommand());
         commands.add(new FriendCommand());
         commands.add(new ModuleCommand());
         commands.add(new PrefixCommand());
