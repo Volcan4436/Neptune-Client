@@ -1,11 +1,11 @@
-package me.alpha432.oyvey.features.commands.impl;
+package me.neptune.features.commands.impl;
 
 import com.google.gson.JsonParser;
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.commands.Command;
-import me.alpha432.oyvey.features.modules.Module;
-import me.alpha432.oyvey.features.settings.Setting;
-import me.alpha432.oyvey.manager.ConfigManager;
+import me.neptune.Neptune;
+import me.neptune.features.commands.Command;
+import me.neptune.features.modules.Module;
+import me.neptune.features.settings.Setting;
+import me.neptune.manager.ConfigManager;
 import net.minecraft.util.Formatting;
 
 public class ModuleCommand
@@ -19,18 +19,18 @@ public class ModuleCommand
         Setting setting;
         if (commands.length == 1) {
             ModuleCommand.sendMessage("Modules: ");
-            for (Module.Category category : OyVey.moduleManager.getCategories()) {
+            for (Module.Category category : Neptune.moduleManager.getCategories()) {
                 String modules = category.getName() + ": ";
-                for (Module module1 : OyVey.moduleManager.getModulesByCategory(category)) {
+                for (Module module1 : Neptune.moduleManager.getModulesByCategory(category)) {
                     modules = modules + (module1.isEnabled() ? Formatting.GREEN : Formatting.RED) + module1.getName() + Formatting.WHITE + ", ";
                 }
                 ModuleCommand.sendMessage(modules);
             }
             return;
         }
-        Module module = OyVey.moduleManager.getModuleByDisplayName(commands[0]);
+        Module module = Neptune.moduleManager.getModuleByDisplayName(commands[0]);
         if (module == null) {
-            module = OyVey.moduleManager.getModuleByName(commands[0]);
+            module = Neptune.moduleManager.getModuleByName(commands[0]);
             if (module == null) {
                 ModuleCommand.sendMessage("This module doesnt exist.");
                 return;
