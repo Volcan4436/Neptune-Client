@@ -1,6 +1,6 @@
 package me.neptune.event.impl;
 
-import me.alpha432.oyvey.event.Event;
+import me.neptune.event.Event;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class Render3DEvent extends Event {
