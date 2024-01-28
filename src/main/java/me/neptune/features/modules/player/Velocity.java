@@ -1,8 +1,8 @@
-package me.alpha432.oyvey.features.modules.player;
+package me.neptune.features.modules.player;
 
 import com.google.common.eventbus.Subscribe;
-import me.alpha432.oyvey.event.impl.PacketEvent;
-import me.alpha432.oyvey.features.modules.Module;
+import me.neptune.event.impl.PacketEvent;
+import me.neptune.features.modules.Module;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.network.packet.s2c.play.ExplosionS2CPacket;
 

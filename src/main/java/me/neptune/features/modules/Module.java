@@ -1,17 +1,16 @@
-package me.alpha432.oyvey.features.modules;
+package me.neptune.features.modules;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.event.impl.ClientEvent;
-import me.alpha432.oyvey.event.impl.Render2DEvent;
-import me.alpha432.oyvey.event.impl.Render3DEvent;
-import me.alpha432.oyvey.features.Feature;
 import me.alpha432.oyvey.features.commands.Command;
-import me.alpha432.oyvey.features.settings.Bind;
-import me.alpha432.oyvey.features.settings.Setting;
-import me.alpha432.oyvey.manager.ConfigManager;
-import me.alpha432.oyvey.util.traits.Jsonable;
+import me.neptune.Neptune;
+import me.neptune.event.impl.ClientEvent;
+import me.neptune.event.impl.Render2DEvent;
+import me.neptune.event.impl.Render3DEvent;
+import me.neptune.features.Feature;
+import me.neptune.features.settings.Bind;
+import me.neptune.features.settings.Setting;
+import me.neptune.manager.ConfigManager;
 import me.neptune.util.traits.Jsonable;
 import net.minecraft.util.Formatting;
 
@@ -114,8 +113,8 @@ public class Module extends Feature implements Jsonable {
     }
 
     public void setDisplayName(String name) {
-        Module module = OyVey.moduleManager.getModuleByDisplayName(name);
-        Module originalModule = OyVey.moduleManager.getModuleByName(name);
+        Module module = Neptune.moduleManager.getModuleByDisplayName(name);
+        Module originalModule = Neptune.moduleManager.getModuleByName(name);
         if (module == null && originalModule == null) {
             Command.sendMessage(this.getDisplayName() + ", name: " + this.getName() + ", has been renamed to: " + name);
             this.displayName.setValue(name);
