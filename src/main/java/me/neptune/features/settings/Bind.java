@@ -1,9 +1,9 @@
-package me.alpha432.oyvey.features.settings;
+package me.neptune.features.settings;
 
 import com.google.common.base.Converter;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import me.alpha432.oyvey.util.traits.Util;
+import me.neptune.util.traits.Util;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 

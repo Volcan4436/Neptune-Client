@@ -1,4 +1,4 @@
-package me.alpha432.oyvey.features.settings;
+package me.neptune.features.settings;
 
 import com.google.common.base.Converter;
 import com.google.gson.JsonElement;
