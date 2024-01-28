@@ -1,12 +1,13 @@
-package me.alpha432.oyvey.features.gui.items.buttons;
+package me.neptune.features.gui.items.buttons;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.features.gui.OyVeyGui;
 import me.alpha432.oyvey.features.modules.client.ClickGui;
-import me.alpha432.oyvey.features.settings.Bind;
-import me.alpha432.oyvey.features.settings.Setting;
-import me.alpha432.oyvey.util.ColorUtil;
-import me.alpha432.oyvey.util.RenderUtil;
+import me.neptune.Neptune;
+import me.neptune.features.gui.OyVeyGui;
+import me.neptune.features.gui.items.buttons.Button;
+import me.neptune.features.settings.Bind;
+import me.neptune.features.settings.Setting;
+import me.neptune.util.ColorUtil;
+import me.neptune.util.RenderUtil;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.sound.SoundEvents;
@@ -27,7 +28,7 @@ public class BindButton
     @Override
     public void drawScreen(DrawContext context, int mouseX, int mouseY, float partialTicks) {
         int color = ColorUtil.toARGB(ClickGui.getInstance().red.getValue(), ClickGui.getInstance().green.getValue(), ClickGui.getInstance().blue.getValue(), 255);
-        RenderUtil.rect(context.getMatrices(), this.x, this.y, this.x + (float) this.width + 7.4f, this.y + (float) this.height - 0.5f, this.getState() ? (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515) : (!this.isHovering(mouseX, mouseY) ? OyVey.colorManager.getColorWithAlpha(OyVey.moduleManager.getModuleByClass(ClickGui.class).hoverAlpha.getValue()) : OyVey.colorManager.getColorWithAlpha(OyVey.moduleManager.getModuleByClass(ClickGui.class).alpha.getValue())));
+        RenderUtil.rect(context.getMatrices(), this.x, this.y, this.x + (float) this.width + 7.4f, this.y + (float) this.height - 0.5f, this.getState() ? (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515) : (!this.isHovering(mouseX, mouseY) ? Neptune.colorManager.getColorWithAlpha(Neptune.moduleManager.getModuleByClass(ClickGui.class).hoverAlpha.getValue()) : Neptune.colorManager.getColorWithAlpha(Neptune.moduleManager.getModuleByClass(ClickGui.class).alpha.getValue())));
         if (this.isListening) {
             drawString("Press a Key...", this.x + 2.3f, this.y - 1.7f - (float) OyVeyGui.getClickGui().getTextOffset(), -1);
         } else {
