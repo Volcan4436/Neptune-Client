@@ -1,6 +1,7 @@
 package me.alpha432.oyvey.features.gui.items;
 
 import me.alpha432.oyvey.features.Feature;
+import me.neptune.features.Feature;
 import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;

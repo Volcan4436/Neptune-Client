@@ -7,6 +7,7 @@ import me.alpha432.oyvey.features.gui.items.buttons.Button;
 import me.alpha432.oyvey.features.modules.client.ClickGui;
 import me.alpha432.oyvey.util.ColorUtil;
 import me.alpha432.oyvey.util.RenderUtil;
+import me.neptune.features.Feature;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.sound.SoundEvents;

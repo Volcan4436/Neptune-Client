@@ -7,6 +7,7 @@ import me.alpha432.oyvey.features.commands.Command;
 import me.alpha432.oyvey.features.gui.OyVeyGui;
 import me.alpha432.oyvey.features.modules.Module;
 import me.alpha432.oyvey.features.settings.Setting;
+import me.neptune.features.modules.Module;
 import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
 
