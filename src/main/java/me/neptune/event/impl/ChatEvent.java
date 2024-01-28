@@ -1,6 +1,6 @@
 package me.neptune.event.impl;
 
-import me.alpha432.oyvey.event.Event;
+import me.neptune.event.Event;
 
 public class ChatEvent extends Event {
     private final String content;
