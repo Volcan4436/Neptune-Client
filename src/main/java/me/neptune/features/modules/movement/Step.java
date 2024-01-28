@@ -1,7 +1,7 @@
-package me.alpha432.oyvey.features.modules.movement;
+package me.neptune.features.modules.movement;
 
-import me.alpha432.oyvey.features.modules.Module;
-import me.alpha432.oyvey.features.settings.Setting;
+import me.neptune.features.modules.Module;
+import me.neptune.features.settings.Setting;
 
 public class Step extends Module {
     private final Setting<Float> height = register(new Setting<>("Height", 2f, 1f, 3f, v -> true));
