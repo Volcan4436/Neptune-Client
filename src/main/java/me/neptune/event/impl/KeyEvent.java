@@ -1,6 +1,6 @@
 package me.neptune.event.impl;
 
-import me.alpha432.oyvey.event.Event;
+import me.neptune.event.Event;
 
 public class KeyEvent extends Event {
     private final int key;
