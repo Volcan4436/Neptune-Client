@@ -1,13 +1,12 @@
-package me.alpha432.oyvey.features.modules.client;
+package me.neptune.features.modules.client;
 
 import com.google.common.eventbus.Subscribe;
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.event.impl.ClientEvent;
-import me.alpha432.oyvey.features.commands.Command;
-import me.alpha432.oyvey.features.gui.OyVeyGui;
-import me.alpha432.oyvey.features.modules.Module;
-import me.alpha432.oyvey.features.settings.Setting;
+import me.neptune.Neptune;
+import me.neptune.event.impl.ClientEvent;
+import me.neptune.features.commands.Command;
+import me.neptune.features.gui.OyVeyGui;
 import me.neptune.features.modules.Module;
+import me.neptune.features.settings.Setting;
 import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
 
@@ -61,10 +60,10 @@ public class ClickGui
     public void onSettingChange(ClientEvent event) {
         if (event.getStage() == 2 && event.getSetting().getFeature().equals(this)) {
             if (event.getSetting().equals(this.prefix)) {
-                OyVey.commandManager.setPrefix(this.prefix.getPlannedValue());
-                Command.sendMessage("Prefix set to " + Formatting.DARK_GRAY + OyVey.commandManager.getPrefix());
+                Neptune.commandManager.setPrefix(this.prefix.getPlannedValue());
+                Command.sendMessage("Prefix set to " + Formatting.DARK_GRAY + Neptune.commandManager.getPrefix());
             }
-            OyVey.colorManager.setColor(this.red.getPlannedValue(), this.green.getPlannedValue(), this.blue.getPlannedValue(), this.hoverAlpha.getPlannedValue());
+            Neptune.colorManager.setColor(this.red.getPlannedValue(), this.green.getPlannedValue(), this.blue.getPlannedValue(), this.hoverAlpha.getPlannedValue());
         }
     }
 
@@ -75,8 +74,8 @@ public class ClickGui
 
     @Override
     public void onLoad() {
-        OyVey.colorManager.setColor(this.red.getValue(), this.green.getValue(), this.blue.getValue(), this.hoverAlpha.getValue());
-        OyVey.commandManager.setPrefix(this.prefix.getValue());
+        Neptune.colorManager.setColor(this.red.getValue(), this.green.getValue(), this.blue.getValue(), this.hoverAlpha.getValue());
+        Neptune.commandManager.setPrefix(this.prefix.getValue());
     }
 
     @Override

@@ -2,12 +2,12 @@ package me.neptune.features.modules;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import me.alpha432.oyvey.features.commands.Command;
 import me.neptune.Neptune;
 import me.neptune.event.impl.ClientEvent;
 import me.neptune.event.impl.Render2DEvent;
 import me.neptune.event.impl.Render3DEvent;
 import me.neptune.features.Feature;
+import me.neptune.features.commands.Command;
 import me.neptune.features.settings.Bind;
 import me.neptune.features.settings.Setting;
 import me.neptune.manager.ConfigManager;

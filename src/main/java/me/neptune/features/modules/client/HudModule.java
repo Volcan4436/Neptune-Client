@@ -1,8 +1,7 @@
-package me.alpha432.oyvey.features.modules.client;
+package me.neptune.features.modules.client;
 
-import me.alpha432.oyvey.OyVey;
-import me.alpha432.oyvey.event.impl.Render2DEvent;
-import me.alpha432.oyvey.features.modules.Module;
+import me.neptune.Neptune;
+import me.neptune.event.impl.Render2DEvent;
 import me.neptune.features.modules.Module;
 
 public class HudModule extends Module {
@@ -13,7 +12,7 @@ public class HudModule extends Module {
     @Override public void onRender2D(Render2DEvent event) {
         event.getContext().drawTextWithShadow(
                 mc.textRenderer,
-                OyVey.NAME + " " + OyVey.VERSION,
+                Neptune.NAME + " " + Neptune.VERSION,
                 2, 2,
                 -1
         );
