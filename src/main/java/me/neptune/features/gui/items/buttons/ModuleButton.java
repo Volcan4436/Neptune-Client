@@ -1,10 +1,11 @@
-package me.alpha432.oyvey.features.gui.items.buttons;
+package me.neptune.features.gui.items.buttons;
 
-import me.alpha432.oyvey.features.gui.Component;
-import me.alpha432.oyvey.features.gui.items.Item;
-import me.alpha432.oyvey.features.modules.Module;
-import me.alpha432.oyvey.features.settings.Bind;
-import me.alpha432.oyvey.features.settings.Setting;
+import me.neptune.features.gui.Component;
+import me.neptune.features.gui.items.Item;
+import me.neptune.features.gui.items.buttons.Slider;
+import me.neptune.features.gui.items.buttons.StringButton;
+import me.neptune.features.settings.Bind;
+import me.neptune.features.settings.Setting;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.sound.SoundEvents;
@@ -13,8 +14,10 @@ import org.lwjgl.opengl.GL11;
 import java.util.ArrayList;
 import java.util.List;
 
+import static me.neptune.util.traits.Util.mc;
+
 public class ModuleButton
-        extends Button {
+        extends me.alpha432.oyvey.features.gui.items.buttons.Button {
     private final Module module;
     private List<Item> items = new ArrayList<>();
     private boolean subOpen;
@@ -30,10 +33,10 @@ public class ModuleButton
         if (!this.module.getSettings().isEmpty()) {
             for (Setting<?> setting : this.module.getSettings()) {
                 if (setting.getValue() instanceof Boolean && !setting.getName().equals("Enabled")) {
-                    newItems.add(new BooleanButton((Setting<Boolean>) setting));
+                    newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.BooleanButton((Setting<Boolean>) setting));
                 }
                 if (setting.getValue() instanceof Bind && !setting.getName().equalsIgnoreCase("Keybind") && !this.module.getName().equalsIgnoreCase("Hud")) {
-                    newItems.add(new BindButton((Setting<Bind>) setting));
+                    newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.BindButton((Setting<Bind>) setting));
                 }
                 if ((setting.getValue() instanceof String || setting.getValue() instanceof Character) && !setting.getName().equalsIgnoreCase("displayName")) {
                     newItems.add(new StringButton((Setting<String>) setting));
@@ -43,10 +46,10 @@ public class ModuleButton
                     continue;
                 }
                 if (!setting.isEnumSetting()) continue;
-                newItems.add(new EnumButton((Setting<Enum<?>>) setting));
+                newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.EnumButton((Setting<Enum<?>>) setting));
             }
         }
-        newItems.add(new BindButton((Setting<Bind>) this.module.getSettingByName("Keybind")));
+        newItems.add(new me.alpha432.oyvey.features.gui.items.buttons.BindButton((Setting<Bind>) this.module.getSettingByName("Keybind")));
         this.items = newItems;
     }
 
