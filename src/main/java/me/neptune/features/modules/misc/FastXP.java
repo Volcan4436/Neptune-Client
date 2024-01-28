@@ -1,11 +1,11 @@
-package me.neptune.features.modules.player;
+package me.neptune.features.modules.misc;
 
 import me.neptune.features.modules.Module;
 import net.minecraft.item.Items;
 
-public class FastPlace extends Module {
-    public FastPlace() {
-        super("FastPlace", "", Category.PLAYER, true, false, false);
+public class FastXP extends Module {
+    public FastXP() {
+        super("FastXp", "", Category.MISC, true, false, false);
     }
 
     @Override public void onUpdate() {

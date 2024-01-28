@@ -12,7 +12,7 @@ import me.neptune.features.modules.combat.Criticals;
 import me.neptune.features.modules.misc.MCF;
 import me.neptune.features.modules.movement.ReverseStep;
 import me.neptune.features.modules.movement.Step;
-import me.neptune.features.modules.player.FastPlace;
+import me.neptune.features.modules.misc.FastXP;
 import me.neptune.features.modules.player.Velocity;
 import me.neptune.util.traits.Jsonable;
 import me.neptune.util.traits.Util;
@@ -35,7 +35,7 @@ public class ModuleManager implements Jsonable, Util {
         modules.add(new MCF());
         modules.add(new Step());
         modules.add(new ReverseStep());
-        modules.add(new FastPlace());
+        modules.add(new FastXP());
         modules.add(new Velocity());
     }
 
