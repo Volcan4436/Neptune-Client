@@ -1,11 +1,14 @@
-package me.alpha432.oyvey.features.settings;
+package me.neptune.features.settings;
 
 import me.alpha432.oyvey.event.impl.ClientEvent;
 import me.alpha432.oyvey.features.Feature;
+import me.neptune.event.impl.ClientEvent;
+import me.neptune.features.Feature;
 
 import java.util.function.Predicate;
 
 import static me.alpha432.oyvey.util.traits.Util.EVENT_BUS;
+import static me.neptune.util.traits.Util.EVENT_BUS;
 
 public class Setting<T> {
     private final String name;
@@ -182,15 +185,15 @@ public class Setting<T> {
     }
 
     public String currentEnumName() {
-        return EnumConverter.getProperName((Enum) this.value);
+        return me.alpha432.oyvey.features.settings.EnumConverter.getProperName((Enum) this.value);
     }
 
     public int currentEnum() {
-        return EnumConverter.currentEnum((Enum) this.value);
+        return me.alpha432.oyvey.features.settings.EnumConverter.currentEnum((Enum) this.value);
     }
 
     public void increaseEnum() {
-        this.plannedValue = (T) EnumConverter.increaseEnum((Enum) this.value);
+        this.plannedValue = (T) me.alpha432.oyvey.features.settings.EnumConverter.increaseEnum((Enum) this.value);
         ClientEvent event = new ClientEvent(this);
         EVENT_BUS.post(event);
         if (!event.isCancelled()) {
@@ -201,7 +204,7 @@ public class Setting<T> {
     }
 
     public void increaseEnumNoEvent() {
-        this.value = (T) EnumConverter.increaseEnum((Enum) this.value);
+        this.value = (T) me.alpha432.oyvey.features.settings.EnumConverter.increaseEnum((Enum) this.value);
     }
 
     public String getType() {
@@ -227,7 +230,7 @@ public class Setting<T> {
     }
 
     public boolean isEnumSetting() {
-        return !this.isNumberSetting() && !(this.value instanceof String) && !(this.value instanceof Bind) && !(this.value instanceof Character) && !(this.value instanceof Boolean);
+        return !this.isNumberSetting() && !(this.value instanceof String) && !(this.value instanceof me.alpha432.oyvey.features.settings.Bind) && !(this.value instanceof Character) && !(this.value instanceof Boolean);
     }
 
     public boolean isStringSetting() {

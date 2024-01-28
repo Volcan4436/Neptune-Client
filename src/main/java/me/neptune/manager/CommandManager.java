@@ -4,8 +4,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import me.alpha432.oyvey.features.Feature;
 import me.alpha432.oyvey.features.commands.Command;
-import me.alpha432.oyvey.features.commands.impl.*;
-import me.alpha432.oyvey.util.traits.Jsonable;
+import me.neptune.features.commands.impl.*;
+import me.alpha432.oyvey.features.commands.impl.FriendCommand;
+import me.alpha432.oyvey.features.commands.impl.HelpCommand;
+import me.alpha432.oyvey.features.commands.impl.ModuleCommand;
+import me.alpha432.oyvey.features.commands.impl.PrefixCommand;
 import me.neptune.util.traits.Jsonable;
 import net.minecraft.util.Formatting;
 
@@ -16,13 +19,13 @@ import java.util.List;
 public class CommandManager
         extends Feature implements Jsonable {
     private final List<Command> commands = new ArrayList<>();
-    private String clientMessage = "<OyVey>";
+    private String clientMessage = "[Neptune]";
     private String prefix = ".";
 
     public CommandManager() {
         super("Command");
-        commands.add(new ToggleCommand());
-        commands.add(new BindCommand());
+        commands.add(new me.alpha432.oyvey.features.commands.impl.ToggleCommand());
+        commands.add(new me.alpha432.oyvey.features.commands.impl.BindCommand());
         commands.add(new FriendCommand());
         commands.add(new ModuleCommand());
         commands.add(new PrefixCommand());

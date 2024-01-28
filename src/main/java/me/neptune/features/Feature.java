@@ -1,7 +1,7 @@
-package me.alpha432.oyvey.features;
+package me.neptune.features;
 
 import me.alpha432.oyvey.features.settings.Setting;
-import me.alpha432.oyvey.util.traits.Util;
+import me.neptune.util.traits.Util;
 
 import java.util.ArrayList;
 import java.util.List;
