@@ -1,8 +1,9 @@
 package neptune.command.impl;
 
+import neptune.Client;
 import org.lwjgl.glfw.GLFW;
-import neptune.Module.Mod;
-import neptune.Module.ModuleManager;
+import neptune.module.Mod;
+import neptune.module.ModuleManager;
 import neptune.command.Command;
 import neptune.utils.ChatUtils;
 import neptune.utils.KeyUtils;
@@ -115,7 +116,7 @@ public class Bind extends Command {
 
         String mod = args[1];
         String key = args[2];
-        Mod module = ModuleManager.INSTANCE.getModuleByName(mod);
+        Mod module = Client.getInstance().getModuleManager().getModuleByName(mod);
         if (module == null) {
             ChatUtils.addChatMessage("Invalid module name.");
             return;

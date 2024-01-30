@@ -1,44 +1,52 @@
 package neptune;
 
-import neptune.Module.Mod;
-import neptune.Module.ModuleManager;
+import neptune.command.CommandManager;
+import neptune.event.EventManager;
+import neptune.module.Mod;
+import neptune.module.ModuleManager;
 import neptune.ui.screens.clickgui.ClickGUI;
+import neptune.utils.MinecraftInterface;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
 
-public class Client implements ModInitializer {
-    public static final Client INSTANCE = new Client();
-    public Logger logger = LogManager.getLogger(Client.class);
+public class Client implements ModInitializer, MinecraftInterface {
 
-    private MinecraftClient mc = MinecraftClient.getInstance();
+    public static Client instance;
+    private final Logger logger = LogManager.getLogger(Client.class);
+    private final EventManager eventManager;
+    private final CommandManager commandManager;
+    private final ModuleManager moduleManager;
 
-    private static final String commandPrefix = ".";
-    public static String getCommandPrefix() {
-        return commandPrefix;
+    public Client() {
+        this.eventManager = new EventManager();
+        this.commandManager = new CommandManager();
+        this.moduleManager = new ModuleManager();
     }
+
     @Override
     public void onInitialize() {
         logger.info("Neptune Client is starting");
     }
 
-    public void onKeypress(int key, int action) {
-        if (mc.currentScreen == null) {
-            if (action == GLFW.GLFW_PRESS) {
-                for (Mod module : ModuleManager.INSTANCE.getModules()) {
-                    if (key == module.getKey()) module.toggle();
-                }
-                if (key == GLFW.GLFW_KEY_RIGHT_SHIFT) mc.setScreen(ClickGUI.INSTANCE);
-            }
-        }
+    public EventManager getEventManager() {
+        return eventManager;
     }
-    public void onTick() {
-        if (mc.player != null) {
-            for (Mod module : ModuleManager.INSTANCE.getEnabledModules()) {
-                module.onTick();
-            }
+
+    public ModuleManager getModuleManager() {
+        return moduleManager;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
+    }
+
+    public static Client getInstance() {
+        if (instance == null) {
+            instance = new Client();
         }
+        return instance;
     }
 }

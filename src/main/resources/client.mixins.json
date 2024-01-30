@@ -6,10 +6,11 @@
   "mixins": [
   ],
   "client": [
-    "MinecraftClientMixin",
-    "KeyboardMixin",
+    "ClientPlayNetworkHandlerMixin",
     "InGameHudMixin",
-    "ClientPlayNetworkHandlerMixin"
+    "KeyboardMixin",
+    "MinecraftClientMixin",
+    "MixinClientCommonNetworkHandler"
   ],
   "injectors": {
     "defaultRequire": 1

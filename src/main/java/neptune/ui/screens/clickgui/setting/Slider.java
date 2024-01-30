@@ -1,11 +1,10 @@
 package neptune.ui.screens.clickgui.setting;
 
-import neptune.Module.settings.NumberSetting;
-import neptune.Module.settings.Setting;
+import neptune.module.settings.NumberSetting;
+import neptune.module.settings.Setting;
 import neptune.ui.screens.clickgui.ModuleButton;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;
 import java.math.BigDecimal;
@@ -27,12 +26,12 @@ public class Slider extends Component {
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         int renderWidth = (int) (parent.parent.width * (numSet.getValue() - numSet.getMin()) / (numSet.getMax() - numSet.getMin()));
-        DrawableHelper.fill(matrices, parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + parent.parent.width, parent.parent.y + parent.offset + offset + parent.parent.height, new Color(0, 0, 0, 200).getRGB());
+        context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + parent.parent.width, parent.parent.y + parent.offset + offset + parent.parent.height, new Color(0, 0, 0, 200).getRGB());
 
         double diff = Math.min(parent.parent.width, Math.max(0, mouseX - parent.parent.x));
-        DrawableHelper.fill(matrices, parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + renderWidth, parent.parent.y + parent.offset + offset + parent.parent.height, new Color(255, 255, 255, 200).getRGB());
+        context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + renderWidth, parent.parent.y + parent.offset + offset + parent.parent.height, new Color(255, 255, 255, 200).getRGB());
 
         if (sliding) {
             if (diff == 0) {
@@ -42,20 +41,17 @@ public class Slider extends Component {
             }
         }
         int textOffset = ((parent.parent.height / 2) - mc.textRenderer.fontHeight / 2);
-        mc.textRenderer.drawWithShadow(matrices, numSet.getName() + ": " + roundToPlace(numSet.getValue(), 2), parent.parent.x + textOffset, parent.parent.y + parent.offset + offset + textOffset, -1);
-        super.render(matrices, mouseX, mouseY, delta);
+        context.drawTextWithShadow(mc.textRenderer, numSet.getName() + ": " + roundToPlace(numSet.getValue(), 2), parent.parent.x + textOffset, parent.parent.y + parent.offset + offset + textOffset, -1);
     }
 
     @Override
     public void mouseClicked(double mouseX, double mouseY, int button) {
         if (isHovered(mouseX, mouseY) && button == 0) sliding = true;
-        super.mouseClicked(mouseX, mouseY, button);
     }
 
     @Override
     public void mouseReleased(double mouseX, double mouseY, int button) {
         sliding = false;
-        super.mouseReleased(mouseX, mouseY, button);
     }
 
     private double roundToPlace(double value, int place) {

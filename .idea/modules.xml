@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Neptune-Development.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Neptune-Development.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Neptune-Development.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Neptune-Development.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/neptune.client.Neptune-Development.main.iml" filepath="$PROJECT_DIR$/.idea/modules/neptune.client.Neptune-Development.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/neptune.client.Neptune-Development.test.iml" filepath="$PROJECT_DIR$/.idea/modules/neptune.client.Neptune-Development.test.iml" />
     </modules>
   </component>
 </project>

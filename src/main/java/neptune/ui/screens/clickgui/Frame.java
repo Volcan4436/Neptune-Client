@@ -1,18 +1,18 @@
 package neptune.ui.screens.clickgui;
 
+import neptune.Client;
+import neptune.utils.MinecraftInterface;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.math.MathHelper;
-import neptune.Module.Mod;
-import neptune.Module.ModuleManager;
+import neptune.module.Mod;
+import neptune.module.ModuleManager;
 import neptune.ui.screens.clickgui.setting.Component;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Frame {
+public class Frame implements MinecraftInterface {
 
     public int x, y, width, height, dragX, dragY;
     public Mod.Category category;
@@ -25,7 +25,6 @@ public class Frame {
         return 0xff000000 | MathHelper.hsvToRgb((float) (rainbowState / 360.0), sat, bri);
     }
 
-    protected MinecraftClient mc = MinecraftClient.getInstance();
     public Frame(Mod.Category category, int x, int y, int width, int height) {
         this.category = category;
         this.x = x;
@@ -35,31 +34,29 @@ public class Frame {
         this.dragging = false;
         this.extended = false;
 
-
         buttons = new ArrayList<>();
 
-
         int offset = height;
-        for (Mod mod : ModuleManager.INSTANCE.getModulesInCategory(category)) {
+        for (Mod mod : Client.getInstance().getModuleManager().getModulesInCategory(category)) {
             buttons.add(new ModuleButton(mod, this, offset));
             offset += height;
         }
     }
 
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices, x, y, x + width, y + height, new Color(70, 190, 20).getRGB());
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(x, y, x + width, y + height, new Color(70, 190, 20).getRGB());
         //draw a white border around the frame
-        DrawableHelper.fill(matrices, x, y, x + width, y + 1, Color.white.getRGB());
-        DrawableHelper.fill(matrices, x, y, x + 1, y + height, Color.white.getRGB());
-        DrawableHelper.fill(matrices, x + width - 1, y, x + width, y + height, Color.white.getRGB());
-        DrawableHelper.fill(matrices, x, y + height - 1, x + width, y + height, Color.white.getRGB());
+        context.fill(x, y, x + width, y + 1, Color.white.getRGB());
+        context.fill(x, y, x + 1, y + height, Color.white.getRGB());
+        context.fill(x + width - 1, y, x + width, y + height, Color.white.getRGB());
+        context.fill(x, y + height - 1, x + width, y + height, Color.white.getRGB());
         int offset = + ((height - mc.textRenderer.fontHeight) / 2);
-        mc.textRenderer.drawWithShadow(matrices, category.name, x + 2, y + 2, -1);
-        mc.textRenderer.drawWithShadow(matrices, extended ? "-" : "+", x + width - 2 - mc.textRenderer.getWidth("+"), y + 2, -1);
+        context.drawTextWithShadow(mc.textRenderer, category.name, x + 2, y + 2, -1);
+        context.drawTextWithShadow(mc.textRenderer, extended ? "-" : "+", x + width - 2 - mc.textRenderer.getWidth("+"), y + 2, -1);
 
         if (extended) {
             for (ModuleButton button : buttons) {
-                button.render(matrices, mouseX, mouseY, delta);
+                button.render(context, mouseX, mouseY, delta);
             }
         }
     }

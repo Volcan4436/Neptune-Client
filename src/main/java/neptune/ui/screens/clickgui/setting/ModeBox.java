@@ -1,17 +1,16 @@
 package neptune.ui.screens.clickgui.setting;
 
-import neptune.Module.settings.ModeSetting;
-import neptune.Module.settings.Setting;
+import neptune.module.settings.ModeSetting;
+import neptune.module.settings.Setting;
 import neptune.ui.screens.clickgui.ModuleButton;
+import neptune.utils.MinecraftInterface;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;
 
-public class ModeBox extends Component{
+public class ModeBox extends Component implements MinecraftInterface {
 
-    protected MinecraftClient mc = MinecraftClient.getInstance();
     private ModeSetting modeSet = (ModeSetting) setting;
 
     public ModeBox(Setting setting, ModuleButton parent, int offset) {
@@ -20,11 +19,10 @@ public class ModeBox extends Component{
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        DrawableHelper.fill(matrices, parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + parent.parent.width, parent.parent.y + parent.offset + offset + parent.parent.height, new Color(0, 0, 0, 200).getRGB());
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + parent.parent.width, parent.parent.y + parent.offset + offset + parent.parent.height, new Color(0, 0, 0, 200).getRGB());
         int textOffset = ((parent.parent.height /2) - mc.textRenderer.fontHeight / 2);
-        mc.textRenderer.drawWithShadow(matrices, modeSet.getName() + ": " + modeSet.getMode(), parent.parent.x + textOffset, parent.parent.y + parent.offset + offset + textOffset, -1);
-        super.render(matrices, mouseX, mouseY, delta);
+        context.drawTextWithShadow(mc.textRenderer, modeSet.getName() + ": " + modeSet.getMode(), parent.parent.x + textOffset, parent.parent.y + parent.offset + offset + textOffset, -1);
     }
 
     @Override
@@ -32,6 +30,8 @@ public class ModeBox extends Component{
         if (isHovered(mouseX, mouseY) && button == 0) {
             modeSet.cycle();
         }
-        super.mouseClicked(mouseX, mouseY, button);
     }
+
+    @Override
+    public void mouseReleased(double mouseX, double mouseY, int button) {}
 }

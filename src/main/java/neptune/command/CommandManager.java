@@ -9,12 +9,9 @@ public class CommandManager {
 
     public static CommandManager INSTANCE = new CommandManager();
     private final List<Command> cmds = new ArrayList<>();
+    private final String commandPrefix = ".";
 
     public CommandManager() {
-        init();
-    }
-
-    private void init() {
         add(new Bind());
     }
 
@@ -30,6 +27,10 @@ public class CommandManager {
 
     public List<Command> getCmds() {
         return cmds;
+    }
+
+    public String getCommandPrefix() {
+        return commandPrefix;
     }
 }
 

@@ -1,9 +1,10 @@
 package neptune.ui;
 
-import neptune.Module.Mod;
-import neptune.Module.ModuleManager;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
+import neptune.Client;
+import neptune.module.Mod;
+import neptune.module.ModuleManager;
+import neptune.utils.MinecraftInterface;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
@@ -11,11 +12,9 @@ import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
 
-public class Hud {
+public class Hud implements MinecraftInterface {
 
     private static int color = 0xFF46BE14;
-
-    private static MinecraftClient mc = MinecraftClient.getInstance();
 
     public static void setColour(int colour) {
         System.out.println("Setting colour to " + colour);
@@ -26,17 +25,19 @@ public class Hud {
         double rainbowState = Math.ceil((System.currentTimeMillis() + offset) / speed) % 360;
         return 0xff000000 | MathHelper.hsvToRgb((float) (rainbowState / 360.0), sat, bri);
     }
-    public static void render(MatrixStack matrices, float tickDelta) {
-        renderArrayList(matrices);
-        mc.textRenderer.drawWithShadow(matrices, "Client", 4, 2, color);
-        DrawableHelper.fill(matrices, 6 + mc.textRenderer.getWidth("Client"), 2, 4 + mc.textRenderer.getWidth("Client") + 1, 2 + mc.textRenderer.fontHeight, color);
+
+    public static void render(DrawContext context, float tickDelta) {
+        renderArrayList(context);
+        context.drawTextWithShadow(mc.textRenderer, "Client", 4, 2, color);
+        context.fill(6 + mc.textRenderer.getWidth("Client"), 2, 4 + mc.textRenderer.getWidth("Client") + 1, 2 + mc.textRenderer.fontHeight, color);
     }
-    public static void renderArrayList(MatrixStack matrices) {
+
+    public static void renderArrayList(DrawContext context) {
 
         int xOffset = -5;
         int yOffset = 5;
         int index = 0;
-        List<Mod> enabled = ModuleManager.INSTANCE.getEnabledModules();
+        List<Mod> enabled = Client.getInstance().getModuleManager().getEnabledModules();
         int sWidth = mc.getWindow().getScaledWidth();
         int sHeight = mc.getWindow().getScaledHeight();
         int lastWidth;
@@ -47,12 +48,12 @@ public class Hud {
         enabled.sort(Comparator.comparingInt(m -> (int)mc.textRenderer.getWidth(((Mod)m).getDisplayName())).reversed());
 
         for (Mod mod : enabled) {
-            DrawableHelper.fill(matrices, (sWidth + 100) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 10 + (index * mc.textRenderer.fontHeight - 1) + mc.textRenderer.fontHeight, 0x80000000);
-            DrawableHelper.fill(matrices, (sWidth + 100) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 10 + (index * mc.textRenderer.fontHeight) + mc.textRenderer.fontHeight, 1);
+            context.fill((sWidth + 100) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 10 + (index * mc.textRenderer.fontHeight - 1) + mc.textRenderer.fontHeight, 0x80000000);
+            context.fill((sWidth + 100) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 10 + (index * mc.textRenderer.fontHeight) + mc.textRenderer.fontHeight, 1);
 
-            mc.textRenderer.drawWithShadow(matrices, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 10 + (index * mc.textRenderer.fontHeight), color);
+            context.drawTextWithShadow(mc.textRenderer, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 10 + (index * mc.textRenderer.fontHeight), color);
 
-            DrawableHelper.fill(matrices, (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 9 + (index * mc.textRenderer.fontHeight) + mc.textRenderer.fontHeight, Color.GRAY.getRGB());
+            context.fill((sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 9 + (index * mc.textRenderer.fontHeight) + mc.textRenderer.fontHeight, Color.GRAY.getRGB());
             index++;
         }
     }
