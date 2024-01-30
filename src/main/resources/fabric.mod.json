@@ -2,28 +2,37 @@
   "schemaVersion": 1,
   "id": "neptune",
   "version": "${version}",
-  "name": "Neptune",
-  "description": "stay with me, as we cross the empty skies",
+
+  "name": "client",
+  "description": "placeholder",
   "authors": [
-    "nuk"
+    "neptune team"
   ],
-  "contact": {},
-  "license": "unlicense",
-  "environment": "client",
+  "contact": {
+    "homepage": "no",
+    "sources": "placeholder"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/client/icon.png",
+
+  "environment": "*",
   "entrypoints": {
-    "client": [
-      "me.neptune.Neptune"
-    ],
     "main": [
-      "me.neptune.Neptune"
+      "neptune.Client"
     ]
   },
   "mixins": [
-    "neptune.mixins.json"
+    "client.mixins.json"
   ],
+
   "depends": {
-    "fabricloader": ">=${loader_version}",
-    "fabric": "*",
-    "minecraft": "${minecraft_version}"
+    "fabricloader": ">=0.14.19",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
   }
 }
