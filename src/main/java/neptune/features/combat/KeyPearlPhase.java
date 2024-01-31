@@ -14,8 +14,9 @@ public class KeyPearlPhase extends Mod {
     }
 
     @Override
-    public void onEnable() {
+    public boolean onEnable() {
 
+        return false;
     }
 
     @Override

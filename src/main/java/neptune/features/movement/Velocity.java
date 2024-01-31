@@ -18,7 +18,7 @@ public class Velocity extends Mod {
     }
 
     @Subscribe
-    void onQ(PacketEvent.Recieved per) {
+    void onQ(PacketEvent.Receive per) {
         if (mc.player == null) {
             return;
         }
@@ -26,8 +26,9 @@ public class Velocity extends Mod {
     }
 
     @Override
-    public void onEnable() {
+    public boolean onEnable() {
 
+        return false;
     }
 
     @Override

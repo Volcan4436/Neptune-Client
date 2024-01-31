@@ -30,12 +30,13 @@ public class Flight extends Mod {
     };
 
     @Override
-    public void onEnable() {
+    public boolean onEnable() {
 
         //startHeight = mc.player.getY();
         //if (shouldClip.getValue()) {
             //mc.player.updatePosition(mc.player.getX(), mc.player.getY() + vulcanclip.getValue(), mc.player.getZ());
         //}
+        return false;
     }
 
     @Override

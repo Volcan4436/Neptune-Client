@@ -8,7 +8,6 @@ import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -64,8 +63,9 @@ public class HUD extends Mod implements MinecraftInterface {
     }
 
     @Override
-    public void onEnable() {
+    public boolean onEnable() {
 
+        return false;
     }
 
     @Override

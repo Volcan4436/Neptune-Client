@@ -5,7 +5,6 @@ import neptune.event.EventManager;
 import neptune.event.events.TickEvent;
 import neptune.module.Mod;
 import neptune.module.settings.ModeSetting;
-import org.lwjgl.glfw.GLFW;
 
 public class Sprint extends Mod {
 
@@ -42,7 +41,8 @@ public class Sprint extends Mod {
     }
 
     @Override
-    public void onEnable() {
+    public boolean onEnable() {
+        return false;
     }
 
     @Override

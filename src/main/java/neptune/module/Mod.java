@@ -51,7 +51,7 @@ public abstract class Mod implements MinecraftInterface {
         }
     }
 
-    public abstract void onEnable();
+    public abstract boolean onEnable();
     public abstract void onDisable();
 
     public Mod.Category getCategory() {

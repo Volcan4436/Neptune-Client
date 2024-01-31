@@ -4,6 +4,7 @@ package neptune.module;
 
 
 import neptune.features.client.HUD;
+import neptune.features.client.Notifications;
 import neptune.features.combat.KeyPearlPhase;
 import neptune.features.exploit.WorldBorderCrash;
 import neptune.features.misc.AutoReconnect;
@@ -32,6 +33,7 @@ public class ModuleManager {
         modules.add(new HandModifier());
         modules.add(new AutoExp());
         modules.add(new NoRotate());
+        modules.add(new Notifications());
     }
 
     public List<Mod> getModules() {
