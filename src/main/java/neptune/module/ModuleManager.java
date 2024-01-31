@@ -5,9 +5,12 @@ package neptune.module;
 
 import neptune.features.client.HUD;
 import neptune.features.combat.KeyPearlPhase;
+import neptune.features.exploit.WorldBorderCrash;
+import neptune.features.misc.AutoReconnect;
 import neptune.features.movement.Flight;
 import neptune.features.movement.Sprint;
 import neptune.features.movement.Velocity;
+import neptune.features.render.HandModifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,9 @@ public class ModuleManager {
         modules.add(new Velocity());
         modules.add(new HUD());
         modules.add(new KeyPearlPhase());
+        modules.add(new WorldBorderCrash());
+        modules.add(new AutoReconnect());
+        modules.add(new HandModifier());
     }
 
     public List<Mod> getModules() {
