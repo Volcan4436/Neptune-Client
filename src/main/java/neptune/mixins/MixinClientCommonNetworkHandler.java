@@ -1,6 +1,6 @@
 package neptune.mixins;
 
-import neptune.Client;
+import neptune.Neptune;
 import neptune.event.events.PacketSendEvent;
 import net.minecraft.client.network.ClientCommonNetworkHandler;
 import net.minecraft.network.packet.Packet;
@@ -15,7 +15,7 @@ public class MixinClientCommonNetworkHandler {
     @Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
     public void send(Packet<?> packet, CallbackInfo ci) {
         PacketSendEvent event = new PacketSendEvent(packet);
-        Client.getInstance().getEventManager().triggerEvent(event);
+        Neptune.getInstance().getEventManager().triggerEvent(event);
         if(event.isCancelled()) {
             ci.cancel();
         }

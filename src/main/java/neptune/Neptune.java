@@ -2,25 +2,21 @@ package neptune;
 
 import neptune.command.CommandManager;
 import neptune.event.EventManager;
-import neptune.module.Mod;
 import neptune.module.ModuleManager;
-import neptune.ui.screens.clickgui.ClickGUI;
 import neptune.utils.MinecraftInterface;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.MinecraftClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.lwjgl.glfw.GLFW;
 
-public class Client implements ModInitializer, MinecraftInterface {
+public class Neptune implements ModInitializer, MinecraftInterface {
 
-    public static Client instance;
-    private final Logger logger = LogManager.getLogger(Client.class);
+    public static Neptune instance;
+    private final Logger logger = LogManager.getLogger(Neptune.class);
     private final EventManager eventManager;
     private final CommandManager commandManager;
     private final ModuleManager moduleManager;
 
-    public Client() {
+    public Neptune() {
         this.eventManager = new EventManager();
         this.commandManager = new CommandManager();
         this.moduleManager = new ModuleManager();
@@ -28,7 +24,8 @@ public class Client implements ModInitializer, MinecraftInterface {
 
     @Override
     public void onInitialize() {
-        logger.info("Neptune Client is starting");
+        logger.info("[NEPTUNE] Neptune Client is starting by heedi");
+        logger.info("[NEPTUNE] Neptune Client by heedi has finished loading!");
     }
 
     public EventManager getEventManager() {
@@ -43,9 +40,9 @@ public class Client implements ModInitializer, MinecraftInterface {
         return commandManager;
     }
 
-    public static Client getInstance() {
+    public static Neptune getInstance() {
         if (instance == null) {
-            instance = new Client();
+            instance = new Neptune();
         }
         return instance;
     }

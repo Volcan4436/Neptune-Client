@@ -1,6 +1,6 @@
 package neptune.mixins;
 
-import neptune.Client;
+import neptune.Neptune;
 import neptune.event.events.TickEvent;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +15,6 @@ public class MinecraftClientMixin {
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void onUpdate(CallbackInfo ci) {
-        Client.getInstance().getEventManager().triggerEvent(new TickEvent());
+        Neptune.getInstance().getEventManager().triggerEvent(new TickEvent());
     }
 }

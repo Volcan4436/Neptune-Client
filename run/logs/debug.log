@@ -132,7 +132,7 @@
 [18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer net.fabricmc.fabric.impl.registry.sync.FabricRegistryInit for mod fabric-registry-sync-v0 (key main)
 [18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer net.fabricmc.fabric.impl.client.rendering.v0.RenderingCallbackInvoker for mod fabric-rendering-v0 (key client)
 [18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer net.fabricmc.fabric.impl.screenhandler.client.ClientNetworking for mod fabric-screen-handler-api-v1 (key client)
-[18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer neptune.Client for mod neptune (key main)
+[18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer neptune.Neptune for mod neptune (key main)
 [18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer net.fabricmc.fabric.impl.recipe.ingredient.client.CustomIngredientSyncClient for mod fabric-recipe-api-v1 (key client)
 [18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientInit for mod fabric-recipe-api-v1 (key main)
 [18:45:43] [main/DEBUG] (FabricLoader/Entrypoint) Registering new-style initializer net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientSync for mod fabric-recipe-api-v1 (key main)
@@ -1045,7 +1045,7 @@ Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 4
 [18:46:05] [Render thread/DEBUG] (FabricLoader/Mixin) Mixing LoginQueryResponseC2SPacketMixin from fabric-networking-api-v1.mixins.json into net.minecraft.network.packet.c2s.login.LoginQueryResponseC2SPacket
 [18:46:05] [Render thread/DEBUG] (FabricLoader/Mixin) fabric-networking-api-v1.mixins.json:LoginQueryResponseC2SPacketMixin from mod fabric-networking-api-v1->@Inject::readResponse(ILnet/minecraft/network/PacketByteBuf;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V does use it's CallbackInfoReturnable
 [18:46:05] [Render thread/INFO] (fabric-networking-api-v1) Force Packet Serialization is enabled to mimic remote connection on single player, this is the default behaviour on dev env. Add -Dfabric-api.networking.force-packet-serialization=false JVM arg to disable it.
-[18:46:05] [Render thread/INFO] (neptune.Client) Neptune Client is starting
+[18:46:05] [Render thread/INFO] (neptune.Neptune) Neptune Client is starting
 [18:46:05] [Render thread/DEBUG] (FabricLoader/Entrypoint) Iterating over entrypoint 'client'
 [18:46:05] [Render thread/DEBUG] (FabricLoader/Mixin) Mixing ClientConfigurationNetworkHandlerMixin from fabric-networking-api-v1.client.mixins.json into net.minecraft.client.network.ClientConfigurationNetworkHandler
 [18:46:05] [Render thread/DEBUG] (FabricLoader/Mixin) Mixing accessor.ClientConfigurationNetworkHandlerAccessor from fabric-networking-api-v1.client.mixins.json into net.minecraft.client.network.ClientConfigurationNetworkHandler

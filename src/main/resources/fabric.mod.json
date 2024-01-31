@@ -3,14 +3,12 @@
   "id": "neptune",
   "version": "${version}",
 
-  "name": "client",
-  "description": "placeholder",
+  "name": "Neptune Utility Mod",
+  "description": "coolness",
   "authors": [
-    "neptune team"
+    "heedi"
   ],
   "contact": {
-    "homepage": "https://www.xvideos.com",
-    "sources": "https://www.pornhub.com"
   },
 
   "license": "CC0-1.0",
@@ -19,7 +17,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "neptune.Client"
+      "neptune.Neptune"
     ]
   },
   "mixins": [

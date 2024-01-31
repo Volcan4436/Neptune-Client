@@ -1,11 +1,11 @@
 package neptune.mixins;
 
+import neptune.Neptune;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import neptune.Client;
 import neptune.command.Command;
 import neptune.command.CommandManager;
 
@@ -22,7 +22,7 @@ public abstract class ClientPlayNetworkHandlerMixin {
         }
         String[] args = CMD.toString().split(" ");
 
-        if (msg.startsWith(Client.getInstance().getCommandManager().getCommandPrefix())) {
+        if (msg.startsWith(Neptune.getInstance().getCommandManager().getCommandPrefix())) {
             for (Command command : CommandManager.INSTANCE.getCmds()) {
                 if (args[0].equalsIgnoreCase(command.getName())) {
                     command.onCmd(msg, args);

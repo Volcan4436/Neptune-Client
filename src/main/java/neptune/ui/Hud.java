@@ -1,11 +1,9 @@
 package neptune.ui;
 
-import neptune.Client;
+import neptune.Neptune;
 import neptune.module.Mod;
-import neptune.module.ModuleManager;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
 import java.awt.*;
@@ -37,7 +35,7 @@ public class Hud implements MinecraftInterface {
         int xOffset = -5;
         int yOffset = 5;
         int index = 0;
-        List<Mod> enabled = Client.getInstance().getModuleManager().getEnabledModules();
+        List<Mod> enabled = Neptune.getInstance().getModuleManager().getEnabledModules();
         int sWidth = mc.getWindow().getScaledWidth();
         int sHeight = mc.getWindow().getScaledHeight();
         int lastWidth;

@@ -1,11 +1,10 @@
 package neptune.ui.screens.clickgui;
 
-import neptune.Client;
+import neptune.Neptune;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.math.MathHelper;
 import neptune.module.Mod;
-import neptune.module.ModuleManager;
 import neptune.ui.screens.clickgui.setting.Component;
 
 import java.awt.*;
@@ -37,7 +36,7 @@ public class Frame implements MinecraftInterface {
         buttons = new ArrayList<>();
 
         int offset = height;
-        for (Mod mod : Client.getInstance().getModuleManager().getModulesInCategory(category)) {
+        for (Mod mod : Neptune.getInstance().getModuleManager().getModulesInCategory(category)) {
             buttons.add(new ModuleButton(mod, this, offset));
             offset += height;
         }

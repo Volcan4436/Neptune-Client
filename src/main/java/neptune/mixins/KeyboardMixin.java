@@ -1,6 +1,6 @@
 package neptune.mixins;
 
-import neptune.Client;
+import neptune.Neptune;
 import neptune.module.Mod;
 import neptune.ui.screens.clickgui.ClickGUI;
 import net.minecraft.client.Keyboard;
@@ -24,7 +24,7 @@ public class KeyboardMixin {
     public void onKey(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci){
         if (client.currentScreen == null) {
             if (action == GLFW.GLFW_PRESS) {
-                for (Mod module : Client.getInstance().getModuleManager().getModules()) {
+                for (Mod module : Neptune.getInstance().getModuleManager().getModules()) {
                     if (key == module.getKey()) module.toggle();
                 }
                 //why are you hard coding this in make the fucking clickgui rebindable

@@ -1,8 +1,7 @@
 package neptune.module;
 
-import neptune.Client;
+import neptune.Neptune;
 import neptune.utils.MinecraftInterface;
-import net.minecraft.client.util.math.MatrixStack;
 import neptune.module.settings.Setting;
 import net.minecraft.network.packet.Packet;
 
@@ -44,10 +43,10 @@ public abstract class Mod implements MinecraftInterface {
     public void toggle() {
         this.enabled = !this.enabled;
         if (enabled) {
-            Client.getInstance().getEventManager().subscribe(this);
+            Neptune.getInstance().getEventManager().subscribe(this);
             onEnable();
         } else {
-            Client.getInstance().getEventManager().unsubscribe(this);
+            Neptune.getInstance().getEventManager().unsubscribe(this);
             onDisable();
         }
     }
@@ -94,10 +93,10 @@ public abstract class Mod implements MinecraftInterface {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
         if (enabled) {
-            Client.getInstance().getEventManager().subscribe(this);
+            Neptune.getInstance().getEventManager().subscribe(this);
             onEnable();
         } else {
-            Client.getInstance().getEventManager().unsubscribe(this);
+            Neptune.getInstance().getEventManager().unsubscribe(this);
             onDisable();
         }
     }
