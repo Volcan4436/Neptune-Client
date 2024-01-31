@@ -9,14 +9,7 @@ public class HandModifier extends Mod {
 
 
 
-    @Override
-    public boolean onEnable() {
 
-        return false;
-    }
 
-    @Override
-    public void onDisable() {
 
-    }
 }

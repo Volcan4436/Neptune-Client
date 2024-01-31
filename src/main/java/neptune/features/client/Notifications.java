@@ -34,12 +34,11 @@ public class Notifications extends Mod {
     }
 
     @Override
-    public boolean onEnable() {
+    public void onEnable() {
         if (popCounter.isEnabled()) {
             totemPopMap.clear();
             chatIdMap.clear();
         }
-        return false;
     }
 
     @Subscribe
@@ -70,8 +69,5 @@ public class Notifications extends Mod {
         }
     }
 
-    @Override
-    public void onDisable() {
 
-    }
 }

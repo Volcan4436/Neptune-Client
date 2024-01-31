@@ -83,14 +83,7 @@ public class HUD extends Mod implements MinecraftInterface {
         }
     }
 
-    @Override
-    public boolean onEnable() {
 
-        return false;
-    }
 
-    @Override
-    public void onDisable() {
 
-    }
 }

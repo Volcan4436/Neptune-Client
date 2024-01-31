@@ -25,14 +25,7 @@ public class AutoReconnect extends Mod {
         }
     }
 
-    @Override
-    public boolean onEnable() {
 
-        return false;
-    }
 
-    @Override
-    public void onDisable() {
 
-    }
 }

@@ -39,13 +39,4 @@ public class Sprint extends Mod {
     @Subscribe
     public void onTick() {
     }
-
-    @Override
-    public boolean onEnable() {
-        return false;
-    }
-
-    @Override
-    public void onDisable() {
-    }
 }

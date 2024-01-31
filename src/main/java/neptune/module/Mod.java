@@ -7,10 +7,13 @@ import net.minecraft.network.packet.Packet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Mod implements MinecraftInterface {
 
     private String name;
+    protected static final Random random = ThreadLocalRandom.current();
     private String displayName;
     private String description;
     private Category Category;
@@ -51,8 +54,8 @@ public abstract class Mod implements MinecraftInterface {
         }
     }
 
-    public abstract boolean onEnable();
-    public abstract void onDisable();
+    public void onEnable () {}
+    public void onDisable() {}
 
     public Mod.Category getCategory() {
         return Category;

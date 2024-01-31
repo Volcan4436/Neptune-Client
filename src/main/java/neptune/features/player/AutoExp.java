@@ -7,14 +7,7 @@ public class AutoExp extends Mod {
         super("AutoExp", "Throws xp from your hotbar.", Category.PLAYER);
     }
 
-    @Override
-    public boolean onEnable() {
 
-        return false;
-    }
 
-    @Override
-    public void onDisable() {
 
-    }
 }

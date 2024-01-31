@@ -23,14 +23,7 @@ public class NoRotate extends Mod {
         }
     }
 
-    @Override
-    public boolean onEnable() {
 
-        return false;
-    }
 
-    @Override
-    public void onDisable() {
 
-    }
 }

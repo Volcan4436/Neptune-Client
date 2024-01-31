@@ -26,14 +26,7 @@ public class Velocity extends Mod {
         //if (per)
     }
 
-    @Override
-    public boolean onEnable() {
 
-        return false;
-    }
 
-    @Override
-    public void onDisable() {
 
-    }
 }

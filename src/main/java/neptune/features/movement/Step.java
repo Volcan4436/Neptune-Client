@@ -15,10 +15,9 @@ public class Step extends Mod {
     }
 
     @Override
-    public boolean onEnable() {
+    public void onEnable() {
         assert mc.player != null;
         mc.player.setStepHeight((float) this.height.getValue());
-        return false;
     }
 
     @Override

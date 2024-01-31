@@ -13,14 +13,4 @@ public class KeyPearlPhase extends Mod {
         addSettings(mode, switchmode);
     }
 
-    @Override
-    public boolean onEnable() {
-
-        return false;
-    }
-
-    @Override
-    public void onDisable() {
-
-    }
 }
