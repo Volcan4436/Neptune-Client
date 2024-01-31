@@ -19,7 +19,7 @@ public class ClickGUI extends Screen {
 
         int x = 20;
         for (Mod.Category category : Mod.Category.values()) {
-            frames.add(new Frame(category, x, 30, 100, 20));
+            frames.add(new Frame(category, x, 30, 100, 15));
             x += 120;
         }
     }

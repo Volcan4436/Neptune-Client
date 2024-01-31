@@ -1,12 +1,14 @@
 package neptune.features.client;
 
 import neptune.Neptune;
+import neptune.features.Feature;
 import neptune.module.Mod;
 import neptune.module.settings.BooleanSetting;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -28,8 +30,8 @@ public class HUD extends Mod implements MinecraftInterface {
 
     public static void render(DrawContext context, float tickDelta) {
         if (watermark.isEnabled()) {
-            context.drawTextWithShadow(mc.textRenderer, "Client", 4, 2, color);
-            context.fill(6 + mc.textRenderer.getWidth("Client"), 2, 4 + mc.textRenderer.getWidth("Client") + 1, 2 + mc.textRenderer.fontHeight, color);
+            context.drawTextWithShadow(mc.textRenderer, "Neptune " + Feature.VERSION, 4, 2, color);
+            context.fill(6 + mc.textRenderer.getWidth("Neptune"), 2, 4 + mc.textRenderer.getWidth("Neptune") + 1, 2 + mc.textRenderer.fontHeight, color);
         }
         renderArrayList(context);
     }
@@ -39,7 +41,7 @@ public class HUD extends Mod implements MinecraftInterface {
             int xOffset = -5;
             int yOffset = 5;
             int index = 0;
-            List<Mod> enabled = Neptune.getInstance().getModuleManager().getEnabledModules();
+            List<Mod> enabled = Collections.singletonList(Neptune.getInstance().getModuleManager());
             int sWidth = mc.getWindow().getScaledWidth();
             int sHeight = mc.getWindow().getScaledHeight();
             int lastWidth;

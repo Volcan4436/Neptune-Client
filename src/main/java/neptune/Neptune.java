@@ -2,7 +2,7 @@ package neptune;
 
 import neptune.command.CommandManager;
 import neptune.event.EventManager;
-import neptune.module.ModuleManager;
+import neptune.managers.ModuleManager;
 import neptune.utils.MinecraftInterface;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
