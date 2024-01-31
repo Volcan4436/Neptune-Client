@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 //Do Not touch this or anything in the Events folder potatoman
 //Touched it what u going to do abt it >:) -L4J
+// woah buddy
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
 

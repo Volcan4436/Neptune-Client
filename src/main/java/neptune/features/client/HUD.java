@@ -28,10 +28,10 @@ public class HUD extends Mod implements MinecraftInterface {
 
     public static void render(DrawContext context, float tickDelta) {
         if (watermark.isEnabled()) {
-            renderArrayList(context);
             context.drawTextWithShadow(mc.textRenderer, "Client", 4, 2, color);
             context.fill(6 + mc.textRenderer.getWidth("Client"), 2, 4 + mc.textRenderer.getWidth("Client") + 1, 2 + mc.textRenderer.fontHeight, color);
         }
+        renderArrayList(context);
     }
 
     public static void renderArrayList(DrawContext context) {

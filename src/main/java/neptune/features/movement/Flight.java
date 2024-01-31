@@ -8,8 +8,11 @@ import neptune.module.settings.NumberSetting;
 
 public class Flight extends Mod {
 
-    private final ModeSetting mode = new ModeSetting("Mode", "Vanilla", "Vanilla");
-    private final NumberSetting speed = new NumberSetting("Speed", 0.1, 5, 5, 0.2);
+    double startHeight;
+    private final ModeSetting mode = new ModeSetting("Mode", "Vanilla", "Vanilla", "Vulcan");
+    private final NumberSetting speed = new NumberSetting("Speed", 0.1, 5, 5, 0.1);
+    private final NumberSetting vulcanclip = new NumberSetting("Clip", 1, 100, 10, 0.1);
+    private final NumberSetting shouldClip = new NumberSetting("Should Clip", 1, 100, 10, 0.1);
 
     public Flight() {
         super("Flight", "Lets you fly (like a god)", Category.MOVEMENT);
@@ -21,10 +24,18 @@ public class Flight extends Mod {
             mc.player.getAbilities().setFlySpeed((float) this.speed.getValue());
             mc.player.getAbilities().flying = true;
         }
+        if (mode.isMode("Vulcan")) {
+
+        }
     };
 
     @Override
     public void onEnable() {
+
+        //startHeight = mc.player.getY();
+        //if (shouldClip.getValue()) {
+            //mc.player.updatePosition(mc.player.getX(), mc.player.getY() + vulcanclip.getValue(), mc.player.getZ());
+        //}
     }
 
     @Override

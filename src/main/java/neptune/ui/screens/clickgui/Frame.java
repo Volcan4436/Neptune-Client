@@ -43,7 +43,7 @@ public class Frame implements MinecraftInterface {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(x, y, x + width, y + height, new Color(70, 190, 20).getRGB());
+        context.fill(x, y, x + width, y + height, new Color(0, 188, 255).getRGB());
         //draw a white border around the frame
         context.fill(x, y, x + width, y + 1, Color.white.getRGB());
         context.fill(x, y, x + 1, y + height, Color.white.getRGB());
@@ -51,7 +51,7 @@ public class Frame implements MinecraftInterface {
         context.fill(x, y + height - 1, x + width, y + height, Color.white.getRGB());
         int offset = + ((height - mc.textRenderer.fontHeight) / 2);
         context.drawTextWithShadow(mc.textRenderer, category.name, x + 2, y + 2, -1);
-        context.drawTextWithShadow(mc.textRenderer, extended ? "-" : "+", x + width - 2 - mc.textRenderer.getWidth("+"), y + 2, -1);
+        context.drawTextWithShadow(mc.textRenderer, extended ? "[-]" : "[+]", x + width - 2 - mc.textRenderer.getWidth("[+]"), y + 2, -2);
 
         if (extended) {
             for (ModuleButton button : buttons) {

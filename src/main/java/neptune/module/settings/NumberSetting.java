@@ -20,6 +20,9 @@ public class NumberSetting extends Setting {
     public double getValue() {
         return value;
     }
+    public double getValue1() {
+        return value;
+    }
     public float getValuefloat() {
         return (float)value;
     }

@@ -53,8 +53,8 @@ public class ModuleButton implements MinecraftInterface {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         context.fill(parent.x, parent.y + offset, parent.x + parent.width, parent.y + offset + parent.height, new Color(0, 0, 0, 200).getRGB());
         //Draw a white line above the module
-        context.fill(parent.x, parent.y + offset - 1, parent.x + parent.width, parent.y + offset, new Color(70, 190, 20).getRGB());
-        if (isHovered(mouseX, mouseY)) context.fill(parent.x, parent.y + offset, parent.x + parent.width, parent.y + offset + parent.height, new Color(0, 0, 0, 200).getRGB());
+        context.fill(parent.x, parent.y + offset - 1, parent.x + parent.width, parent.y + offset, new Color(0, 140, 255).getRGB());
+        if (isHovered(mouseX, mouseY)) context.fill(parent.x, parent.y + offset, parent.x + parent.width, parent.y + offset + parent.height, new Color(26, 54, 80, 255).getRGB());
         context.drawTextWithShadow(mc.textRenderer, module.getName(), parent.x + 2, parent.y + offset + 2, module.isEnabled() ? Color.RED.getRGB() : Color.WHITE.getRGB());
 
         if (extended) {
