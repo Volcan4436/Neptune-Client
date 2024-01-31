@@ -51,11 +51,14 @@ public class ModuleButton implements MinecraftInterface {
         return 0xff000000 | MathHelper.hsvToRgb((float) (rainbowState / 360.0), sat, bri);
     }
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(parent.x, parent.y + offset, parent.x + parent.width, parent.y + offset + parent.height, new Color(0, 0, 0, 200).getRGB());
+        context.fill(parent.x, parent.y + offset, parent.x + parent.width, parent.y + offset + parent.height, module.isEnabled() ? new Color(20,20,20,180).getRGB() : new Color(10, 10, 10, 200).getRGB());
+        context.fill(parent.x - 1, parent.y + offset,  parent.x, parent.height + parent.y + offset, new Color(136,96,168).getRGB());
+        context.fill(parent.x + parent.width, parent.y + offset, parent.x + parent.width + 1, parent.height + parent.y + offset, new Color(136,96,168).getRGB());
         //Draw a white line above the module
         context.fill(parent.x, parent.y + offset - 1, parent.x + parent.width, parent.y + offset, new Color(0, 140, 255).getRGB());
         if (isHovered(mouseX, mouseY)) context.fill(parent.x, parent.y + offset, parent.x + parent.width, parent.y + offset + parent.height, new Color(26, 54, 80, 255).getRGB());
-        context.drawTextWithShadow(mc.textRenderer, module.getName(), parent.x + 2, parent.y + offset + 2, module.isEnabled() ? Color.RED.getRGB() : Color.WHITE.getRGB());
+        context.drawText(mc.textRenderer, module.getName(), parent.x + 4, parent.y + offset + 2, module.isEnabled() ? Color.WHITE.getRGB() : Color.GRAY.getRGB(), !module.isEnabled());
+        if (module.isEnabled()) context.fill(parent.x, parent.y + offset,parent.x + 2, parent.y + offset + parent.height, new Color(0, 190, 255).getRGB());
 
         if (extended) {
             for (Component component : components) {

@@ -16,7 +16,6 @@ public class ClickGUI extends Screen {
         super(Text.literal("ClickGUI"));
 
         frames = new ArrayList<>();
-
         int x = 20;
         for (Mod.Category category : Mod.Category.values()) {
             frames.add(new Frame(category, x, 30, 100, 15));
@@ -47,4 +46,13 @@ public class ClickGUI extends Screen {
         }
         return super.mouseReleased(mouseX, mouseY, button);
     }
+
+    @Override
+    public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {}
+
+    @Override
+    public void renderInGameBackground(DrawContext context) {}
+
+    @Override
+    public void renderBackgroundTexture(DrawContext context) {}
 }
