@@ -4,6 +4,7 @@ package neptune.module;
 
 
 import neptune.features.client.HUD;
+import neptune.features.combat.KeyPearlPhase;
 import neptune.features.movement.Flight;
 import neptune.features.movement.Sprint;
 import neptune.features.movement.Velocity;
@@ -20,6 +21,7 @@ public class ModuleManager {
         modules.add(new Flight());
         modules.add(new Velocity());
         modules.add(new HUD());
+        modules.add(new KeyPearlPhase());
     }
 
     public List<Mod> getModules() {
