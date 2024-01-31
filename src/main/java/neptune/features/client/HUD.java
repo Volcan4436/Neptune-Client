@@ -1,6 +1,7 @@
 package neptune.features.client;
 
 import neptune.Neptune;
+import neptune.event.events.TickRate;
 import neptune.features.Feature;
 import neptune.module.Mod;
 import neptune.module.settings.BooleanSetting;
@@ -16,6 +17,7 @@ public class HUD extends Mod implements MinecraftInterface {
     private static int color = 0x25b5d2;
     private static final BooleanSetting watermark = new BooleanSetting("Watermark", true);
     private static final BooleanSetting arraylist = new BooleanSetting("ArrayList", true);
+    private static final BooleanSetting lag = new BooleanSetting("Lag Notifier", false);
 
     public HUD() {
         super("HUD", "Hud", Category.CLIENT);
@@ -25,6 +27,25 @@ public class HUD extends Mod implements MinecraftInterface {
     public static void setColour(int colour) {
         System.out.println("Setting colour to " + colour);
         color = colour;
+    }
+
+    protected String getLeft() {
+        if (lag.isEnabled()) {
+            return "Server is lagging ";
+        }
+        return null;
+    }
+
+    protected String getRight() {
+            return "4,3s";
+
+
+        //float timeSinceLastTick = TickRate.INSTANCE.getTimeSinceLastTick();
+
+        //visible = timeSinceLastTick >= 1f;
+
+        //return String.format("%.1f", timeSinceLastTick) + "s";
+
     }
 
     public static void render(DrawContext context, float tickDelta) {
