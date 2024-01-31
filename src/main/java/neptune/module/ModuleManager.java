@@ -10,6 +10,7 @@ import neptune.features.misc.AutoReconnect;
 import neptune.features.movement.Flight;
 import neptune.features.movement.Sprint;
 import neptune.features.movement.Velocity;
+import neptune.features.player.AutoExp;
 import neptune.features.render.HandModifier;
 
 import java.util.ArrayList;

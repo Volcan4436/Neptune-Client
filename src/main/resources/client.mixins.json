@@ -10,7 +10,8 @@
     "InGameHudMixin",
     "KeyboardMixin",
     "MinecraftClientMixin",
-    "MixinClientCommonNetworkHandler"
+    "MixinClientCommonNetworkHandler",
+    "HorseScreenHandlerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
