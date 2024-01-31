@@ -10,7 +10,7 @@ import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
 
-public class Hud implements MinecraftInterface {
+/*public class Hud implements MinecraftInterface {
 
     private static int color = 0x25b5d2;
 
@@ -55,4 +55,4 @@ public class Hud implements MinecraftInterface {
             index++;
         }
     }
-}
+}*/
