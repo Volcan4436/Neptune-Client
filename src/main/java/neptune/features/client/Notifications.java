@@ -26,6 +26,7 @@ public class Notifications extends Mod {
 
     public Notifications() {
         super("Notifications", "Notifies you of certain things", Category.CLIENT);
+        addSettings(popCounter);
     }
 
     private int getChatId(Entity entity) {
