@@ -1,5 +1,6 @@
 package neptune.mixins;
 
+import neptune.features.client.HUD;
 import neptune.ui.Hud;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -15,6 +16,6 @@ public class InGameHudMixin {
 
     @Inject(method = "render", at = @At("RETURN"), cancellable = true)
     public void renderHud(DrawContext context, float tickDelta, CallbackInfo ci) {
-        Hud.render(context, tickDelta);
+        HUD.render(context, tickDelta);
     }
 }
