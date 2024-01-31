@@ -1,27 +1,29 @@
-package neptune.ui;
+package neptune.features.client;
 
 import neptune.Neptune;
 import neptune.module.Mod;
+import neptune.module.settings.BooleanSetting;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.util.math.MathHelper;
 
 import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
 
-public class Hud implements MinecraftInterface {
+public class HUD extends Mod implements MinecraftInterface {
 
     private static int color = 0x25b5d2;
+    private final BooleanSetting watermark = new BooleanSetting("Watermark", true);
+    private final BooleanSetting arraylist = new BooleanSetting("ArrayList", true);
+
+    public HUD() {
+        super("HUD", "Hud", Category.CLIENT);
+        addSettings(watermark, arraylist);
+    }
 
     public static void setColour(int colour) {
         System.out.println("Setting colour to " + colour);
         color = colour;
-    }
-
-    public static int getRainbow(float sat, float bri, double speed, int offset) {
-        double rainbowState = Math.ceil((System.currentTimeMillis() + offset) / speed) % 360;
-        return 0xff000000 | MathHelper.hsvToRgb((float) (rainbowState / 360.0), sat, bri);
     }
 
     public static void render(DrawContext context, float tickDelta) {
@@ -54,5 +56,15 @@ public class Hud implements MinecraftInterface {
             context.fill((sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 9 + (index * mc.textRenderer.fontHeight) + mc.textRenderer.fontHeight, Color.GRAY.getRGB());
             index++;
         }
+    }
+
+    @Override
+    public void onEnable() {
+
+    }
+
+    @Override
+    public void onDisable() {
+
     }
 }

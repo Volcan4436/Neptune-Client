@@ -3,8 +3,10 @@ package neptune.module;
 
 
 
+import neptune.features.client.HUD;
 import neptune.features.movement.Flight;
 import neptune.features.movement.Sprint;
+import neptune.features.movement.Velocity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,8 @@ public class ModuleManager {
     public ModuleManager() {
         modules.add(new Sprint());
         modules.add(new Flight());
+        modules.add(new Velocity());
+        modules.add(new HUD());
     }
 
     public List<Mod> getModules() {
