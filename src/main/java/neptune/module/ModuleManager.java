@@ -3,6 +3,8 @@ package neptune.module;
 
 
 
+import neptune.features.movement.Sprint;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class ModuleManager {
     private List<Mod> modules = new ArrayList<>();
 
     public ModuleManager() {
-        //modules.add(new AutoPedoHeediPedo);
+        modules.add(new Sprint());
     }
 
     public List<Mod> getModules() {

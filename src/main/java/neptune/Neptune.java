@@ -26,6 +26,7 @@ public class Neptune implements ModInitializer, MinecraftInterface {
     public void onInitialize() {
         logger.info("[NEPTUNE] Neptune Client is starting by heedi");
         logger.info("[NEPTUNE] Neptune Client by heedi has finished loading!");
+        System.out.println(getModuleManager().getModules());
     }
 
     public EventManager getEventManager() {

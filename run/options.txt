@@ -1,4 +1,4 @@
-version:3465
+version:3700
 autoJump:false
 operatorItemsTab:false
 autoSuggestions:true
@@ -21,6 +21,7 @@ toggleCrouch:false
 toggleSprint:false
 darkMojangStudiosBackground:false
 hideLightningFlashes:false
+hideSplashTexts:false
 mouseSensitivity:0.5
 fov:1.0
 screenEffectScale:1.0
@@ -30,6 +31,7 @@ glintSpeed:0.5
 glintStrength:0.75
 damageTiltStrength:0.0
 highContrast:false
+narratorHotkey:true
 gamma:1.0
 renderDistance:8
 simulationDistance:5
