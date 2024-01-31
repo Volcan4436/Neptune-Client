@@ -15,6 +15,7 @@ public class Velocity extends Mod {
 
     public Velocity() {
        super("Velocity", "No Knockback", Category.MOVEMENT);
+       addSettings(horizontal, vertical);
     }
 
     @Subscribe
