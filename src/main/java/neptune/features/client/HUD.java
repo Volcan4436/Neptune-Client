@@ -41,7 +41,7 @@ public class HUD extends Mod implements MinecraftInterface {
             int xOffset = -5;
             int yOffset = 5;
             int index = 0;
-            List<Mod> enabled = Collections.singletonList(Neptune.getInstance().getModuleManager());
+            List<Mod> enabled = Neptune.getInstance().getModuleManager().getEnabledModules();
             int sWidth = mc.getWindow().getScaledWidth();
             int sHeight = mc.getWindow().getScaledHeight();
             int lastWidth;

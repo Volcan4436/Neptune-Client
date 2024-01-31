@@ -7,6 +7,7 @@ import neptune.features.client.HUD;
 import neptune.features.combat.KeyPearlPhase;
 import neptune.features.exploit.WorldBorderCrash;
 import neptune.features.misc.AutoReconnect;
+import neptune.features.misc.NoRotate;
 import neptune.features.movement.Flight;
 import neptune.features.movement.Sprint;
 import neptune.features.movement.Velocity;
@@ -29,6 +30,8 @@ public class ModuleManager {
         modules.add(new WorldBorderCrash());
         modules.add(new AutoReconnect());
         modules.add(new HandModifier());
+        modules.add(new AutoExp());
+        modules.add(new NoRotate());
     }
 
     public List<Mod> getModules() {
