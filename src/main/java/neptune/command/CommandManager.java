@@ -9,7 +9,7 @@ public class CommandManager {
 
     public static CommandManager INSTANCE = new CommandManager();
     private final List<Command> cmds = new ArrayList<>();
-    private final String commandPrefix = ".";
+    private final String commandPrefix = "+";
 
     public CommandManager() {
         add(new Bind());
