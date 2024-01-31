@@ -111,8 +111,12 @@ public abstract class Mod implements MinecraftInterface {
 
     public enum Category {
         COMBAT("Combat"),
+        MISC("Misc"),
+        RENDER("Render"),
         MOVEMENT("Movement"),
-        RENDER("Render");
+        PLAYER("Player"),
+        EXPLOIT("Exploit"),
+        CLIENT("Client");
 
         public String name;
 
