@@ -1,10 +1,7 @@
 package neptune.features.movement;
 
-import com.google.common.eventbus.Subscribe;
-import neptune.event.EventManager;
+import meteordevelopment.orbit.EventHandler;
 import neptune.event.events.PacketEvent;
-import neptune.event.events.PacketSendEvent;
-import neptune.event.events.TickEvent;
 import neptune.module.Mod;
 import neptune.module.settings.NumberSetting;
 
@@ -18,8 +15,8 @@ public class Velocity extends Mod {
        addSettings(horizontal, vertical);
     }
 
-    @Subscribe
-    void onQ(PacketEvent.Receive per) {
+    @EventHandler
+    private void onQ(PacketEvent.Receive per) {
         if (mc.player == null) {
             return;
         }

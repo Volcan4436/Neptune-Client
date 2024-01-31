@@ -15,7 +15,7 @@ public class MixinClientCommonNetworkHandler {
     @Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
     public void send(Packet<?> packet, CallbackInfo ci) {
         PacketSendEvent event = new PacketSendEvent(packet);
-        Neptune.getInstance().getEventManager().triggerEvent(event);
+        Neptune.getInstance().EVENT_BUS.post(event);
         if(event.isCancelled()) {
             ci.cancel();
         }

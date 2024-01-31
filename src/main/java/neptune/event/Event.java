@@ -1,6 +1,8 @@
 package neptune.event;
 
-public abstract class Event {
+import meteordevelopment.orbit.ICancellable;
+
+public abstract class Event implements ICancellable {
     private boolean isCancelled;
 
     public boolean isCancelled() {

@@ -1,6 +1,6 @@
 package neptune.features.movement;
 
-import neptune.event.EventManager;
+import meteordevelopment.orbit.EventHandler;
 import neptune.event.events.TickEvent;
 import neptune.module.Mod;
 import neptune.module.settings.ModeSetting;
@@ -19,7 +19,8 @@ public class Flight extends Mod {
         addSettings(mode, speed);
     }
 
-    private final EventManager.EventListener<TickEvent> TickEventListener = e -> {
+    @EventHandler
+    private final void onTickEvent(TickEvent event) {
         if (mode.isMode("Vanilla")) {
             mc.player.getAbilities().setFlySpeed((float) this.speed.getValue());
             mc.player.getAbilities().flying = true;
@@ -27,7 +28,7 @@ public class Flight extends Mod {
         if (mode.isMode("Vulcan")) {
 
         }
-    };
+    }
 
     @Override
     public void onEnable() {

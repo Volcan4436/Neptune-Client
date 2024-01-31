@@ -46,10 +46,10 @@ public abstract class Mod implements MinecraftInterface {
     public void toggle() {
         this.enabled = !this.enabled;
         if (enabled) {
-            Neptune.getInstance().getEventManager().subscribe(this);
+            Neptune.getInstance().EVENT_BUS.subscribe(this);
             onEnable();
         } else {
-            Neptune.getInstance().getEventManager().unsubscribe(this);
+            Neptune.getInstance().EVENT_BUS.unsubscribe(this);
             onDisable();
         }
     }
@@ -96,10 +96,10 @@ public abstract class Mod implements MinecraftInterface {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
         if (enabled) {
-            Neptune.getInstance().getEventManager().subscribe(this);
+            Neptune.getInstance().EVENT_BUS.subscribe(this);
             onEnable();
         } else {
-            Neptune.getInstance().getEventManager().unsubscribe(this);
+            Neptune.getInstance().EVENT_BUS.unsubscribe(this);
             onDisable();
         }
     }

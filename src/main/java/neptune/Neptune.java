@@ -1,23 +1,26 @@
 package neptune;
 
+import meteordevelopment.orbit.EventBus;
+import meteordevelopment.orbit.IEventBus;
 import neptune.command.CommandManager;
-import neptune.event.EventManager;
 import neptune.module.ModuleManager;
 import neptune.utils.MinecraftInterface;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.invoke.MethodHandles;
+
 public class Neptune implements ModInitializer, MinecraftInterface {
 
     public static Neptune instance;
     private final Logger logger = LogManager.getLogger(Neptune.class);
-    private final EventManager eventManager;
+    public final IEventBus EVENT_BUS = new EventBus();
     private final CommandManager commandManager;
     private final ModuleManager moduleManager;
 
     public Neptune() {
-        this.eventManager = new EventManager();
+        EVENT_BUS.registerLambdaFactory("neptune", (lookupInMethod, klass) -> (MethodHandles.Lookup) lookupInMethod.invoke(null, klass, MethodHandles.lookup()));
         this.commandManager = new CommandManager();
         this.moduleManager = new ModuleManager();
     }
@@ -29,9 +32,6 @@ public class Neptune implements ModInitializer, MinecraftInterface {
         System.out.println(getModuleManager().getModules());
     }
 
-    public EventManager getEventManager() {
-        return eventManager;
-    }
 
     public ModuleManager getModuleManager() {
         return moduleManager;

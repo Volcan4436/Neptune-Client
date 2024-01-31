@@ -1,7 +1,7 @@
 package neptune.features.movement;
 
 import com.google.common.eventbus.Subscribe;
-import neptune.event.EventManager;
+import meteordevelopment.orbit.EventHandler;
 import neptune.event.events.TickEvent;
 import neptune.module.Mod;
 import neptune.module.settings.ModeSetting;
@@ -15,7 +15,8 @@ public class Sprint extends Mod {
         addSetting(mode);
     }
 
-    private final EventManager.EventListener<TickEvent> TickEventListener = e -> {
+    @EventHandler
+    private void onTickEvent(TickEvent event) {
         if (mode.isMode("Omni")){
             if (mc.options.forwardKey.isPressed()) {
                 mc.player.setSprinting(true);

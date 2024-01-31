@@ -16,6 +16,6 @@ public class MinecraftClientMixin {
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void onUpdate(CallbackInfo ci) {
-        Neptune.getInstance().getEventManager().triggerEvent(new TickEvent());
+        Neptune.getInstance().EVENT_BUS.post(new TickEvent());
     }
 }
