@@ -9,10 +9,7 @@ import neptune.features.combat.KeyPearlPhase;
 import neptune.features.exploit.WorldBorderCrash;
 import neptune.features.misc.AutoReconnect;
 import neptune.features.misc.NoRotate;
-import neptune.features.movement.Flight;
-import neptune.features.movement.Sprint;
-import neptune.features.movement.Step;
-import neptune.features.movement.Velocity;
+import neptune.features.movement.*;
 import neptune.features.player.AutoExp;
 import neptune.features.render.FullBright;
 import neptune.features.render.HandModifier;
@@ -38,6 +35,14 @@ public class ModuleManager {
         modules.add(new Notifications());
         modules.add(new Step());
         modules.add(new FullBright());
+        modules.add(new NoSlow());
+    }
+    public static double getValue() {
+        return getValue();
+    }
+
+    public static NoSlow getValue(Class<NoSlow> noSlowClass) {
+        return null;
     }
 
     public List<Mod> getModules() {
