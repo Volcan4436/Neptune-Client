@@ -4,7 +4,10 @@ import neptune.Neptune;
 import neptune.utils.MinecraftInterface;
 import neptune.module.settings.Setting;
 import net.minecraft.network.packet.Packet;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
+import java.text.Format;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,6 +48,7 @@ public abstract class Mod implements MinecraftInterface {
     }
     public void toggle() {
         this.enabled = !this.enabled;
+        mc.inGameHud.getChatHud().addMessage(Text.of("Toggled " + this.name + " " + (this.enabled ? Formatting.GREEN + "ON" : Formatting.RED + "OFF")));
         if (enabled) {
             Neptune.getInstance().EVENT_BUS.subscribe(this);
             onEnable();
