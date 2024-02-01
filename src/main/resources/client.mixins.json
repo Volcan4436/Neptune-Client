@@ -11,7 +11,9 @@
     "KeyboardMixin",
     "MinecraftClientMixin",
     "MixinClientCommonNetworkHandler",
-    "HorseScreenHandlerAccessor"
+    "HorseScreenHandlerAccessor",
+    "PlayerMoveC2SPacketAccessor",
+    "PlayerPositionLookS2CPacketAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
