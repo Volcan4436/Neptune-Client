@@ -40,8 +40,8 @@ public class ModuleManager {
         modules.add(new NoSlow());
         modules.add(new ReverseStep());
         modules.add(new Speed());
-        modules.add(new Step());
         modules.add(new Sprint());
+        modules.add(new Step());
         modules.add(new Velocity());
 
         // Player
