@@ -17,6 +17,9 @@ public class Flight extends Mod {
     public Flight() {
         super("Flight", "Lets you fly (like a god)", Category.MOVEMENT);
         addSettings(mode, speed);
+        vulcanclip.setDependency(() -> mode.getMode().equals("Vulcan"));
+        shouldClip.setDependency(() -> mode.getMode().equals("Vulcan"));
+        addSettings(vulcanclip,shouldClip);
     }
 
     @EventHandler

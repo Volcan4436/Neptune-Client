@@ -62,7 +62,7 @@ public class ModuleButton implements MinecraftInterface {
 
         if (extended) {
             for (Component component : components) {
-                component.render(context, mouseX, mouseY, delta);
+               if (component.setting.isVisible()) component.render(context, mouseX, mouseY, delta);
             }
         }
     }
