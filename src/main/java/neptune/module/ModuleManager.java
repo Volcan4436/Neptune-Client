@@ -22,21 +22,34 @@ public class ModuleManager {
     private List<Mod> modules = new ArrayList<>();
 
     public ModuleManager() {
-        modules.add(new Sprint());
-        modules.add(new Flight());
-        modules.add(new Velocity());
+        // Client
         modules.add(new HUD());
-        modules.add(new KeyPearlPhase());
-        modules.add(new WorldBorderCrash());
-        modules.add(new AutoReconnect());
-        modules.add(new HandModifier());
-        modules.add(new AutoExp());
-        modules.add(new NoRotate());
         modules.add(new Notifications());
-        modules.add(new Step());
-        modules.add(new FullBright());
-        modules.add(new NoSlow());
+
+        // Combat
+        modules.add(new KeyPearlPhase());
+
+        // Exploit
+        modules.add(new WorldBorderCrash());
+
+        // Misc
+        modules.add(new AutoReconnect());
+        modules.add(new NoRotate());
+
+        // Movement
         modules.add(new AutoWalk());
+        modules.add(new Flight());
+        modules.add(new NoSlow());
+        modules.add(new Step());
+        modules.add(new Sprint());
+        modules.add(new Velocity());
+
+        // Player
+        modules.add(new AutoExp());
+
+        // Render
+        modules.add(new HandModifier());
+        modules.add(new FullBright());
     }
     public static double getValue() {
         return getValue();
