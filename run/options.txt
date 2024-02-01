@@ -16,7 +16,7 @@ showSubtitles:false
 directionalAudio:false
 touchscreen:false
 fullscreen:false
-bobView:true
+bobView:false
 toggleCrouch:false
 toggleSprint:false
 darkMojangStudiosBackground:false
@@ -40,7 +40,7 @@ guiScale:2
 particles:2
 maxFps:260
 graphicsMode:0
-ao:true
+ao:false
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"false"

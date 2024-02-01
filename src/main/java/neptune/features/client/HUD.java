@@ -7,10 +7,13 @@ import neptune.module.Mod;
 import neptune.module.settings.BooleanSetting;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.util.Formatting;
 
 import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
+
+import static neptune.utils.PingGetter.getPing;
 
 public class HUD extends Mod implements MinecraftInterface {
 
@@ -22,7 +25,7 @@ public class HUD extends Mod implements MinecraftInterface {
 
     public HUD() {
         super("HUD", "Hud", Category.CLIENT);
-        addSettings(watermark, arraylist);
+        addSettings(watermark, arraylist, lag, pinghud);
     }
 
     public static void setColour(int colour) {
@@ -64,4 +67,12 @@ public class HUD extends Mod implements MinecraftInterface {
             }
         }
     }
+
+    public static void renderPingHud(DrawContext context) {
+        if (pinghud.isEnabled()) {
+            context.drawTextWithShadow(mc.textRenderer, "Ping " + getPing(), 50, 10, color);
+            context.fill(6 + mc.textRenderer.getWidth("Ping"), 2, 4 + mc.textRenderer.getWidth("Ping") + 1, 2 + mc.textRenderer.fontHeight, color);
+        }
+    }
+
 }
