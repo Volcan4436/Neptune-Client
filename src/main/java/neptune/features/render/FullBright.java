@@ -34,7 +34,7 @@ public class FullBright extends Mod {
     @Override
     public void onDisable() {
         if (modeSetting.isMode("Gamma")) {
-            
+
         }
     }
 }
