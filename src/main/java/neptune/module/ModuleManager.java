@@ -40,6 +40,7 @@ public class ModuleManager {
         modules.add(new AutoWalk());
         modules.add(new Flight());
         modules.add(new NoSlow());
+        modules.add(new ReverseStep());
         modules.add(new Speed());
         modules.add(new Step());
         modules.add(new Sprint());
