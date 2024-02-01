@@ -1,7 +1,7 @@
 package neptune.ui.screens.clickgui.setting;
 
-import neptune.module.settings.NumberSetting;
-import neptune.module.settings.Setting;
+import neptune.setting.NumberSetting;
+import neptune.setting.Setting;
 import neptune.ui.screens.clickgui.ModuleButton;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;

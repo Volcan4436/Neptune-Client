@@ -1,10 +1,10 @@
 package neptune.ui.screens.clickgui.setting;
 
-import neptune.module.settings.BooleanSetting;
-import neptune.module.settings.Setting;
+import neptune.setting.BooleanSetting;
+import neptune.setting.Setting;
 import neptune.ui.screens.clickgui.ModuleButton;
 import neptune.utils.MinecraftInterface;
-import net.minecraft.client.MinecraftClient;import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;
 

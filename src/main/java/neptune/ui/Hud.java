@@ -1,15 +1,5 @@
 package neptune.ui;
 
-import neptune.Neptune;
-import neptune.module.Mod;
-import neptune.utils.MinecraftInterface;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.util.math.MathHelper;
-
-import java.awt.*;
-import java.util.Comparator;
-import java.util.List;
-
 /*public class Hud implements MinecraftInterface {
 
     private static int color = 0x25b5d2;

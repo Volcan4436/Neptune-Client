@@ -1,13 +1,11 @@
-package neptune.features.client;
+package neptune.module.client;
 
 import neptune.Neptune;
-import neptune.event.events.TickRate;
-import neptune.features.Feature;
+import neptune.Feature;
 import neptune.module.Mod;
-import neptune.module.settings.BooleanSetting;
+import neptune.setting.BooleanSetting;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.util.Formatting;
 
 import java.awt.*;
 import java.util.Comparator;

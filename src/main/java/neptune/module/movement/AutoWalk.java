@@ -1,4 +1,4 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
 import meteordevelopment.orbit.EventHandler;
 import neptune.event.events.EventKeyboardInput;

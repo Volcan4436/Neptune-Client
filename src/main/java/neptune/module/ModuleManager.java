@@ -1,18 +1,16 @@
 package neptune.module;
 
 
-
-
-import neptune.features.client.HUD;
-import neptune.features.client.Notifications;
-import neptune.features.combat.KeyPearlPhase;
-import neptune.features.exploit.WorldBorderCrash;
-import neptune.features.misc.AutoReconnect;
-import neptune.features.misc.NoRotate;
-import neptune.features.movement.*;
-import neptune.features.player.AutoExp;
-import neptune.features.render.FullBright;
-import neptune.features.render.HandModifier;
+import neptune.module.client.HUD;
+import neptune.module.client.Notifications;
+import neptune.module.combat.KeyPearlPhase;
+import neptune.module.exploit.WorldBorderCrash;
+import neptune.module.misc.AutoReconnect;
+import neptune.module.misc.NoRotate;
+import neptune.module.movement.*;
+import neptune.module.player.AutoExp;
+import neptune.module.render.FullBright;
+import neptune.module.render.HandModifier;
 
 import java.util.ArrayList;
 import java.util.List;

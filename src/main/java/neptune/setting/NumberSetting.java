@@ -1,4 +1,4 @@
-package neptune.module.settings;
+package neptune.setting;
 
 public class NumberSetting extends Setting {
 

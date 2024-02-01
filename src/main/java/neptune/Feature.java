@@ -1,4 +1,4 @@
-package neptune.features;
+package neptune;
 
 import neptune.Neptune;
 import neptune.utils.MinecraftInterface;

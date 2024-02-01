@@ -2,12 +2,11 @@ package neptune.module;
 
 import neptune.Neptune;
 import neptune.utils.MinecraftInterface;
-import neptune.module.settings.Setting;
+import neptune.setting.Setting;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-import java.text.Format;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

@@ -1,6 +1,6 @@
 package neptune.mixins;
 
-import neptune.features.render.FullBright;
+import neptune.module.render.FullBright;
 import net.minecraft.client.render.LightmapTextureManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

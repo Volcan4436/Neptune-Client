@@ -1,8 +1,8 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
 import neptune.module.Mod;
-import neptune.module.settings.ModeSetting;
-import neptune.module.settings.NumberSetting;
+import neptune.setting.ModeSetting;
+import neptune.setting.NumberSetting;
 
 public class Step extends Mod {
 

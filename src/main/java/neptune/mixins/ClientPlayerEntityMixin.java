@@ -1,6 +1,6 @@
 package neptune.mixins;
 
-import neptune.features.movement.NoSlow;
+import neptune.module.movement.NoSlow;
 import neptune.module.ModuleManager;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

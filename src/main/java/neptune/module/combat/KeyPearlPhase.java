@@ -1,7 +1,7 @@
-package neptune.features.combat;
+package neptune.module.combat;
 
 import neptune.module.Mod;
-import neptune.module.settings.ModeSetting;
+import neptune.setting.ModeSetting;
 
 public class KeyPearlPhase extends Mod {
 

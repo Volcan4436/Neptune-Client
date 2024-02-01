@@ -1,4 +1,4 @@
-package neptune.features.render;
+package neptune.module.render;
 
 import neptune.module.Mod;
 

@@ -1,14 +1,8 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
-import meteordevelopment.orbit.EventHandler;
-import neptune.Neptune;
-import neptune.event.events.EventMove;
 import neptune.module.Mod;
-import neptune.module.settings.BooleanSetting;
-import neptune.module.settings.ModeSetting;
-import net.minecraft.entity.effect.StatusEffects;
-
-import java.util.Objects;
+import neptune.setting.BooleanSetting;
+import neptune.setting.ModeSetting;
 
 public class Speed extends Mod {
     private final ModeSetting mode = new ModeSetting("Mode", "NCP", "NCP", "StrictStrafe");

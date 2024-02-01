@@ -1,9 +1,9 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
 import meteordevelopment.orbit.EventHandler;
 import neptune.event.events.PacketEvent;
 import neptune.module.Mod;
-import neptune.module.settings.NumberSetting;
+import neptune.setting.NumberSetting;
 
 public class Velocity extends Mod {
 

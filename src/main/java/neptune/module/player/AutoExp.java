@@ -1,4 +1,4 @@
-package neptune.features.player;
+package neptune.module.player;
 
 import neptune.module.Mod;
 

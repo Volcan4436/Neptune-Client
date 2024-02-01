@@ -1,4 +1,4 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
 import meteordevelopment.orbit.EventHandler;
 import neptune.event.events.PacketEvent;
@@ -6,9 +6,9 @@ import neptune.event.events.PlayerMoveEvent;
 import neptune.event.events.TickEvent;
 import neptune.mixins.PlayerMoveC2SPacketAccessor;
 import neptune.module.Mod;
-import neptune.module.settings.BooleanSetting;
-import neptune.module.settings.ModeSetting;
-import neptune.module.settings.NumberSetting;
+import neptune.setting.BooleanSetting;
+import neptune.setting.ModeSetting;
+import neptune.setting.NumberSetting;
 import neptune.utils.player.MoveHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;

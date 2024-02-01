@@ -1,4 +1,4 @@
-package neptune.features.misc;
+package neptune.module.misc;
 
 import com.google.common.eventbus.Subscribe;
 import neptune.event.events.PacketEvent;

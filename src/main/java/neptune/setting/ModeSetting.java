@@ -1,4 +1,4 @@
-package neptune.module.settings;
+package neptune.setting;
 
 import java.util.Arrays;
 import java.util.List;

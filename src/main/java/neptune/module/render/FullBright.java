@@ -1,11 +1,8 @@
-package neptune.features.render;
+package neptune.module.render;
 
-import neptune.mixins.ISimpleOption;
 import neptune.module.Mod;
-import neptune.module.settings.ModeSetting;
-import neptune.module.settings.NumberSetting;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
+import neptune.setting.ModeSetting;
+import neptune.setting.NumberSetting;
 
 public class FullBright extends Mod {
 

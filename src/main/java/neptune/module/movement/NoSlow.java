@@ -1,7 +1,7 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
 import neptune.module.Mod;
-import neptune.module.settings.BooleanSetting;
+import neptune.setting.BooleanSetting;
 
 public class NoSlow extends Mod {
 

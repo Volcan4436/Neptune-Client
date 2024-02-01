@@ -1,4 +1,4 @@
-package neptune.features.client;
+package neptune.module.client;
 
 import com.google.common.eventbus.Subscribe;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
@@ -6,7 +6,7 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import neptune.event.events.GameJoinedEvent;
 import neptune.event.events.PacketEvent;
 import neptune.module.Mod;
-import neptune.module.settings.BooleanSetting;
+import neptune.setting.BooleanSetting;
 import neptune.utils.player.ChatUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;

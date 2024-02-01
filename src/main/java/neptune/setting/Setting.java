@@ -1,4 +1,4 @@
-package neptune.module.settings;
+package neptune.setting;
 
 public class Setting {
     private VisibilityDependency dependency = null;

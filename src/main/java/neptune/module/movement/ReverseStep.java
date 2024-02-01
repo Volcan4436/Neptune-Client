@@ -1,14 +1,8 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
-import meteordevelopment.orbit.EventHandler;
-import neptune.Neptune;
-import neptune.event.events.TickEvent;
 import neptune.module.Mod;
-import neptune.module.settings.BooleanSetting;
-import neptune.module.settings.ModeSetting;
-import neptune.module.settings.NumberSetting;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
+import neptune.setting.BooleanSetting;
+import neptune.setting.NumberSetting;
 
 import java.util.Objects;
 

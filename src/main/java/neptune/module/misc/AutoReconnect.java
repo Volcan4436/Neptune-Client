@@ -1,11 +1,11 @@
-package neptune.features.misc;
+package neptune.module.misc;
 
 import com.google.common.eventbus.Subscribe;
 import it.unimi.dsi.fastutil.Pair;
 import it.unimi.dsi.fastutil.objects.ObjectObjectImmutablePair;
 import neptune.event.events.ServerConnectBeginEvent;
 import neptune.module.Mod;
-import neptune.module.settings.NumberSetting;
+import neptune.setting.NumberSetting;
 import net.minecraft.client.network.ServerAddress;
 import net.minecraft.client.network.ServerInfo;
 

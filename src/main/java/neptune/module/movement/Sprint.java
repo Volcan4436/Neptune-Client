@@ -1,10 +1,10 @@
-package neptune.features.movement;
+package neptune.module.movement;
 
 import com.google.common.eventbus.Subscribe;
 import meteordevelopment.orbit.EventHandler;
 import neptune.event.events.TickEvent;
 import neptune.module.Mod;
-import neptune.module.settings.ModeSetting;
+import neptune.setting.ModeSetting;
 
 public class Sprint extends Mod {
 
