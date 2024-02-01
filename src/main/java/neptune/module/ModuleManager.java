@@ -35,7 +35,7 @@ public class ModuleManager {
         modules.add(new Notifications());
         modules.add(new Step());
         modules.add(new FullBright());
-        modules.add(new NoSlow()); //
+        modules.add(new NoSlow()); 
     }
     public static double getValue() {
         return getValue();
