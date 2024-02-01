@@ -18,6 +18,7 @@ public class Neptune implements ModInitializer, MinecraftInterface {
     public final IEventBus EVENT_BUS = new EventBus();
     private final CommandManager commandManager;
     private final ModuleManager moduleManager;
+    public static float tickTimer = 1f;
 
     public Neptune() {
         EVENT_BUS.registerLambdaFactory("neptune", (lookupInMethod, klass) -> (MethodHandles.Lookup) lookupInMethod.invoke(null, klass, MethodHandles.lookup()));
