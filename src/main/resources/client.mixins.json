@@ -13,7 +13,9 @@
     "MixinClientCommonNetworkHandler",
     "HorseScreenHandlerAccessor",
     "PlayerMoveC2SPacketAccessor",
-    "PlayerPositionLookS2CPacketAccessor"
+    "PlayerPositionLookS2CPacketAccessor",
+    "StatusEffectInstanceAccessor",
+    "MixinLightmapTextureManager"
   ],
   "injectors": {
     "defaultRequire": 1
