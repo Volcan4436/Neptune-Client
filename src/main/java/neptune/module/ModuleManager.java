@@ -14,6 +14,7 @@ import neptune.features.movement.Sprint;
 import neptune.features.movement.Step;
 import neptune.features.movement.Velocity;
 import neptune.features.player.AutoExp;
+import neptune.features.render.FullBright;
 import neptune.features.render.HandModifier;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class ModuleManager {
         modules.add(new NoRotate());
         modules.add(new Notifications());
         modules.add(new Step());
+        modules.add(new FullBright());
     }
 
     public List<Mod> getModules() {
