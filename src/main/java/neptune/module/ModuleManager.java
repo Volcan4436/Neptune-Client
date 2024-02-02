@@ -4,6 +4,7 @@ package neptune.module;
 import neptune.module.client.HUD;
 import neptune.module.client.Notifications;
 import neptune.module.combat.KeyPearlPhase;
+import neptune.module.exploit.NoMiningTrace;
 import neptune.module.exploit.WorldBorderCrash;
 import neptune.module.misc.AutoReconnect;
 import neptune.module.misc.NoRotate;
@@ -28,6 +29,7 @@ public class ModuleManager {
         modules.add(new KeyPearlPhase());
 
         // Exploit
+        modules.add(new NoMiningTrace());
         modules.add(new WorldBorderCrash());
 
         // Misc
