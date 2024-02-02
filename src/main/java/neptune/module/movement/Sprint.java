@@ -8,7 +8,7 @@ import neptune.setting.ModeSetting;
 
 public class Sprint extends Mod {
 
-    private final ModeSetting mode = new ModeSetting("Mode", "Vanilla", "Vanilla", "Rage", "Omni");
+    private final ModeSetting mode = new ModeSetting("Mode", "Smart", "Smart", "Stationary", "Omni");
 
     public Sprint() {
         super("Sprint", "Automatically lets you sprint.", Category.MOVEMENT);
@@ -17,23 +17,18 @@ public class Sprint extends Mod {
 
     @EventHandler
     private void onTickEvent(TickEvent event) {
-        if (mode.isMode("Omni")){
-            if (mc.options.forwardKey.isPressed()) {
-                mc.player.setSprinting(true);
-            }
-            if (mc.options.rightKey.isPressed()) {
-                mc.player.setSprinting(true);
-            }
-            if (mc.options.leftKey.isPressed()) {
-                mc.player.setSprinting(true);
-            }
-            if (mc.options.backKey.isPressed()) {
+        if (mode.isMode("Omni")) {
+            if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) {
                 mc.player.setSprinting(true);
             }
         }
-
-        if (mode.isMode("Rage")){
+        else if (mode.isMode("Stationary")) {
             mc.player.setSprinting(true);
+        }
+        else if (mode.isMode("Smart")) {
+            if (mc.player.forwardSpeed != 0) {
+                mc.player.setSprinting(true);
+            }
         }
     };
 
