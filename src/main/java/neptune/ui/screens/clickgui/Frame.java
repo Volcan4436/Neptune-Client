@@ -1,5 +1,6 @@
 package neptune.ui.screens.clickgui;
 
+import me.x150.renderer.render.Renderer2d;
 import neptune.Neptune;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
@@ -43,26 +44,30 @@ public class Frame implements MinecraftInterface {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.fill(x - 1, y - 1, x+ width + 1, y + height + 1, new Color(136,96,168).getRGB());
+       if (!extended) {
+           Renderer2d.renderRoundedOutline(context.getMatrices(),new Color(201, 0, 71),x, y, x+ width, y + height, 0,2,8);
+       } else {
+           Renderer2d.renderRoundedOutline(context.getMatrices(),new Color(201, 0, 71),x, y, x+ width, y + height - 2, 0,2,8);
+       }
         context.fill(x, y, x + width, y + height, new Color(82,113,255,255).getRGB());
         int offset = + ((height - mc.textRenderer.fontHeight) / 2);
-        context.drawTextWithShadow(mc.textRenderer, category.name, x + 2, y + 2, -1);
-        context.drawTextWithShadow(mc.textRenderer, extended ? "[-]" : "[+]", x + width - 2 - mc.textRenderer.getWidth("[+]"), y + 2, -2);
+        context.drawTextWithShadow(mc.textRenderer, category.name, x + 2, y + 3, -1);
+        context.drawTextWithShadow(mc.textRenderer, extended ? "[-]" : "[+]", x + width - 2 - mc.textRenderer.getWidth("[+]"), y + 3, -2);
 
         if (extended) {
             for (ModuleButton button : buttons) {
                 button.render(context, mouseX, mouseY, delta);
             }
-            context.fill(x - 1, y + height + buttons.size() * 15, x + width + 1, y + height + 1 + buttons.size() * 15, new Color(136,96,168).getRGB());
+            Renderer2d.renderRoundedOutline(context.getMatrices(),new Color(201, 0, 71),x, y, x + width, y + height + buttons.size() * 15,0,2,8);
         }
     }
-
     public void mouseClicked(double mouseX, double mouseY, int button) {
         if (isHovered(mouseX, mouseY)) {
             if (button == 0) {
                 dragging = true;
                 dragX = (int) (mouseX - x);
                 dragY = (int) (mouseY - y);
+
             }
             else if (button == 1) {
                 extended = !extended;
