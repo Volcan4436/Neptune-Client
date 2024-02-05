@@ -9,7 +9,7 @@ import neptune.module.Mod;
 import neptune.setting.BooleanSetting;
 import neptune.setting.ModeSetting;
 import neptune.setting.NumberSetting;
-import neptune.utils.player.MoveHelper;
+import neptune.utils.player.movement.MoveHelper;
 import net.minecraft.block.Blocks;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 

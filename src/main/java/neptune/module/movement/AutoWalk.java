@@ -11,8 +11,12 @@ public class AutoWalk extends Mod {
     }
 
     @EventHandler
-    public void handleKeyboardInput(EventKeyboardInput event) {
-        assert mc.player != null;
-        mc.player.input.movementForward = 1.0f;
+    public void onEnable() {
+        mc.options.forwardKey.setPressed(true);
+    }
+
+    @EventHandler
+    public void onDisable() {
+        mc.options.forwardKey.setPressed(false);
     }
 }

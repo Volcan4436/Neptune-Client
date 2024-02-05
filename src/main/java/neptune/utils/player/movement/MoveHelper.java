@@ -1,4 +1,4 @@
-package neptune.utils.player;
+package neptune.utils.player.movement;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
