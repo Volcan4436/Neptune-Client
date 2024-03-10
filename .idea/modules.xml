@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects.Neptune-Development.main.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects.Neptune-Development.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects.Neptune-Development.test.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects.Neptune-Development.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Neptune-Development.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Neptune-Development.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Neptune-Development.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Neptune-Development.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/neptune.client.Neptune-Development.main.iml" filepath="$PROJECT_DIR$/.idea/modules/neptune.client.Neptune-Development.main.iml" />
