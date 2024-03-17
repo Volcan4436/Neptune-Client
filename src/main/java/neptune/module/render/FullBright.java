@@ -15,7 +15,6 @@ public class FullBright extends Mod {
     public FullBright() {
         super("FullBright", "Makes dark things lighter!!", Category.RENDER);
         addSetting(modeSetting);
-        minimumLightLevelSetting.setDependency(() -> modeSetting.getMode().equals("Gamma"));
         addSetting(minimumLightLevelSetting);
         Instance = this;
     }

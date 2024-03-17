@@ -16,7 +16,8 @@ public class Sprint extends Mod {
     }
 
     @EventHandler
-    private void onTickEvent(TickEvent event) {
+    private void onTick(TickEvent event) {
+        if (mc.world == null) return;
         if (mode.isMode("Omni")) {
             if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) {
                 mc.player.setSprinting(true);

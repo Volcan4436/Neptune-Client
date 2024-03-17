@@ -5,16 +5,18 @@ import neptune.Feature;
 import neptune.module.Mod;
 import neptune.setting.BooleanSetting;
 import neptune.utils.MinecraftInterface;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 
 import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
 
+import static neptune.utils.MinecraftInterface.mc;
 import static neptune.utils.PingGetter.getPing;
 
 public class HUD extends Mod implements MinecraftInterface {
-
+    protected static MinecraftClient mc = MinecraftClient.getInstance();
     private static int color = 0x25b5d2;
     private static final BooleanSetting watermark = new BooleanSetting("Watermark", true);
     private static final BooleanSetting arraylist = new BooleanSetting("ArrayList", true);

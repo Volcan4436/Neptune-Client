@@ -3,6 +3,8 @@ package neptune;
 import meteordevelopment.orbit.EventBus;
 import meteordevelopment.orbit.IEventBus;
 import neptune.command.CommandManager;
+import neptune.event.events.TickEvent;
+import neptune.module.Mod;
 import neptune.module.ModuleManager;
 import neptune.utils.MinecraftInterface;
 import net.fabricmc.api.ModInitializer;
@@ -12,6 +14,8 @@ import org.apache.logging.log4j.Logger;
 import java.lang.invoke.MethodHandles;
 
 public class Neptune implements ModInitializer, MinecraftInterface {
+
+    public static final Neptune INSTANCE = new Neptune();
 
     public static Neptune instance;
     private final Logger logger = LogManager.getLogger(Neptune.class);
@@ -31,6 +35,14 @@ public class Neptune implements ModInitializer, MinecraftInterface {
         logger.info("[NEPTUNE] Neptune Client is starting by heedi");
         logger.info("[NEPTUNE] Neptune Client by heedi has finished loading!");
         System.out.println(getModuleManager().getModules());
+    }
+
+    public void onTick() {
+        if (mc.player != null) {
+            for (Mod module : ModuleManager.INSTANCE.getEnabledModules()) {
+                module.onTick();
+            }
+        }
     }
 
 

@@ -2,6 +2,7 @@ package neptune.mixins;
 
 import neptune.Neptune;
 import neptune.event.events.TickEvent;
+import neptune.module.Mod;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,5 +18,10 @@ public class MinecraftClientMixin {
     @Inject(method = "tick", at = @At("HEAD"))
     public void onUpdate(CallbackInfo ci) {
         Neptune.getInstance().EVENT_BUS.post(new TickEvent());
+    }
+
+    @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
+    public void onTick(CallbackInfo ci) {
+        Neptune.INSTANCE.onTick();
     }
 }

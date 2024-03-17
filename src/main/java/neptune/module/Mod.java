@@ -1,8 +1,10 @@
 package neptune.module;
 
 import neptune.Neptune;
+import neptune.event.events.TickEvent;
 import neptune.utils.MinecraftInterface;
 import neptune.setting.Setting;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -12,8 +14,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public abstract class Mod implements MinecraftInterface {
+public abstract class Mod {
 
+    protected static MinecraftClient mc = MinecraftClient.getInstance();
     private String name;
     protected static final Random random = ThreadLocalRandom.current();
     private String displayName;
@@ -30,13 +33,16 @@ public abstract class Mod implements MinecraftInterface {
         this.description = description;
         this.Category = category;
     }
-
     public boolean nullCheck() {
         return mc.world == null || mc.player == null;
     }
     public List<Setting> getSettings() {
         return settings;
     }
+
+    public void onTick() {
+    }
+
 
     public void addSetting(Setting setting) {
         settings.add(setting);

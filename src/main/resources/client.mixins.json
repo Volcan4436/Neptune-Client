@@ -15,6 +15,7 @@
     "PlayerMoveC2SPacketAccessor",
     "PlayerPositionLookS2CPacketAccessor",
     "StatusEffectInstanceAccessor",
+    "TitleScreenMixin",
     "MixinLightmapTextureManager"
   ],
   "injectors": {

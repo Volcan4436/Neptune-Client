@@ -3,62 +3,43 @@ package neptune.module;
 
 import neptune.module.client.HUD;
 import neptune.module.client.Notifications;
-import neptune.module.combat.KeyPearlPhase;
-import neptune.module.exploit.NoMiningTrace;
-import neptune.module.exploit.WorldBorderCrash;
-import neptune.module.misc.AutoReconnect;
-import neptune.module.misc.NoRotate;
+import neptune.module.combat.Wtap;
 import neptune.module.movement.*;
-import neptune.module.player.AutoExp;
 import neptune.module.render.FullBright;
-import neptune.module.render.HandModifier;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModuleManager {
 
+    public static final ModuleManager INSTANCE = new ModuleManager();
     private List<Mod> modules = new ArrayList<>();
 
     public ModuleManager() {
+
         // Client
         modules.add(new HUD());
         modules.add(new Notifications());
 
         // Combat
-        modules.add(new KeyPearlPhase());
+        modules.add(new Wtap());
 
         // Exploit
-        modules.add(new NoMiningTrace());
-        modules.add(new WorldBorderCrash());
 
         // Misc
-        modules.add(new AutoReconnect());
-        modules.add(new NoRotate());
 
         // Movement
         modules.add(new AutoWalk());
-        modules.add(new Flight());
-        modules.add(new NoSlow());
-        modules.add(new ReverseStep());
         modules.add(new Speed());
         modules.add(new Sprint());
-        modules.add(new Step());
         modules.add(new Velocity());
 
-        // Player
-        modules.add(new AutoExp());
-
         // Render
-        modules.add(new HandModifier());
         modules.add(new FullBright());
     }
+
     public static double getValue() {
         return getValue();
-    }
-
-    public static NoSlow getValue(Class<NoSlow> noSlowClass) {
-        return null;
     }
 
     public List<Mod> getModules() {
