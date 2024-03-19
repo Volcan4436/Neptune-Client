@@ -35,8 +35,8 @@ public class HUD extends Mod implements MinecraftInterface {
 
     public static void render(DrawContext context, float tickDelta) {
         if (watermark.isEnabled()) {
-            context.drawTextWithShadow(mc.textRenderer, "Neptune " + Feature.VERSION, 4, 2, color);
-            context.fill(6 + mc.textRenderer.getWidth("Neptune"), 2, 4 + mc.textRenderer.getWidth("Neptune") + 1, 2 + mc.textRenderer.fontHeight, color);
+            context.drawTextWithShadow(mc.textRenderer, "Chronos " + Feature.VERSION, 4, 2, color);
+            context.fill(6 + mc.textRenderer.getWidth("Chronos"), 2, 4 + mc.textRenderer.getWidth("Chronos") + 1, 2 + mc.textRenderer.fontHeight, color);
         }
         renderArrayList(context);
     }
