@@ -7,7 +7,7 @@ import neptune.event.events.GameJoinedEvent;
 import neptune.event.events.PacketEvent;
 import neptune.module.Mod;
 import neptune.setting.BooleanSetting;
-import neptune.utils.player.ChatUtils;
+import neptune.utils.ChatUtils2;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.EntityStatusS2CPacket;
@@ -64,7 +64,7 @@ public class Notifications extends Mod {
                 int pops = totemPopMap.getOrDefault(player.getUuid(), 0);
                 totemPopMap.put(player.getUuid(), ++pops);
 
-                ChatUtils.sendMsg(getChatId(entity), Formatting.YELLOW, "(highlight)%s(default) popped (highlight)%d(default) %s.", player.getName(), pops, pops == 1 ? "totem" : "totems");
+                ChatUtils2.sendMsg(getChatId(entity), Formatting.YELLOW, "(highlight)%s(default) popped (highlight)%d(default) %s.", player.getName(), pops, pops == 1 ? "totem" : "totems");
             }
         }
     }

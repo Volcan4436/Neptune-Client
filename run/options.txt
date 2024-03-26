@@ -37,14 +37,14 @@ renderDistance:8
 simulationDistance:5
 entityDistanceScaling:1.0
 guiScale:2
-particles:2
+particles:0
 maxFps:260
 graphicsMode:0
 ao:false
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"false"
-resourcePacks:["fabric"]
+resourcePacks:["vanilla","fabric"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us

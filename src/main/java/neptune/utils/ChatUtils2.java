@@ -1,14 +1,13 @@
-package neptune.utils.player;
+package neptune.utils;
 
 import neptune.mixins.mixininterface.IChatHud;
 import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
 import static neptune.utils.MinecraftInterface.mc;
 
-public class ChatUtils {
+public class ChatUtils2 {
     // Default
     public static void info(String message, Object... args) {
         sendMsg(Formatting.GRAY, message, args);

@@ -8,7 +8,6 @@ import static neptune.utils.MinecraftInterface.mc;
 
 public class MoveUtil {
 
-
     private static double speed = 1.0; // Replace with your desired speed value
 
     public static void strafe() {

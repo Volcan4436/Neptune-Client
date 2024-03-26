@@ -30,7 +30,6 @@ public class Velocity extends Mod {
                 return;
             }
             if (!DamageBoostUtil.isBoosting()) {
-                assert mc.player != null;
                 VelX = mc.player.getVelocity().getX();
                 VelY = mc.player.getVelocity().getY();
                 VelZ = mc.player.getVelocity().getZ();

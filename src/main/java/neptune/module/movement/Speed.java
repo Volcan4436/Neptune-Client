@@ -9,7 +9,7 @@ import neptune.setting.NumberSetting;
 import neptune.utils.player.movement.MoveUtil;
 
 public class Speed extends Mod {
-    private final ModeSetting mode = new ModeSetting("Mode", "Strafe", "Strafe", "NCP", "Dev");
+    private final ModeSetting mode = new ModeSetting("Mode", "Strafe", "Strafe", "Volcanware", "NCP", "Dev");
     //private final NumberSetting speed = new NumberSetting("Speed", 1, 10, 3, 0.1);
 
     int groundTicks = 0;
@@ -36,6 +36,22 @@ public class Speed extends Mod {
             }
             if (ticks >= 1 && mc.player.isOnGround()) {
                 MoveUtil.strafe();
+            }
+            if (ticks >= 3) {
+                ticks = 0;
+            }
+        }
+        if (mode.isMode("Volcanware")) {
+            mc.options.jumpKey.setPressed(false);
+            if (mc.player.isOnGround()) {
+                mc.player.jump();
+                ticks++;
+            }
+            if (ticks >= 1 && mc.player.isOnGround()) {
+                MoveUtil.strafe();
+            }
+            if (!mc.player.isOnGround()) {
+                mc.player.setVelocity(mc.player.getVelocity().x, mc.player.getVelocity().y - 0.0034, mc.player.getVelocity().z);
             }
             if (ticks >= 3) {
                 ticks = 0;

@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 public class Feature implements ModInitializer, MinecraftInterface {
 
     public static final String NAME = "Neptune";
-    public static final String VERSION = "1.0.0 - Dev";
+    public static final String VERSION = "b0.1.1 - Release";
     private final Logger logger = LogManager.getLogger(Neptune.class);
 
     @Override

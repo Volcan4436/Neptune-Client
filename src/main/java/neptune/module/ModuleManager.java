@@ -3,6 +3,7 @@ package neptune.module;
 
 import neptune.module.client.HUD;
 import neptune.module.client.Notifications;
+import neptune.module.combat.Critical;
 import neptune.module.combat.Wtap;
 import neptune.module.movement.*;
 import neptune.module.render.FullBright;
@@ -23,6 +24,7 @@ public class ModuleManager {
 
         // Combat
         modules.add(new Wtap());
+        modules.add(new Critical());
 
         // Exploit
 
@@ -30,6 +32,7 @@ public class ModuleManager {
 
         // Movement
         modules.add(new AutoWalk());
+        modules.add(new ElytraFly());
         modules.add(new Speed());
         modules.add(new Sprint());
         modules.add(new Velocity());

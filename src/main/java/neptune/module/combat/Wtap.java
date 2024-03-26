@@ -12,6 +12,8 @@ public class Wtap extends Mod {
         super("WTap", "Helps Knockback Players", Category.MOVEMENT);
     }
 
+    //todo
+    // add Packet Mode
     @EventHandler
     public void onTick(TickEvent event) {
         if (mc.world == null) return;

@@ -1,7 +1,8 @@
 package neptune.utils.player.movement;
 
 import static neptune.utils.MinecraftInterface.mc;
-
+//todo
+// Implement Vertical Boosting without airstrafe
 public class DamageBoostUtil {
 
     private static double BoostType1Speed = 0.7;
