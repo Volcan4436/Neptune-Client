@@ -37,6 +37,8 @@ public class ModuleManager {
         modules.add(new Sprint());
         modules.add(new Velocity());
 
+        // Player
+
         // Render
         modules.add(new FullBright());
     }
