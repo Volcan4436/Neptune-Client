@@ -7,6 +7,14 @@ import neptune.setting.ModeSetting;
 
 public class Critical extends Mod {
 
+    //todo
+    // add modes:
+    // - Packet
+    // - Silent Jump
+    // - Silent MiniJump
+    // - NCP
+    // - Matrix
+    // - Float
     private final ModeSetting mode = new ModeSetting("Mode", "Jump", "Jump", "MiniJump", "Dev");
 
     public Critical() {

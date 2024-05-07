@@ -4,7 +4,9 @@ package neptune.module;
 import neptune.module.client.HUD;
 import neptune.module.client.Notifications;
 import neptune.module.combat.Critical;
+import neptune.module.combat.TriggerBot;
 import neptune.module.combat.Wtap;
+import neptune.module.exploit.BoatModifier;
 import neptune.module.movement.*;
 import neptune.module.render.FullBright;
 
@@ -25,8 +27,10 @@ public class ModuleManager {
         // Combat
         modules.add(new Wtap());
         modules.add(new Critical());
+        modules.add(new TriggerBot());
 
         // Exploit
+        modules.add(new BoatModifier());
 
         // Misc
 

@@ -10,6 +10,12 @@ import neptune.utils.player.movement.DamageBoostUtil;
 
 public class Velocity extends Mod {
     //mode
+    //todo
+    // add modes:
+    // - Matrix
+    // - Blink
+    // - NCP+ (Alternative Bypass)
+    // - GroundSnap (Snap to the Ground without modifying velocity)
     private final ModeSetting mode = new ModeSetting("Mode", "MultiServer", "MultiServer", "NCP", "Dev");
 
     public Velocity() {

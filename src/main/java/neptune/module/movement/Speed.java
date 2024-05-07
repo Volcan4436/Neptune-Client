@@ -9,23 +9,38 @@ import neptune.setting.NumberSetting;
 import neptune.utils.player.movement.MoveUtil;
 
 public class Speed extends Mod {
-    private final ModeSetting mode = new ModeSetting("Mode", "Strafe", "Strafe", "Volcanware", "NCP", "Dev");
-    //private final NumberSetting speed = new NumberSetting("Speed", 1, 10, 3, 0.1);
-
-    int groundTicks = 0;
     int ticks = 0;
+    int groundTicks = 0;
     int airTicks = 0;
+    int fallTicks = 0;
+    double distanceMoved;
+    double fallDistance;
+    boolean isGrounded;
+
+
+    //todo
+    // add modes:
+    // - Matrix
+    // - Legit (Look-Abuse (Abuses Yaw and Pitch), Ping Abuse (Creates Variation in Ping in sync with Movement to allow increased Velo Values), Collision Snap (Snaps Yaw and Pitch away from Collision))
+    // - Burst (Slowly Build up Velocity when Standing Still then release it in a burst on move)
+    // - Float (Float above ground then use velocity to speed hack)
+    private final ModeSetting mode = new ModeSetting("Mode", "Strafe", "Strafe", "Strafe-Jump", "NCP", "Dev");
     public Speed() {
         super("Speed", "Automatically speeds you up.", Category.MOVEMENT);
         addSetting(mode);
-        //speed.setDependency(() -> mode.getMode().equals("Vanilla"));
-        //addSetting(speed);
     }
 
     @EventHandler
     public void onTick(TickEvent event) {
-        if (mc.world == null) return;
+        if (mc.world == null) return; //World Change Crash Fix
         if (mode.isMode("Strafe")) {
+            MoveUtil.strafe();
+        }
+        if (mode.isMode("Strafe-Jump")) {
+            mc.options.jumpKey.setPressed(false);
+            if(mc.player.isOnGround() && MoveUtil.isMoving()) {
+                mc.player.jump();
+            }
             MoveUtil.strafe();
         }
         if (mode.isMode("NCP")) {
@@ -41,21 +56,8 @@ public class Speed extends Mod {
                 ticks = 0;
             }
         }
-        if (mode.isMode("Volcanware")) {
-            mc.options.jumpKey.setPressed(false);
-            if (mc.player.isOnGround()) {
-                mc.player.jump();
-                ticks++;
-            }
-            if (ticks >= 1 && mc.player.isOnGround()) {
-                MoveUtil.strafe();
-            }
-            if (!mc.player.isOnGround()) {
-                mc.player.setVelocity(mc.player.getVelocity().x, mc.player.getVelocity().y - 0.0034, mc.player.getVelocity().z);
-            }
-            if (ticks >= 3) {
-                ticks = 0;
-            }
+        if (mode.isMode("Dev")) {
+            //for creating new modes
         }
     }
 }

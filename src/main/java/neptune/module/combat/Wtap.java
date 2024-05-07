@@ -14,6 +14,7 @@ public class Wtap extends Mod {
 
     //todo
     // add Packet Mode
+    // add Silent Sprint
     @EventHandler
     public void onTick(TickEvent event) {
         if (mc.world == null) return;

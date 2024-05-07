@@ -1,5 +1,6 @@
 package neptune.mixins;
 
+import neptune.Feature;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
@@ -29,7 +30,7 @@ public class TitleScreenMixin extends Screen {
         String space = " ";
         int spaceLength = textRenderer.getWidth(space);
 
-        context.drawTextWithShadow(mc.textRenderer, "Neptune Client", 4, (int) y, 0x5271ff);
+        context.drawTextWithShadow(mc.textRenderer, "Neptune Client " + Feature.VERSION, 4, (int) y, 0x5271ff);
         context.drawTextWithShadow(mc.textRenderer, "by The Volcanware Team", 4, (int) y + 8, Color.white.getRGB());
     }
 /*    @Inject(at = @At("RETURN"), method = "initWidgetsNormal")
