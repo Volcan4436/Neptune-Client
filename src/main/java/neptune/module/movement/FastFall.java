@@ -16,6 +16,7 @@ public class FastFall extends Mod {
 
     @EventHandler
     public void onTick(TickEvent event) {
+        if (mc.world == null) return; if (mc.player == null) return;
         if (mode.isMode("Matrix")) {
             if (mc.player.fallDistance > 0.8) {
                 mc.player.setVelocity(0, -0.54, 0);

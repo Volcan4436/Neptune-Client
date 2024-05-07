@@ -17,7 +17,7 @@ public class Sprint extends Mod {
 
     @EventHandler
     private void onTick(TickEvent event) {
-        if (mc.world == null) return;
+        if (mc.world == null) return; if (mc.player == null) return;
         if (mode.isMode("Omni") && mc.player.getHungerManager().getFoodLevel() > 6) {
             if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) {
                 mc.player.setSprinting(true);

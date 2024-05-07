@@ -21,6 +21,7 @@ public class FullBright extends Mod {
 
     @Override
     public void onEnable() {
+        if (mc.world == null) return; if (mc.player == null) return;
         if (modeSetting.isMode("Gamma")) {
             //mc.player.addStatusEffect(new StatusEffectInstance(StatusEffect.byRawId(16), 5200, 1));
 
@@ -29,6 +30,7 @@ public class FullBright extends Mod {
 
     @Override
     public void onDisable() {
+        if (mc.world == null) return; if (mc.player == null) return;
         if (modeSetting.isMode("Gamma")) {
 
         }

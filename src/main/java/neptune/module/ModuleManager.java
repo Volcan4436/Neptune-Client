@@ -40,6 +40,7 @@ public class ModuleManager {
         modules.add(new Speed());
         modules.add(new Sprint());
         modules.add(new Velocity());
+        modules.add(new JetPack());
 
         // Player
 

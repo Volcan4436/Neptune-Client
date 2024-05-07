@@ -17,7 +17,7 @@ public class Wtap extends Mod {
     // add Silent Sprint
     @EventHandler
     public void onTick(TickEvent event) {
-        if (mc.world == null) return;
+        if (mc.world == null) return; if (mc.player == null) return;
         if (mc.player.handSwinging) {
             ticks++;
         }

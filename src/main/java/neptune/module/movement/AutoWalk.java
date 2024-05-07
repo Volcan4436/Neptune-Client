@@ -12,11 +12,13 @@ public class AutoWalk extends Mod {
 
     @EventHandler
     public void onEnable() {
+        if (mc.world == null) return; if (mc.player == null) return;
         mc.options.forwardKey.setPressed(true);
     }
 
     @EventHandler
     public void onDisable() {
+        if (mc.world == null) return; if (mc.player == null) return;
         mc.options.forwardKey.setPressed(false);
     }
 }

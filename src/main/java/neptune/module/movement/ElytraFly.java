@@ -41,6 +41,7 @@ public class ElytraFly extends Mod {
 
     @EventHandler
     public void onTick(TickEvent event) {
+        if (mc.world == null) return; if (mc.player == null) return;
         if (Mode.isMode("Vanilla")) {
             if (mc.player.isFallFlying()) {
                 boolean moveForward = mc.options.forwardKey.isPressed();
@@ -118,7 +119,6 @@ public class ElytraFly extends Mod {
             }
         }
         if (Mode.isMode("Matrix")) {
-            assert mc.player != null;
             if (!mc.player.isFallFlying() && mc.player.isOnGround()) {
                 mc.player.jump();
             }
@@ -182,7 +182,7 @@ public class ElytraFly extends Mod {
 
     @Override
     public void onDisable() {
-        assert mc.player != null;
+        if (mc.world == null) return; if (mc.player == null) return;
         mc.player.setNoGravity(false);
     }
 }

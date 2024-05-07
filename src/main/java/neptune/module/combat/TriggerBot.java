@@ -44,10 +44,10 @@ public class TriggerBot extends Mod {
 
     @EventHandler
     public void onTick(TickEvent event) {
-        delay++; //This is the Tick Delay for the Attack Timing
         target = null; //makes it not crash, why, i don't fucking know
         target = mc.targetedEntity;
-        if (target == null) return;
+        if (mc.world == null) return; if (mc.player == null) return; if (target == null) return;
+        delay++; //This is the Tick Delay for the Attack Timing
         if (mc.targetedEntity.isPlayer()) {
             if (!AutoDelay.isEnabled()) {
                 if (Click.isEnabled() && mc.options.attackKey.isPressed() && delay >= delaySetting.getValue()) {
@@ -89,6 +89,7 @@ public class TriggerBot extends Mod {
 
     //Call this if you want to autoBlock
     public void autoBlock() {
+        if (mc.world == null) return; if (mc.player == null) return;
         if (autoBlock.isEnabled() && mc.player.getOffHandStack().getItem() == Items.SHIELD) {
             if (blockMode.isMode("Simple")) {
                 if (mc.player.handSwingProgress == 1 || mc.player.handSwingProgress == 2 || mc.player.handSwingProgress == 3) {

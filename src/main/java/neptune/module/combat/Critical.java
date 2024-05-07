@@ -26,16 +26,18 @@ public class Critical extends Mod {
     public void onTick(TickEvent event) {
         if (mode.isMode("Jump")) {
             if (mc.player.isOnGround() && mc.player.handSwinging) {
+                mc.options.jumpKey.setPressed(false);
                 mc.player.jump();
             }
         }
         else if (mode.isMode("MiniJump")) {
             if (mc.player.isOnGround() && mc.player.handSwinging) {
+                mc.options.jumpKey.setPressed(false);
                 mc.player.setVelocity(mc.player.getVelocity().x, 0.2, mc.player.getVelocity().z);
             }
         }
         else if (mode.isMode("Dev")) {
-            return;
+            // used for testing
         }
     }
 }

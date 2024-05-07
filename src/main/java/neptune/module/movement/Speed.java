@@ -32,7 +32,7 @@ public class Speed extends Mod {
 
     @EventHandler
     public void onTick(TickEvent event) {
-        if (mc.world == null) return; //World Change Crash Fix
+        if (mc.world == null) return; if (mc.player == null) return;
         if (mode.isMode("Strafe")) {
             MoveUtil.strafe();
         }

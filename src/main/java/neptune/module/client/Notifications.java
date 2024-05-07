@@ -51,6 +51,7 @@ public class Notifications extends Mod {
 
     @Subscribe
     private void onReceivePacket(PacketEvent.Receive packetEvent) {
+        if (mc.world == null) return; if (mc.player == null) return;
         if (popCounter.isEnabled()) {
             if (!(packetEvent.packet instanceof EntityStatusS2CPacket packet)) return;
 
