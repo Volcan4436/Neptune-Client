@@ -1,17 +1,17 @@
-[19:17:34] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.4 with Fabric Loader 0.15.11
-[19:17:35] [main/DEBUG] (FabricLoader/GamePatch) Found game constructor: net.minecraft.client.main.Main -> net.minecraft.client.MinecraftClient
-[19:17:35] [main/DEBUG] (FabricLoader/GamePatch) Patching game constructor <init>(Lnet/minecraft/client/RunArgs;)V
-[19:17:35] [main/DEBUG] (FabricLoader/GamePatch) Run directory field is thought to be net/minecraft/client/MinecraftClient/runDirectory
-[19:17:35] [main/DEBUG] (FabricLoader/GamePatch) Applying brand name hook to net/minecraft/client/ClientBrandRetriever::getClientModName
-[19:17:35] [main/DEBUG] (FabricLoader/GamePatch) Applying brand name hook to net/minecraft/server/MinecraftServer::getServerModName
-[19:17:35] [main/DEBUG] (FabricLoader/Mappings) Loading mappings took 98 ms
-[19:17:35] [main/DEBUG] (FabricLoader/GamePatch) Patched 3 classs
-[19:17:35] [main/DEBUG] (FabricLoader/Discovery) Mod discovery time: 93.1 ms
-[19:17:35] [main/WARN] (FabricLoader/Resolution) Mod resolution failed
-[19:17:35] [main/INFO] (FabricLoader/Resolution) Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED fabric-api 0.97.6+1.20.5 {depends minecraft @ [>=1.20.5- <1.20.6-]}, ROOT_FORCELOAD_SINGLE fabric-api 0.97.6+1.20.5]
-[19:17:35] [main/INFO] (FabricLoader/Resolution) Reason: [HARD_DEP fabric-api 0.97.6+1.20.5 {depends minecraft @ [>=1.20.5- <1.20.6-]}, HARD_DEP fabric-convention-tags-v2 2.0.0+2b43c5c80d {depends minecraft @ [>=1.20.5-beta.1]}, HARD_DEP renderer 1.1 {depends minecraft @ [>=1.20.5]}]
-[19:17:35] [main/INFO] (FabricLoader/Resolution) Fix: add [], remove [], replace [[minecraft 1.20.4] -> add:minecraft 1.20.5 ([[1.20.5,1.20.6-)])]
-[19:17:35] [main/ERROR] (FabricLoader) Incompatible mods found!
+[19:19:35] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.4 with Fabric Loader 0.15.11
+[19:19:35] [main/DEBUG] (FabricLoader/GamePatch) Found game constructor: net.minecraft.client.main.Main -> net.minecraft.client.MinecraftClient
+[19:19:35] [main/DEBUG] (FabricLoader/GamePatch) Patching game constructor <init>(Lnet/minecraft/client/RunArgs;)V
+[19:19:35] [main/DEBUG] (FabricLoader/GamePatch) Run directory field is thought to be net/minecraft/client/MinecraftClient/runDirectory
+[19:19:35] [main/DEBUG] (FabricLoader/GamePatch) Applying brand name hook to net/minecraft/client/ClientBrandRetriever::getClientModName
+[19:19:35] [main/DEBUG] (FabricLoader/GamePatch) Applying brand name hook to net/minecraft/server/MinecraftServer::getServerModName
+[19:19:35] [main/DEBUG] (FabricLoader/Mappings) Loading mappings took 88 ms
+[19:19:35] [main/DEBUG] (FabricLoader/GamePatch) Patched 3 classs
+[19:19:35] [main/DEBUG] (FabricLoader/Discovery) Mod discovery time: 90.8 ms
+[19:19:35] [main/WARN] (FabricLoader/Resolution) Mod resolution failed
+[19:19:35] [main/INFO] (FabricLoader/Resolution) Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED fabric-api 0.97.6+1.20.5 {depends minecraft @ [>=1.20.5- <1.20.6-]}, ROOT_FORCELOAD_SINGLE fabric-api 0.97.6+1.20.5]
+[19:19:35] [main/INFO] (FabricLoader/Resolution) Reason: [HARD_DEP fabric-api 0.97.6+1.20.5 {depends minecraft @ [>=1.20.5- <1.20.6-]}, HARD_DEP fabric-convention-tags-v2 2.0.0+2b43c5c80d {depends minecraft @ [>=1.20.5-beta.1]}, HARD_DEP renderer 1.1 {depends minecraft @ [>=1.20.5]}]
+[19:19:35] [main/INFO] (FabricLoader/Resolution) Fix: add [], remove [], replace [[minecraft 1.20.4] -> add:minecraft 1.20.5 ([[1.20.5,1.20.6-)])]
+[19:19:35] [main/ERROR] (FabricLoader) Incompatible mods found!
 net.fabricmc.loader.impl.FormattedException: Some of your mods are incompatible with the game or each other!
 A potential solution has been determined, this may resolve your problem:
 	 - Replace 'Minecraft' (minecraft) 1.20.4 with any version between 1.20.5 (inclusive) and 1.20.6- (exclusive).
