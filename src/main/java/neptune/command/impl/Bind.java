@@ -62,6 +62,18 @@ public class Bind extends Command {
         KEY_MAP.put("f10", GLFW.GLFW_KEY_F10);
         KEY_MAP.put("f11", GLFW.GLFW_KEY_F11);
         KEY_MAP.put("f12", GLFW.GLFW_KEY_F12);
+        KEY_MAP.put("f13", GLFW.GLFW_KEY_F13);
+        KEY_MAP.put("f14", GLFW.GLFW_KEY_F14);
+        KEY_MAP.put("f15", GLFW.GLFW_KEY_F15);
+        KEY_MAP.put("f16", GLFW.GLFW_KEY_F16);
+        KEY_MAP.put("f17", GLFW.GLFW_KEY_F17);
+        KEY_MAP.put("f18", GLFW.GLFW_KEY_F18);
+        KEY_MAP.put("f19", GLFW.GLFW_KEY_F19);
+        KEY_MAP.put("f20", GLFW.GLFW_KEY_F20);
+        KEY_MAP.put("f21", GLFW.GLFW_KEY_F21);
+        KEY_MAP.put("f22", GLFW.GLFW_KEY_F22);
+        KEY_MAP.put("f23", GLFW.GLFW_KEY_F23);
+        KEY_MAP.put("f24", GLFW.GLFW_KEY_F24);
         KEY_MAP.put("tab", GLFW.GLFW_KEY_TAB);
         KEY_MAP.put("capslock", GLFW.GLFW_KEY_CAPS_LOCK);
         KEY_MAP.put("leftshift", GLFW.GLFW_KEY_LEFT_SHIFT);
@@ -100,6 +112,7 @@ public class Bind extends Command {
         KEY_MAP.put("numpadsubtract", GLFW.GLFW_KEY_KP_SUBTRACT);
         KEY_MAP.put("numpadmultiply", GLFW.GLFW_KEY_KP_MULTIPLY);
         KEY_MAP.put("numpaddivide", GLFW.GLFW_KEY_KP_DIVIDE);
+        KEY_MAP.put("grave", GLFW.GLFW_KEY_GRAVE_ACCENT);
     }
 
     public Bind() {
@@ -108,8 +121,8 @@ public class Bind extends Command {
 
     @Override
     public void onCmd(String message, String[] args) {
-        if (args.length < 3) {
-            ChatUtils.addChatMessage("Not enough arguments.");
+        if (args.length != 3) {
+            ChatUtils.addChatMessage("Incorrect arguments. Example: .bind fly g");
             return;
         }
 

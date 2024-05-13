@@ -1,6 +1,7 @@
 package neptune.command;
 
 import neptune.command.impl.Bind;
+import neptune.command.impl.Help;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +9,12 @@ import java.util.List;
 public class CommandManager {
 
     public static CommandManager INSTANCE = new CommandManager();
-    private final List<Command> cmds = new ArrayList<>();
+    public final List<Command> cmds = new ArrayList<>();
     private final String commandPrefix = "+";
 
     public CommandManager() {
         add(new Bind());
+        add(new Help());
     }
 
     public void add(Command command) {

@@ -1,6 +1,7 @@
 package neptune.mixins;
 
 import neptune.Neptune;
+import neptune.utils.ChatUtils;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,13 +24,19 @@ public abstract class ClientPlayNetworkHandlerMixin {
         String[] args = CMD.toString().split(" ");
 
         if (msg.startsWith(Neptune.getInstance().getCommandManager().getCommandPrefix())) {
+            boolean valid = false;
             for (Command command : CommandManager.INSTANCE.getCmds()) {
                 if (args[0].equalsIgnoreCase(command.getName())) {
                     command.onCmd(msg, args);
                     ci.cancel();
+                    valid = true;
                     break;
                 }
             }
+            if (!valid) {
+                ChatUtils.addChatMessage("Unrecognised command, use " + Neptune.getInstance().getCommandManager().getCommandPrefix() + "help to see all commands.");
+            }
+            ci.cancel();
         }
     }
 }
