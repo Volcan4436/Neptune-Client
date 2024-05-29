@@ -3,249 +3,129 @@ package neptune.utils;
 public class KeyUtils {
 
     public static String getKey(int i) {
-        switch (i) {
-            case 48:
-                return "0";
-            case 49:
-                return "1";
-            case 50:
-                return "2";
-            case 51:
-                return "3";
-            case 52:
-                return "4";
-            case 53:
-                return "5";
-            case 54:
-                return "6";
-            case 55:
-                return "7";
-            case 56:
-                return "8";
-            case 57:
-                return "9";
-            case 65:
-                return "A";
-            case 66:
-                return "B";
-            case 67:
-                return "C";
-            case 68:
-                return "D";
-            case 69:
-                return "E";
-            case 70:
-                return "F";
-            case 71:
-                return "G";
-            case 72:
-                return "H";
-            case 73:
-                return "I";
-            case 74:
-                return "J";
-            case 75:
-                return "K";
-            case 76:
-                return "L";
-            case 77:
-                return "M";
-            case 78:
-                return "N";
-            case 79:
-                return "O";
-            case 80:
-                return "P";
-            case 81:
-                return "Q";
-            case 82:
-                return "R";
-            case 83:
-                return "S";
-            case 84:
-                return "T";
-            case 85:
-                return "U";
-            case 86:
-                return "V";
-            case 87:
-                return "W";
-            case 88:
-                return "X";
-            case 89:
-                return "Y";
-            case 90:
-                return "Z";
-            case 290:
-                return "F1";
-            case 291:
-                return "F2";
-            case 292:
-                return "F3";
-            case 293:
-                return "F4";
-            case 294:
-                return "F5";
-            case 295:
-                return "F6";
-            case 296:
-                return "F7";
-            case 297:
-                return "F8";
-            case 298:
-                return "F9";
-            case 299:
-                return "F10";
-            case 300:
-                return "F11";
-            case 301:
-                return "F12";
-            case 302:
-                return "F13";
-            case 303:
-                return "F14";
-            case 304:
-                return "F15";
-            case 305:
-                return "F16";
-            case 306:
-                return "F17";
-            case 307:
-                return "F18";
-            case 308:
-                return "F19";
-            case 309:
-                return "F20";
-            case 310:
-                return "F21";
-            case 311:
-                return "F22";
-            case 312:
-                return "F23";
-            case 313:
-                return "F24";
-            case 314:
-                return "F25";
-            case 320:
-                return "N 0";
-            case 321:
-                return "N 1";
-            case 322:
-                return "N 2";
-            case 323:
-                return "N 3";
-            case 324:
-                return "N 4";
-            case 325:
-                return "N 5";
-            case 326:
-                return "N 6";
-            case 327:
-                return "N 7";
-            case 328:
-                return "N 8";
-            case 329:
-                return "N 9";
-            case 330:
-                return "N .";
-            case 331:
-                return "N /";
-            case 332:
-                return "N *";
-            case 333:
-                return "N -";
-            case 334:
-                return "N +";
-            case 335:
-                return "N ENTR";
-            case 336:
-                return "N =";
-            case 340:
-                return "L SHIFT";
-            case 341:
-                return "L CTRL";
-            case 342:
-                return "L ALT";
-            case 343:
-                return "WIN L";
-            case 344:
-                return "R SHIFT";
-            case 345:
-                return "R CTRL";
-            case 346:
-                return "R ALT";
-            case 347:
-                return "WIN R";
-            case 348:
-                return "MENU";
-            case 32:
-                return "SPACE";
-            case 39:
-                return " '";
-            case 44:
-                return " ,";
-            case 45:
-                return " -";
-            case 46:
-                return " .";
-            case 47:
-                return " /";
-            case 59:
-                return " ;";
-            case 61:
-                return " =";
-            case 91:
-                return " {";
-            case 92:
-                return " \\";
-            case 93:
-                return " }";
-            case 96:
-                return " `";
-            case 161:
-                return "WORLD 1";
-            case 162:
-                return "WORLD 2";
-            case 256:
-                return "ESCAPE";
-            case 257:
-                return "ENTER";
-            case 258:
-                return "TAB";
-            case 260:
-                return "INS";
-            case 261:
-                return "DEL";
-            case 262:
-                return "RIGHT";
-            case 263:
-                return "LEFT";
-            case 264:
-                return "DOWN";
-            case 265:
-                return "UP";
-            case 266:
-                return "P UP";
-            case 267:
-                return "P DOWN";
-            case 268:
-                return "HOME";
-            case 269:
-                return "END";
-            case 280:
-                return "C LOCK";
-            case 281:
-                return "S LOCK";
-            case 282:
-                return "N LOCK";
-            case 283:
-                return "PRT SCN";
-            case 284:
-                return "PAUSE";
-            case 0:
-                return "None";
-        }
-        return "NaN";
+        return switch (i) {
+            case 48 -> "0";
+            case 49 -> "1";
+            case 50 -> "2";
+            case 51 -> "3";
+            case 52 -> "4";
+            case 53 -> "5";
+            case 54 -> "6";
+            case 55 -> "7";
+            case 56 -> "8";
+            case 57 -> "9";
+            case 65 -> "A";
+            case 66 -> "B";
+            case 67 -> "C";
+            case 68 -> "D";
+            case 69 -> "E";
+            case 70 -> "F";
+            case 71 -> "G";
+            case 72 -> "H";
+            case 73 -> "I";
+            case 74 -> "J";
+            case 75 -> "K";
+            case 76 -> "L";
+            case 77 -> "M";
+            case 78 -> "N";
+            case 79 -> "O";
+            case 80 -> "P";
+            case 81 -> "Q";
+            case 82 -> "R";
+            case 83 -> "S";
+            case 84 -> "T";
+            case 85 -> "U";
+            case 86 -> "V";
+            case 87 -> "W";
+            case 88 -> "X";
+            case 89 -> "Y";
+            case 90 -> "Z";
+            case 290 -> "F1";
+            case 291 -> "F2";
+            case 292 -> "F3";
+            case 293 -> "F4";
+            case 294 -> "F5";
+            case 295 -> "F6";
+            case 296 -> "F7";
+            case 297 -> "F8";
+            case 298 -> "F9";
+            case 299 -> "F10";
+            case 300 -> "F11";
+            case 301 -> "F12";
+            case 302 -> "F13";
+            case 303 -> "F14";
+            case 304 -> "F15";
+            case 305 -> "F16";
+            case 306 -> "F17";
+            case 307 -> "F18";
+            case 308 -> "F19";
+            case 309 -> "F20";
+            case 310 -> "F21";
+            case 311 -> "F22";
+            case 312 -> "F23";
+            case 313 -> "F24";
+            case 314 -> "F25";
+            case 320 -> "N 0";
+            case 321 -> "N 1";
+            case 322 -> "N 2";
+            case 323 -> "N 3";
+            case 324 -> "N 4";
+            case 325 -> "N 5";
+            case 326 -> "N 6";
+            case 327 -> "N 7";
+            case 328 -> "N 8";
+            case 329 -> "N 9";
+            case 330 -> "N .";
+            case 331 -> "N /";
+            case 332 -> "N *";
+            case 333 -> "N -";
+            case 334 -> "N +";
+            case 335 -> "N ENTR";
+            case 336 -> "N =";
+            case 340 -> "L SHIFT";
+            case 341 -> "L CTRL";
+            case 342 -> "L ALT";
+            case 343 -> "WIN L";
+            case 344 -> "R SHIFT";
+            case 345 -> "R CTRL";
+            case 346 -> "R ALT";
+            case 347 -> "WIN R";
+            case 348 -> "MENU";
+            case 32 -> "SPACE";
+            case 39 -> " '";
+            case 44 -> " ,";
+            case 45 -> " -";
+            case 46 -> " .";
+            case 47 -> " /";
+            case 59 -> " ;";
+            case 61 -> " =";
+            case 91 -> " {";
+            case 92 -> " \\";
+            case 93 -> " }";
+            case 96 -> " `";
+            case 161 -> "WORLD 1";
+            case 162 -> "WORLD 2";
+            case 256 -> "ESCAPE";
+            case 257 -> "ENTER";
+            case 258 -> "TAB";
+            case 260 -> "INS";
+            case 261 -> "DEL";
+            case 262 -> "RIGHT";
+            case 263 -> "LEFT";
+            case 264 -> "DOWN";
+            case 265 -> "UP";
+            case 266 -> "P UP";
+            case 267 -> "P DOWN";
+            case 268 -> "HOME";
+            case 269 -> "END";
+            case 280 -> "C LOCK";
+            case 281 -> "S LOCK";
+            case 282 -> "N LOCK";
+            case 283 -> "PRT SCN";
+            case 284 -> "PAUSE";
+            case 0 -> "None";
+            default -> "NaN";
+        };
     }
 }
 

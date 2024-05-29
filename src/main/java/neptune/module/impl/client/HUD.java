@@ -1,0 +1,78 @@
+package neptune.module.impl.client;
+
+import neptune.Neptune;
+import neptune.Feature;
+import neptune.module.api.Mod;
+import neptune.module.api.Category;
+import neptune.setting.BooleanSetting;
+import neptune.utils.MinecraftInterface;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
+
+import java.awt.*;
+import java.util.Comparator;
+import java.util.List;
+
+import static neptune.utils.NetworkUtils.getPing;
+
+public class HUD extends Mod implements MinecraftInterface {
+    protected static MinecraftClient mc = MinecraftClient.getInstance();
+    private static int color = 0x25b5d2;
+    private static final BooleanSetting watermark = new BooleanSetting("Watermark", true);
+    private static final BooleanSetting arraylist = new BooleanSetting("ArrayList", true);
+    private static final BooleanSetting lag = new BooleanSetting("Lag Notifier", false);
+    private static final BooleanSetting pinghud = new BooleanSetting("Ping", true);
+
+    public HUD() {
+        super("HUD", "Hud", Category.RENDER);
+        addSettings(watermark, arraylist, lag, pinghud);
+    }
+
+    public static void setColour(int colour) {
+        System.out.println("Setting colour to " + colour);
+        color = colour;
+    }
+
+    public static void render(DrawContext context, float tickDelta) {
+        if (watermark.isEnabled()) {
+            context.drawTextWithShadow(mc.textRenderer, "Neptune " + Feature.VERSION, 4, 2, color);
+            context.fill(6 + mc.textRenderer.getWidth("Neptune"), 2, 4 + mc.textRenderer.getWidth("Neptune") + 1, 2 + mc.textRenderer.fontHeight, color);
+        }
+        renderArrayList(context);
+    }
+
+    public static void renderArrayList(DrawContext context) {
+        if (arraylist.isEnabled()) {
+            int xOffset = -5;
+            int yOffset = 5;
+            int index = 0;
+            List<Mod> enabled = Neptune.getInstance().getModuleManager().getEnabledModules();
+            int sWidth = mc.getWindow().getScaledWidth();
+            int sHeight = mc.getWindow().getScaledHeight();
+            int lastWidth;
+            int fHeight = mc.textRenderer.fontHeight;
+            int fromY = (fHeight - 1) * (index) + 1;
+            int toX = sWidth - 2;
+            int toY = (fHeight - 1) * (index) + fHeight;
+            enabled.sort(Comparator.comparingInt(m -> (int) mc.textRenderer.getWidth(((Mod) m).getDisplayName())).reversed());
+
+            for (Mod mod : enabled) {
+                context.fill((sWidth + 100) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 10 + (index * mc.textRenderer.fontHeight - 1) + mc.textRenderer.fontHeight, 0x80000000);
+                context.fill((sWidth + 100) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 10 + (index * mc.textRenderer.fontHeight) + mc.textRenderer.fontHeight, 1);
+
+                context.drawTextWithShadow(mc.textRenderer, mod.getDisplayName(), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()), 10 + (index * mc.textRenderer.fontHeight), color);
+
+                context.fill((sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 1, 9 + (index * mc.textRenderer.fontHeight), (sWidth - 4) - mc.textRenderer.getWidth(mod.getDisplayName()) - 2, 9 + (index * mc.textRenderer.fontHeight) + mc.textRenderer.fontHeight, Color.GRAY.getRGB());
+                index++;
+            }
+        }
+    }
+
+    public static void renderPingHud(DrawContext context) {
+        if (pinghud.isEnabled()) {
+            context.drawTextWithShadow(mc.textRenderer, "Ping " + getPing(), 50, 10, color);
+            context.fill(6 + mc.textRenderer.getWidth("Ping"), 2, 4 + mc.textRenderer.getWidth("Ping") + 1, 2 + mc.textRenderer.fontHeight, color);
+        }
+    }
+
+}

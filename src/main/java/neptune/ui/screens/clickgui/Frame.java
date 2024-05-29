@@ -1,10 +1,11 @@
 package neptune.ui.screens.clickgui;
 
 import neptune.Neptune;
+import neptune.module.api.Category;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.math.MathHelper;
-import neptune.module.Mod;
+import neptune.module.api.Mod;
 import neptune.ui.screens.clickgui.setting.Component;
 
 import java.awt.*;
@@ -14,7 +15,7 @@ import java.util.List;
 public class Frame implements MinecraftInterface {
 
     public int x, y, width, height, dragX, dragY;
-    public Mod.Category category;
+    public Category category;
     public boolean dragging, extended;
 
     private final List<ModuleButton> buttons;
@@ -24,7 +25,7 @@ public class Frame implements MinecraftInterface {
         return 0xff000000 | MathHelper.hsvToRgb((float) (rainbowState / 360.0), sat, bri);
     }
 
-    public Frame(Mod.Category category, int x, int y, int width, int height) {
+    public Frame(Category category, int x, int y, int width, int height) {
         this.category = category;
         this.x = x;
         this.y = y;
@@ -48,7 +49,7 @@ public class Frame implements MinecraftInterface {
 */
         context.fill(x, y, x + width, y + height, new Color(82,113,255,255).getRGB());
         int offset = + ((height - mc.textRenderer.fontHeight) / 2);
-        context.drawTextWithShadow(mc.textRenderer, category.name, x + 2, y + 2, -1);
+        context.drawTextWithShadow(mc.textRenderer, category.getName(), x + 2, y + 2, -1);
         context.drawTextWithShadow(mc.textRenderer, extended ? "[-]" : "[+]", x + width - 2 - mc.textRenderer.getWidth("[+]"), y + 2, -2);
 
         if (extended) {

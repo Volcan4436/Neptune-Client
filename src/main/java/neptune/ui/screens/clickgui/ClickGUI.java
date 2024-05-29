@@ -1,6 +1,6 @@
 package neptune.ui.screens.clickgui;
 
-import neptune.module.Mod;
+import neptune.module.api.Category;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
@@ -16,7 +16,7 @@ public class ClickGUI extends Screen {
 
         frames = new ArrayList<>();
         int x = 20;
-        for (Mod.Category category : Mod.Category.values()) {
+        for (Category category : Category.values()) {
             frames.add(new Frame(category, x, 30, 100, 15));
             x += 120;
         }

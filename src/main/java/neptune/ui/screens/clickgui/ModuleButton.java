@@ -3,7 +3,7 @@ package neptune.ui.screens.clickgui;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.math.MathHelper;
-import neptune.module.Mod;
+import neptune.module.api.Mod;
 import neptune.setting.BooleanSetting;
 import neptune.setting.ModeSetting;
 import neptune.setting.NumberSetting;

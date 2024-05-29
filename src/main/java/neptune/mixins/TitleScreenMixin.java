@@ -22,17 +22,14 @@ public class TitleScreenMixin extends Screen {
         super(title);
     }
 
-
     @Inject(method = "render", at = @At("TAIL"))
     private void onRender(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo info) {
-        float y = 2;
-        float y2 = y + textRenderer.fontHeight + y;
-        String space = " ";
-        int spaceLength = textRenderer.getWidth(space);
+        int y = 2;
 
-        context.drawTextWithShadow(mc.textRenderer, "Neptune Client " + Feature.VERSION, 4, (int) y, 0x5271ff);
-        context.drawTextWithShadow(mc.textRenderer, "by The Volcanware Team", 4, (int) y + 8, Color.white.getRGB());
+        context.drawTextWithShadow(mc.textRenderer, "Neptune Client " + Feature.VERSION, 4, y, 0x5271ff);
+        context.drawTextWithShadow(mc.textRenderer, "by The Volcanware Team", 4, y + 8, Color.white.getRGB());
     }
+
 /*    @Inject(at = @At("RETURN"), method = "initWidgetsNormal")
     private void addModsButton(int y, int spacingY, CallbackInfo ci) {
         this.addDrawableChild(ButtonWidget.builder(Text.translatable("bleed.clickgui"), (button) -> {

@@ -25,7 +25,7 @@ public abstract class ClientPlayNetworkHandlerMixin {
 
         if (msg.startsWith(Neptune.getInstance().getCommandManager().getCommandPrefix())) {
             boolean valid = false;
-            for (Command command : CommandManager.INSTANCE.getCmds()) {
+            for (Command command : Neptune.getInstance().getCommandManager().getCmds()) {
                 if (args[0].equalsIgnoreCase(command.getName())) {
                     command.onCmd(msg, args);
                     ci.cancel();

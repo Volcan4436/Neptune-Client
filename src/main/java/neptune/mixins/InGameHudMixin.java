@@ -1,6 +1,6 @@
 package neptune.mixins;
 
-import neptune.module.client.HUD;
+import neptune.module.impl.client.HUD;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import org.spongepowered.asm.mixin.Mixin;

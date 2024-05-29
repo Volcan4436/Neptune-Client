@@ -1,7 +1,7 @@
 package neptune.mixins;
 
 import neptune.Neptune;
-import neptune.module.Mod;
+import neptune.module.api.Mod;
 import neptune.ui.screens.clickgui.ClickGUI;
 import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//Do Not touch this or anything in the Events folder potatoman
+// Do Not touch this or anything in the Events folder potatoman
 // Just did what you going to do abt -L4J >:)
 @Mixin(Keyboard.class)
 public class KeyboardMixin {

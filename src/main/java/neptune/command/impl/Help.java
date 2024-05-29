@@ -1,5 +1,6 @@
 package neptune.command.impl;
 
+import neptune.Neptune;
 import neptune.command.Command;
 import neptune.utils.ChatUtils;
 import neptune.command.CommandManager;
@@ -16,7 +17,7 @@ public class Help extends Command {
         StringBuilder HelpMsg = new StringBuilder("Available commands: \n");
 
         // Iterate over the cmds list from the CommandManager singleton instance
-        for (Command cmd : CommandManager.INSTANCE.getCmds()) {
+        for (Command cmd : Neptune.getInstance().getCommandManager().getCmds()) {
             // Append each command's name to HelpMsg
             HelpMsg.append(cmd.getName()).append("\n");
         }

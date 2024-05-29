@@ -4,6 +4,7 @@ public class NumberSetting extends Setting {
 
     private double min, max, increment;
     private double value;
+
     public NumberSetting(String name, double min, double max, double defaultValue, double increment) {
         super(name);
         this.min = min;
@@ -11,6 +12,7 @@ public class NumberSetting extends Setting {
         this.value = defaultValue;
         this.increment = increment;
     }
+
     public static double clamp(double value, double min, double max) {
         value = Math.max(min, value);
         value = Math.min(max, value);
@@ -20,11 +22,13 @@ public class NumberSetting extends Setting {
     public double getValue() {
         return value;
     }
+
     public float getValuefloat() {
-        return (float)value;
+        return (float) value;
     }
+
     public int getValueInt() {
-        return (int)value;
+        return (int) value;
     }
 
     public double getIncrement() {
@@ -38,8 +42,10 @@ public class NumberSetting extends Setting {
     }
 
     public void increment(boolean positive) {
-        if (positive) setValue(getValue() + getIncrement());
-        else setValue(getValue() - getIncrement());
+        if (positive)
+            setValue(getValue() + getIncrement());
+        else
+            setValue(getValue() - getIncrement());
     }
 
     public double getMin() {

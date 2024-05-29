@@ -1,7 +1,7 @@
 package neptune.event.events;
 
 import com.google.common.eventbus.Subscribe;
-import neptune.utils.Clamp;
+import neptune.utils.math.Clamp;
 import net.minecraft.network.packet.s2c.play.WorldTimeUpdateS2CPacket;
 
 import java.util.Arrays;

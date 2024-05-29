@@ -2,7 +2,7 @@ package neptune.setting;
 
 public class Setting {
 
-    private String name;
+    private final String name;
     private boolean visible = true;
 
     public Setting(String name) {

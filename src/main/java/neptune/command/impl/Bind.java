@@ -2,7 +2,7 @@ package neptune.command.impl;
 
 import neptune.Neptune;
 import org.lwjgl.glfw.GLFW;
-import neptune.module.Mod;
+import neptune.module.api.Mod;
 import neptune.command.Command;
 import neptune.utils.ChatUtils;
 import neptune.utils.KeyUtils;

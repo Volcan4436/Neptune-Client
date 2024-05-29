@@ -8,7 +8,6 @@ import java.util.List;
 
 public class CommandManager {
 
-    public static CommandManager INSTANCE = new CommandManager();
     public final List<Command> cmds = new ArrayList<>();
     private final String commandPrefix = "+";
 

@@ -1,6 +1,5 @@
 package neptune;
 
-import neptune.Neptune;
 import neptune.utils.MinecraftInterface;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
@@ -14,6 +13,6 @@ public class Feature implements ModInitializer, MinecraftInterface {
 
     @Override
     public void onInitialize() {
-        logger.info("[NEPTUNE] Features have been initialized successfully.");
+        logger.info("Features have been initialized successfully.");
     }
 }

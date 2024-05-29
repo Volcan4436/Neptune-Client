@@ -2,15 +2,14 @@ package neptune.mixins;
 
 import neptune.Neptune;
 import neptune.event.events.TickEvent;
-import neptune.module.Mod;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//Do Not touch this or anything in the Events folder potatoman
-//Touched it what u going to do abt it >:) -L4J
+// Do Not touch this or anything in the Events folder potatoman
+// Touched it what u going to do abt it >:) -L4J
 // woah buddy
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {

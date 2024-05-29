@@ -15,11 +15,13 @@ public class ChatUtils {
     }
 
     public void sendMsg(String text) {
-        if (mc.player != null) mc.player.sendMessage(Text.of(translate(text)));
+        if (mc.player != null)
+            mc.player.sendMessage(Text.of(translate(text)));
     }
 
     public void sendMsg(Text text) {
-        if (mc.player != null) mc.player.sendMessage(text);
+        if (mc.player != null)
+            mc.player.sendMessage(text);
     }
 
     public String translate(String text) {

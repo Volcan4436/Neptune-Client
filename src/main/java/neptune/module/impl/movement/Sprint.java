@@ -1,0 +1,45 @@
+package neptune.module.impl.movement;
+
+import com.google.common.eventbus.Subscribe;
+import meteordevelopment.orbit.EventHandler;
+import neptune.event.events.TickEvent;
+import neptune.module.api.Mod;
+import neptune.module.api.Category;
+import neptune.setting.ModeSetting;
+
+public class Sprint extends Mod {
+
+    private final ModeSetting mode = new ModeSetting("Mode", "Smart", "Smart", "Stationary", "Omni", "Legit");
+
+    public Sprint() {
+        super("Sprint", "Automatically lets you sprint.", Category.MOVEMENT);
+        addSetting(mode);
+    }
+
+    @EventHandler
+    private void onTick(TickEvent event) {
+        if (mc.world == null) return; if (mc.player == null) return;
+        if (mode.isMode("Omni") && mc.player.getHungerManager().getFoodLevel() > 6) {
+            if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) {
+                mc.player.setSprinting(true);
+            }
+        }
+        else if (mode.isMode("Stationary") && mc.player.getHungerManager().getFoodLevel() > 6) {
+            mc.player.setSprinting(true);
+        }
+        else if (mode.isMode("Smart")) {
+            if (mc.player.forwardSpeed != 0 && mc.player.getHungerManager().getFoodLevel() > 6) {
+                mc.player.setSprinting(true);
+            }
+        }
+        else if (mode.isMode("Legit")) {
+            if (mc.player.forwardSpeed != 0 && mc.player.getHungerManager().getFoodLevel() > 6) {
+                mc.options.sprintKey.setPressed(true);
+            }
+        }
+    };
+
+    @Subscribe
+    public void onTick() {
+    }
+}
