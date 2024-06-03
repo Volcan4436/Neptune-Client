@@ -1,11 +1,11 @@
 package neptune.ui.screens.clickgui;
 
-import neptune.Neptune;
+import neptune.module.ModuleManager;
 import neptune.module.api.Category;
 import neptune.utils.MinecraftInterface;
+import neptune.utils.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.util.math.MathHelper;
-import neptune.module.api.Mod;
+import neptune.module.api.Module;
 import neptune.ui.screens.clickgui.setting.Component;
 
 import java.awt.*;
@@ -13,17 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Frame implements MinecraftInterface {
+    private final List<ModuleButton> modules = new ArrayList<>();
+    private final Category category;
 
-    public int x, y, width, height, dragX, dragY;
-    public Category category;
-    public boolean dragging, extended;
-
-    private final List<ModuleButton> buttons;
-
-    public static int getRainbow(float sat, float bri, double speed, int offset) {
-        double rainbowState = Math.ceil((System.currentTimeMillis() + offset) / speed) % 360;
-        return 0xff000000 | MathHelper.hsvToRgb((float) (rainbowState / 360.0), sat, bri);
-    }
+    public final int width, height;
+    public int x, y, dragX, dragY;
+    private boolean dragging, extended;
 
     public Frame(Category category, int x, int y, int width, int height) {
         this.category = category;
@@ -31,39 +26,27 @@ public class Frame implements MinecraftInterface {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.dragging = false;
-        this.extended = true;
-
-        buttons = new ArrayList<>();
 
         int offset = height;
-        for (Mod mod : Neptune.getInstance().getModuleManager().getModulesInCategory(category)) {
-            buttons.add(new ModuleButton(mod, this, offset));
+        for (Module mod : ModuleManager.getInstance().getModulesInCategory(category)) {
+            modules.add(new ModuleButton(mod, this, offset));
             offset += height;
         }
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-/*
-        context.fill(x - 1, y - 1, x+ width + 1, y + height + 1, new Color(136,96,168).getRGB());
-*/
         context.fill(x, y, x + width, y + height, new Color(82,113,255,255).getRGB());
-        int offset = + ((height - mc.textRenderer.fontHeight) / 2);
-        context.drawTextWithShadow(mc.textRenderer, category.getName(), x + 2, y + 2, -1);
-        context.drawTextWithShadow(mc.textRenderer, extended ? "[-]" : "[+]", x + width - 2 - mc.textRenderer.getWidth("[+]"), y + 2, -2);
 
-        if (extended) {
-            for (ModuleButton button : buttons) {
-                button.render(context, mouseX, mouseY, delta);
-            }
-/*
-            context.fill(x - 1, y + height + buttons.size() * 15, x + width + 1, y + height + 1 + buttons.size() * 15, new Color(136,96,168).getRGB());
-*/
-        }
+        context.drawTextWithShadow(mc.textRenderer, category.getName(), x + 2, y + 2, -1);
+        context.drawTextWithShadow(mc.textRenderer, extended ? "+" : "-", x + width - 3 - mc.textRenderer.getWidth("+"), y + 3, -2);
+
+        if (extended)
+            for (ModuleButton module : modules)
+                module.render(context, mouseX, mouseY, delta);
     }
 
     public void mouseClicked(double mouseX, double mouseY, int button) {
-        if (isHovered(mouseX, mouseY)) {
+        if (RenderUtils.isHovered(mouseX, mouseY, x, y, width, height)) {
             if (button == 0) {
                 dragging = true;
                 dragX = (int) (mouseX - x);
@@ -74,43 +57,38 @@ public class Frame implements MinecraftInterface {
                 updateButtons();
             }
         }
-        if (extended) {
-            for (ModuleButton mb : buttons) {
-                mb.mouseClicked(mouseX, mouseY, button);
-            }
-        }
+
+        if (extended)
+            for (ModuleButton module : modules)
+                module.mouseClicked(mouseX, mouseY, button);
     }
 
     public void mouseReleased(double mouseX, double mouseY, int button) {
-        if (button == 0 && dragging) dragging = false;
+        if (button == 0 && dragging)
+            dragging = false;
 
-        for (ModuleButton mb : buttons) {
-            mb.mouseReleased(mouseX, mouseY, button);
-        }
-    }
-    public boolean isHovered(double mouseX, double mouseY) {
-        return mouseX > x && mouseX < x + width && mouseY > y && mouseY < y + height;
+        for (ModuleButton module : modules)
+            module.mouseReleased(mouseX, mouseY, button);
     }
 
     public void updatePosition(double mouseX, double mouseY) {
         if (dragging) {
-            x = (int)mouseX - dragX;
-            y = (int)mouseY - dragY;
+            x = (int) mouseX - dragX;
+            y = (int) mouseY - dragY;
         }
     }
 
     public void updateButtons() {
         int offset = height;
 
-        for (ModuleButton button : buttons) {
+        for (ModuleButton button : modules) {
             button.offset = offset;
             offset += height;
 
-            if (button.extended) {
-                for (Component component : button.components) {
-                    if (component.setting.isVisible()) offset += height;
-                }
-            }
+            if (button.extended)
+                for (Component component : button.components)
+                    if (component.setting.isVisible())
+                        offset += height;
         }
     }
 }

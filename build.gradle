@@ -34,10 +34,9 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 
+	implementation "io.github.nevalackin:radbus:1.0.0"
 	include modImplementation("com.github.0x3C50:Renderer:aa67e1c")
-	implementation "meteordevelopment:orbit:0.2.4"
-	include "meteordevelopment:orbit:0.2.4"
-	// Uncomment the following line to enable the deprecated Fabric API modules. 
+	// Uncomment the following line to enable the deprecated Fabric API modules.
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"

@@ -1,12 +1,14 @@
 package neptune.module.api;
 
+import neptune.utils.ChatUtils;
+
 public enum Category {
-    COMBAT, MOVEMENT, PLAYER, EXPLOIT, RENDER, MISC;
+    COMBAT, MOVEMENT, PLAYER, EXPLOIT, VISUALS, MISC;
 
     private final String name;
 
     Category() {
-        this.name = this.name().charAt(0) + this.name().substring(1).toLowerCase();
+        this.name = ChatUtils.title(this.name());
     }
 
     public String getName() {

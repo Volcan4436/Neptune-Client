@@ -6,17 +6,13 @@
   "mixins": [
   ],
   "client": [
-    "ClientPlayNetworkHandlerMixin",
-    "InGameHudMixin",
-    "KeyboardMixin",
-    "MinecraftClientMixin",
-    "MixinClientCommonNetworkHandler",
-    "HorseScreenHandlerAccessor",
-    "PlayerMoveC2SPacketAccessor",
-    "PlayerPositionLookS2CPacketAccessor",
-    "StatusEffectInstanceAccessor",
+    "event.ClientPlayNetworkHandlerMixin",
+    "event.InGameHudMixin",
+    "event.KeyboardMixin",
+    "event.MinecraftClientMixin",
+    "event.ClientCommonNetworkHandlerMixin",
     "TitleScreenMixin",
-    "MixinLightmapTextureManager"
+    "LightmapTextureManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

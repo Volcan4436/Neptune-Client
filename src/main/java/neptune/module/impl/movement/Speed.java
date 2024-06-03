@@ -1,13 +1,25 @@
 package neptune.module.impl.movement;
 
-import meteordevelopment.orbit.EventHandler;
-import neptune.event.events.TickEvent;
-import neptune.module.api.Mod;
-import neptune.module.api.Category;
-import neptune.setting.ModeSetting;
+import io.github.nevalackin.radbus.Listen;
+import neptune.event.impl.game.TickEvent;
+import neptune.module.api.Module;
+import neptune.module.api.ModuleInfo;
+import neptune.setting.impl.BooleanSetting;
+import neptune.setting.impl.ModeSetting;
 import neptune.utils.player.movement.MoveUtil;
 
-public class Speed extends Mod {
+/*
+* TODO: Add Modes
+*  - Matrix
+*  - Legit:
+*    - Look Abuse (Abuses Yaw & Pitch)
+*    - Ping Abuse (Creates Variation in Ping in sync with Movement to allow increased Velo Values)
+*    - Collision Snap (Snaps Yaw and Pitch away from Collision)
+*  - Burst (Slowly Build up Velocity when Standing Still then release it in a burst on move)
+*  - Float (Float above ground then use velocity to speed hack)
+* */
+@ModuleInfo(description = "Automatically speeds you up.")
+public class Speed extends Module {
     int ticks = 0;
     int groundTicks = 0;
     int airTicks = 0;
@@ -16,47 +28,41 @@ public class Speed extends Mod {
     double fallDistance;
     boolean isGrounded;
 
+    private final ModeSetting mode = new ModeSetting("Mode", "Strafe", "NCP", "Dev");
+    private final BooleanSetting jump = new BooleanSetting("Jump").require(() -> mode.is("Strafe"));
 
-    //todo
-    // add modes:
-    // - Matrix
-    // - Legit (Look-Abuse (Abuses Yaw and Pitch), Ping Abuse (Creates Variation in Ping in sync with Movement to allow increased Velo Values), Collision Snap (Snaps Yaw and Pitch away from Collision))
-    // - Burst (Slowly Build up Velocity when Standing Still then release it in a burst on move)
-    // - Float (Float above ground then use velocity to speed hack)
-    private final ModeSetting mode = new ModeSetting("Mode", "Strafe", "Strafe", "Strafe-Jump", "NCP", "Dev");
     public Speed() {
-        super("Speed", "Automatically speeds you up.", Category.MOVEMENT);
-        addSetting(mode);
+        addSettings(mode, jump);
     }
 
-    @EventHandler
+    @Listen
     public void onTick(TickEvent event) {
-        if (mc.world == null) return; if (mc.player == null) return;
-        if (mode.isMode("Strafe")) {
-            MoveUtil.strafe();
-        }
-        if (mode.isMode("Strafe-Jump")) {
-            mc.options.jumpKey.setPressed(false);
-            if(mc.player.isOnGround() && MoveUtil.isMoving()) {
-                mc.player.jump();
+        switch (mode.getMode()) {
+            case "Strafe" -> {
+                MoveUtil.setSpeed();
+                if (jump.isEnabled()) {
+                    mc.options.jumpKey.setPressed(false);
+                    if (mc.player.isOnGround() && MoveUtil.isMoving()) {
+                        mc.player.jump();
+                    }
+                }
             }
-            MoveUtil.strafe();
-        }
-        if (mode.isMode("NCP")) {
-            mc.options.jumpKey.setPressed(false);
-            if (mc.player.isOnGround()) {
-                mc.player.jump();
-                ticks++;
+            case "NCP" -> {
+                mc.options.jumpKey.setPressed(false);
+                if (mc.player.isOnGround()) {
+                    mc.player.jump();
+                    ticks++;
+                }
+                if (ticks >= 1 && mc.player.isOnGround()) {
+                    MoveUtil.setSpeed();
+                }
+                if (ticks >= 3) {
+                    ticks = 0;
+                }
             }
-            if (ticks >= 1 && mc.player.isOnGround()) {
-                MoveUtil.strafe();
+            case "Dev" -> {
+                // README: Used for testing purposes
             }
-            if (ticks >= 3) {
-                ticks = 0;
-            }
-        }
-        if (mode.isMode("Dev")) {
-            //for creating new modes
         }
     }
 }

@@ -1,82 +1,80 @@
 package neptune.module;
 
+import neptune.Neptune;
 import neptune.module.api.Category;
-import neptune.module.api.Mod;
-import neptune.module.impl.client.HUD;
-import neptune.module.impl.client.Notifications;
-import neptune.module.impl.combat.Critical;
-import neptune.module.impl.combat.TriggerBot;
-import neptune.module.impl.combat.Wtap;
-import neptune.module.impl.exploit.BoatModifier;
+import neptune.module.api.Module;
+import neptune.module.impl.combat.*;
+import neptune.module.impl.misc.Commands;
 import neptune.module.impl.movement.*;
-import neptune.module.impl.render.FullBright;
+import neptune.module.impl.exploit.*;
+import neptune.module.impl.visuals.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ModuleManager {
-    private final List<Mod> modules = new ArrayList<>();
+    private final Map<Class<? extends Module>, Module> modules = new HashMap<>();
 
     public ModuleManager() {
         // Combat
-        modules.add(new Wtap());
-        modules.add(new Critical());
-        modules.add(new TriggerBot());
+        addModule(new WTap());
+        addModule(new Critical());
+        addModule(new TriggerBot());
 
         // Movement
-        modules.add(new AutoWalk());
-        modules.add(new ElytraFly());
-        modules.add(new Speed());
-        modules.add(new Sprint());
-        modules.add(new Velocity());
-        modules.add(new JetPack());
+        addModule(new AutoWalk());
+        addModule(new ElytraFly());
+        addModule(new Speed());
+        addModule(new Sprint());
+        addModule(new Velocity());
+        addModule(new JetPack());
 
         // Player
 
         // Exploit
-        modules.add(new BoatModifier());
+        addModule(new BoatModifier());
 
-        // Render
-        modules.add(new FullBright());
-        modules.add(new HUD());
-        modules.add(new Notifications());
+        // Visual
+        addModule(new FullBright());
+        addModule(new HUD());
+        addModule(new Notifications());
+        addModule(new ClickGUI());
 
         // Misc
+        addModule(new Commands());
     }
 
-    public List<Mod> getModules() {
-        return modules;
+    private void addModule(Module module) {
+        modules.put(module.getClass(), module);
     }
 
-    // Heedi u should probably use streams instead of just a for loop
-    public List<Mod> getEnabledModules() {
-        List<Mod> enabled = new ArrayList<>();
-
-        for (Mod module : modules) {
-            if (module.isEnabled())
-                enabled.add(module);
-        }
-
-        return enabled;
+    public Module getModule(Class<? extends Module> clazz) {
+        return modules.get(clazz);
     }
 
-    public Mod getModuleByName(String name) {
-        for (Mod module : modules) {
-            if (module.getName().equalsIgnoreCase(name))
-                return module;
-        }
-
-        return null;
+    public Module getModule(String name) {
+        return modules.values().stream()
+                .filter(module -> module.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Module not found"));
     }
 
-    public List<Mod> getModulesInCategory(Category category) {
-        List<Mod> categoryModules = new ArrayList<>();
+    public Collection<Module> getModules() {
+        return modules.values();
+    }
 
-        for (Mod module : modules) {
-            if (module.getCategory() == category)
-                categoryModules.add(module);
-        }
+    public List<Module> getEnabledModules() {
+        return modules.values().stream()
+                .filter(Module::isToggled)
+                .toList();
+    }
 
-        return categoryModules;
+    public List<Module> getModulesInCategory(Category category) {
+        return modules.values().stream()
+                .filter(module -> module.getCategory() == category)
+                .toList();
+    }
+
+    public static ModuleManager getInstance() {
+        return Neptune.INSTANCE.getModuleManager();
     }
 }

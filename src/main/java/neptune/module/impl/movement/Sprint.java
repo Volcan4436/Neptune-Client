@@ -1,45 +1,38 @@
 package neptune.module.impl.movement;
 
-import com.google.common.eventbus.Subscribe;
-import meteordevelopment.orbit.EventHandler;
-import neptune.event.events.TickEvent;
-import neptune.module.api.Mod;
-import neptune.module.api.Category;
-import neptune.setting.ModeSetting;
+import io.github.nevalackin.radbus.Listen;
+import neptune.event.impl.game.TickEvent;
+import neptune.module.api.Module;
+import neptune.module.api.ModuleInfo;
+import neptune.setting.impl.ModeSetting;
 
-public class Sprint extends Mod {
-
-    private final ModeSetting mode = new ModeSetting("Mode", "Smart", "Smart", "Stationary", "Omni", "Legit");
+@ModuleInfo(description = "Automatically lets you sprint.")
+public class Sprint extends Module {
+    private final ModeSetting mode = new ModeSetting("Mode", "Smart", "Stationary", "Omni", "Legit");
 
     public Sprint() {
-        super("Sprint", "Automatically lets you sprint.", Category.MOVEMENT);
-        addSetting(mode);
+        addSettings(mode);
     }
 
-    @EventHandler
+    @Listen
     private void onTick(TickEvent event) {
-        if (mc.world == null) return; if (mc.player == null) return;
-        if (mode.isMode("Omni") && mc.player.getHungerManager().getFoodLevel() > 6) {
-            if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed()) {
-                mc.player.setSprinting(true);
-            }
-        }
-        else if (mode.isMode("Stationary") && mc.player.getHungerManager().getFoodLevel() > 6) {
-            mc.player.setSprinting(true);
-        }
-        else if (mode.isMode("Smart")) {
-            if (mc.player.forwardSpeed != 0 && mc.player.getHungerManager().getFoodLevel() > 6) {
-                mc.player.setSprinting(true);
-            }
-        }
-        else if (mode.isMode("Legit")) {
-            if (mc.player.forwardSpeed != 0 && mc.player.getHungerManager().getFoodLevel() > 6) {
-                mc.options.sprintKey.setPressed(true);
-            }
-        }
-    };
+        if (mc.player.getHungerManager().getFoodLevel() < 6)
+            return;
 
-    @Subscribe
-    public void onTick() {
+        switch (mode.getMode()) {
+            case "Smart" -> {
+                if (mc.player.forwardSpeed != 0)
+                    mc.player.setSprinting(true);
+            }
+            case "Stationary" -> mc.player.setSprinting(true);
+            case "Omni" -> {
+                if (mc.options.forwardKey.isPressed() || mc.options.leftKey.isPressed() || mc.options.rightKey.isPressed() || mc.options.backKey.isPressed())
+                    mc.player.setSprinting(true);
+            }
+            case "Legit" -> {
+                if (mc.player.forwardSpeed != 0)
+                    mc.options.sprintKey.setPressed(true);
+            }
+        }
     }
 }

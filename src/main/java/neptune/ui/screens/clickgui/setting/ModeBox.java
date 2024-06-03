@@ -1,7 +1,6 @@
 package neptune.ui.screens.clickgui.setting;
 
-import neptune.setting.ModeSetting;
-import neptune.setting.Setting;
+import neptune.setting.impl.ModeSetting;
 import neptune.ui.screens.clickgui.ModuleButton;
 import neptune.utils.MinecraftInterface;
 import net.minecraft.client.gui.DrawContext;
@@ -9,12 +8,11 @@ import net.minecraft.client.gui.DrawContext;
 import java.awt.*;
 
 public class ModeBox extends Component implements MinecraftInterface {
+    private final ModeSetting modeSet;
 
-    private ModeSetting modeSet = (ModeSetting) setting;
-
-    public ModeBox(Setting setting, ModuleButton parent, int offset) {
+    public ModeBox(ModeSetting setting, ModuleButton parent, int offset) {
         super(setting, parent, offset);
-        this.modeSet = (ModeSetting) setting;
+        this.modeSet = setting;
     }
 
     @Override
@@ -26,8 +24,11 @@ public class ModeBox extends Component implements MinecraftInterface {
 
     @Override
     public void mouseClicked(double mouseX, double mouseY, int button) {
-        if (isHovered(mouseX, mouseY) && button == 0) {
-            modeSet.cycle();
+        if (isHovered(mouseX, mouseY)) {
+            if (button == 0)
+                modeSet.increment();
+            else if (button == 1)
+                modeSet.decrement();
         }
     }
 

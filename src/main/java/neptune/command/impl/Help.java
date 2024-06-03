@@ -1,28 +1,18 @@
 package neptune.command.impl;
 
-import neptune.Neptune;
-import neptune.command.Command;
-import neptune.utils.ChatUtils;
 import neptune.command.CommandManager;
+import neptune.command.api.Command;
+import neptune.command.api.CommandInfo;
+import neptune.utils.ChatUtils;
 
+@CommandInfo(aliases = {"h"}, description = "Displays a list of commands")
 public class Help extends Command {
 
-    public Help() {
-        super("help", "Shows all commands", "");
-    }
-
-    @Override
-    public void onCmd(String message, String[] args) {
-        // Initialize HelpMsg with the header
-        StringBuilder HelpMsg = new StringBuilder("Available commands: \n");
-
-        // Iterate over the cmds list from the CommandManager singleton instance
-        for (Command cmd : Neptune.getInstance().getCommandManager().getCmds()) {
-            // Append each command's name to HelpMsg
-            HelpMsg.append(cmd.getName()).append("\n");
-        }
-
-        // Add the HelpMsg to the chat
-        ChatUtils.addChatMessage(HelpMsg.toString());
+    public void onExecute(String message, String[] args) {
+        ChatUtils.message("Commands:");
+        CommandManager.getInstance().getCommands().forEach(command -> {
+            String commandInfo = "  " + command.getName() + " : " + command.getDescription();
+            ChatUtils.message(commandInfo);
+        });
     }
 }

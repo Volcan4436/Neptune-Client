@@ -1,15 +1,15 @@
 package neptune.command.impl;
 
-import neptune.Neptune;
+import neptune.command.api.Command;
+import neptune.command.api.CommandInfo;
+import neptune.module.ModuleManager;
 import org.lwjgl.glfw.GLFW;
-import neptune.module.api.Mod;
-import neptune.command.Command;
 import neptune.utils.ChatUtils;
-import neptune.utils.KeyUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@CommandInfo(description = "Binds a specified module", aliases = {"b"})
 public class Bind extends Command {
     private static final Map<String, Integer> KEY_MAP = new HashMap<>();
 
@@ -115,38 +115,25 @@ public class Bind extends Command {
         KEY_MAP.put("grave", GLFW.GLFW_KEY_GRAVE_ACCENT);
     }
 
-    public Bind() {
-        super("bind", "Binds a specified module", "");
-    }
-
-    @Override
-    public void onCmd(String message, String[] args) {
-        if (args.length != 3) {
-            ChatUtils.addChatMessage("Incorrect arguments. Example: .bind fly g");
+    public void onExecute(String message, String[] args) {
+        if (args.length != 2) {
+            ChatUtils.messageBranding("Invalid syntax! Please use: .bind <module> <key>");
             return;
         }
 
-        String mod = args[1];
-        String key = args[2];
-        Mod module = Neptune.getInstance().getModuleManager().getModuleByName(mod);
-        if (module == null) {
-            ChatUtils.addChatMessage("Invalid module name.");
+        String moduleName = args[0];
+        String key = args[1];
+
+        if (!KEY_MAP.containsKey(key)) {
+            ChatUtils.messageBranding("Invalid key! Please use a valid key.");
             return;
         }
 
-        int boundKey;
-        try {
-            boundKey = Integer.parseInt(key);
-        } catch (NumberFormatException e) {
-            if (KEY_MAP.containsKey(key.toLowerCase())) {
-                boundKey = KEY_MAP.get(key.toLowerCase());
-            } else {
-                ChatUtils.addChatMessage("Invalid key format.");
-                return;
-            }
-        }
+        ModuleManager.getInstance().getModules().stream().findFirst().ifPresent(module -> {
+            module.setKey(KEY_MAP.get(key));
+            ChatUtils.messageBranding("Bound " + moduleName + " to " + key);
+        });
 
-        module.setKey(boundKey);
-        ChatUtils.addChatMessage("Bound " + mod + " to " + KeyUtils.getKey(boundKey));
+        ChatUtils.messageBranding("Invalid module! Please use a valid module.");
     }
 }

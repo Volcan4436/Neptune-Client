@@ -1,24 +1,25 @@
 package neptune.setting;
 
-public class Setting {
+import java.util.function.BooleanSupplier;
 
+public class Setting {
     private final String name;
-    private boolean visible = true;
+    private BooleanSupplier visibility;
 
     public Setting(String name) {
         this.name = name;
     }
 
-    public boolean isVisible() {
-        return visible;
-    }
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
+    public <T extends Setting> T require(BooleanSupplier visibility) {
+        this.visibility = visibility;
+        return (T) this;
     }
 
     public String getName() {
         return name;
     }
 
+    public boolean isVisible() {
+        return visibility == null || visibility.getAsBoolean();
+    }
 }

@@ -1,19 +1,16 @@
 package neptune.module.impl.movement;
 
-import meteordevelopment.orbit.EventHandler;
-import neptune.event.events.TickEvent;
-import neptune.module.api.Mod;
-import neptune.module.api.Category;
+import io.github.nevalackin.radbus.Listen;
+import neptune.event.impl.game.TickEvent;
+import neptune.module.api.Module;
+import neptune.module.api.ModuleInfo;
 
-public class JetPack extends Mod {
+@ModuleInfo(description = "Allows you to jetpack.")
+public class JetPack extends Module {
 
-    public JetPack() {
-        super("JetPack", "Allows you to jetpack.", Category.MOVEMENT);
-    }
-
-    @EventHandler
+    @Listen
     public void onTick(TickEvent event) {
-        if (mc.world == null) return; if (mc.player == null) return;
-        if (mc.options.jumpKey.isPressed()) mc.player.jump();
+        if (mc.options.jumpKey.isPressed())
+            mc.player.jump();
     }
 }

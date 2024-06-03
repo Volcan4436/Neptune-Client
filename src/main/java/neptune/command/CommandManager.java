@@ -1,37 +1,37 @@
 package neptune.command;
 
-import neptune.command.impl.Bind;
-import neptune.command.impl.Help;
+import neptune.Neptune;
+import neptune.command.api.Command;
+import neptune.command.impl.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommandManager {
-
-    public final List<Command> cmds = new ArrayList<>();
-    private final String commandPrefix = "+";
+    public final List<Command> commands = new ArrayList<>();
+    private char prefix = '+';
 
     public CommandManager() {
-        add(new Bind());
-        add(new Help());
+        commands.add(new Help());
+        commands.add(new Clear());
+        commands.add(new Name());
+        commands.add(new Prefix());
+        commands.add(new Bind());
     }
 
-    public void add(Command command) {
-        if (!cmds.contains(command)) {
-            cmds.add(command);
-        }
+    public List<Command> getCommands() {
+        return commands;
     }
 
-    public void remove(Command command) {
-        cmds.remove(command);
+    public char getPrefix() {
+        return prefix;
     }
 
-    public List<Command> getCmds() {
-        return cmds;
+    public void setPrefix(char prefix) {
+        this.prefix = prefix;
     }
 
-    public String getCommandPrefix() {
-        return commandPrefix;
+    public static CommandManager getInstance() {
+        return Neptune.INSTANCE.getCommandManager();
     }
 }
-

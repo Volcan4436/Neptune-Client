@@ -1,24 +1,16 @@
 package neptune.module.impl.movement;
 
-import meteordevelopment.orbit.EventHandler;
-import neptune.module.api.Mod;
-import neptune.module.api.Category;
+import neptune.module.api.Module;
+import neptune.module.api.ModuleInfo;
 
-public class AutoWalk extends Mod {
+@ModuleInfo(description = "Automatically walks for you.")
+public class AutoWalk extends Module {
 
-    public AutoWalk() {
-        super("AutoWalk", "Automatically walks for you.", Category.MOVEMENT);
-    }
-
-    @EventHandler
     public void onEnable() {
-        if (mc.world == null) return; if (mc.player == null) return;
         mc.options.forwardKey.setPressed(true);
     }
 
-    @EventHandler
     public void onDisable() {
-        if (mc.world == null) return; if (mc.player == null) return;
         mc.options.forwardKey.setPressed(false);
     }
 }

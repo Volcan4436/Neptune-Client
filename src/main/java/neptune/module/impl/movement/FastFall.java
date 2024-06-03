@@ -1,31 +1,25 @@
 package neptune.module.impl.movement;
 
-import meteordevelopment.orbit.EventHandler;
-import neptune.event.events.TickEvent;
-import neptune.module.api.Mod;
-import neptune.module.api.Category;
-import neptune.setting.ModeSetting;
+import io.github.nevalackin.radbus.Listen;
+import neptune.event.impl.game.TickEvent;
+import neptune.module.api.Module;
+import neptune.module.api.ModuleInfo;
+import neptune.setting.impl.ModeSetting;
 
-public class FastFall extends Mod {
+@ModuleInfo(description = "Allows you to fast fall.")
+public class FastFall extends Module {
+    private final ModeSetting mode = new ModeSetting("Mode", "Matrix", "Dev");
 
-
-    private final ModeSetting mode = new ModeSetting("Mode", "Matrix", "Matrix", "Dev");
-
-    public FastFall() {
-        super("FastFall", "Allows you to fast fall.", Category.MOVEMENT);
-    }
-
-    @EventHandler
+    @Listen
     public void onTick(TickEvent event) {
-        if (mc.world == null) return; if (mc.player == null) return;
-        if (mode.isMode("Matrix")) {
-            if (mc.player.fallDistance > 0.8) {
-                mc.player.setVelocity(0, -0.54, 0);
+        switch (mode.getMode()) {
+            case "Matrix" -> {
+                if (mc.player.fallDistance > 0.8)
+                    mc.player.setVelocity(0, -0.54, 0);
+            }
+            case "Dev" -> {
+                // README: Used for testing purposes
             }
         }
-        if (mode.isMode("Dev")) {
-            return;
-        }
-        else return;
     }
 }

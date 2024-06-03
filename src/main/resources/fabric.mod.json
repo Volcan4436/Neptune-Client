@@ -16,7 +16,7 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
       "neptune.Neptune"
     ]
   },
