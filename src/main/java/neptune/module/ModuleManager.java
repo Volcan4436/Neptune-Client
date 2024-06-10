@@ -3,11 +3,8 @@ package neptune.module;
 import neptune.Neptune;
 import neptune.module.api.Category;
 import neptune.module.api.Module;
-import neptune.module.impl.combat.*;
-import neptune.module.impl.misc.Commands;
-import neptune.module.impl.movement.*;
-import neptune.module.impl.exploit.*;
-import neptune.module.impl.visuals.*;
+import neptune.utils.LoggerUtils;
+import org.reflections.Reflections;
 
 import java.util.*;
 
@@ -15,32 +12,16 @@ public class ModuleManager {
     private final Map<Class<? extends Module>, Module> modules = new HashMap<>();
 
     public ModuleManager() {
-        // Combat
-        addModule(new WTap());
-        addModule(new Critical());
-        addModule(new TriggerBot());
+        Reflections reflections = new Reflections("neptune.module");
+        Set<Class<? extends Module>> module_classes = reflections.getSubTypesOf(Module.class);
 
-        // Movement
-        addModule(new AutoWalk());
-        addModule(new ElytraFly());
-        addModule(new Speed());
-        addModule(new Sprint());
-        addModule(new Velocity());
-        addModule(new JetPack());
-
-        // Player
-
-        // Exploit
-        addModule(new BoatModifier());
-
-        // Visual
-        addModule(new FullBright());
-        addModule(new HUD());
-        addModule(new Notifications());
-        addModule(new ClickGUI());
-
-        // Misc
-        addModule(new Commands());
+        for (Class<? extends Module> module : module_classes) {
+            try {
+                addModule(module.getDeclaredConstructor().newInstance());
+            } catch (Exception e) {
+                LoggerUtils.logger.error("Failed to instantiate module: {}", module.getName(), e);
+            }
+        }
     }
 
     private void addModule(Module module) {

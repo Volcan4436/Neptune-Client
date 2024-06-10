@@ -1,20 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "neptune",
+  "id": "${id}",
+  "name": "${name}",
   "version": "${version}",
-
-  "name": "Neptune Utility Mod",
-  "description": "coolness",
+  "description": "${description}",
   "authors": [
     "The Volcanware Team"
   ],
   "contact": {
+    "issues": "https://github.com/Volcan4436/Neptune-Client/issues",
+    "sources": "https://github.com/Volcan4436/Neptune-Client"
   },
-
-  "license": "CC0-1.0",
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/qKDty6yzKw",
+        "modmenu.github_releases": "https://github.com/Volcan4436/Neptune-Client/releases"
+      }
+    }
+  },
+  "license": "MIT",
   "icon": "assets/client/icon.png",
-
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "client": [
       "neptune.Neptune"
@@ -23,14 +30,9 @@
   "mixins": [
     "client.mixins.json"
   ],
-
   "depends": {
-    "fabricloader": ">=0.14.19",
-    "fabric-api": "*",
-    "minecraft": "~1.20.4",
-    "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "minecraft": "=${minecraft_version}",
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*"
   }
 }

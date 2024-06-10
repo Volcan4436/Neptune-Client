@@ -5,7 +5,6 @@ import neptune.setting.Setting;
 import neptune.utils.ChatUtils;
 import neptune.utils.MinecraftInterface;
 import neptune.utils.MiscUtils;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Formatting;
 
 import java.util.ArrayList;
@@ -13,7 +12,8 @@ import java.util.List;
 
 public class Module implements MinecraftInterface {
     private final ModuleInfo info = this.getClass().getAnnotation(ModuleInfo.class);
-    private final String name = info.name().isEmpty() ? this.getClass().getSimpleName()
+    private final String name = info.name().isEmpty() ?
+            this.getClass().getSimpleName()
             : info.name();
     private final String description = info.description();
     private final Category category = MiscUtils.getCategoryByPackage(this.getClass());

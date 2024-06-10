@@ -9,7 +9,7 @@ import net.fabricmc.api.ClientModInitializer;
 
 public class Neptune implements ClientModInitializer, MinecraftInterface {
     public static final Neptune INSTANCE = new Neptune();
-    public static final String VERSION = "b0.2.0 - Beta";
+    public static final String VERSION = "b0.2.0 - Developer";
 
     private final CommandManager commandManager;
     private final ModuleManager moduleManager;

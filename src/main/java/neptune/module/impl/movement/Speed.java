@@ -42,9 +42,8 @@ public class Speed extends Module {
                 MoveUtil.setSpeed();
                 if (jump.isEnabled()) {
                     mc.options.jumpKey.setPressed(false);
-                    if (mc.player.isOnGround() && MoveUtil.isMoving()) {
+                    if (mc.player.isOnGround() && MoveUtil.isMoving())
                         mc.player.jump();
-                    }
                 }
             }
             case "NCP" -> {
@@ -53,12 +52,12 @@ public class Speed extends Module {
                     mc.player.jump();
                     ticks++;
                 }
-                if (ticks >= 1 && mc.player.isOnGround()) {
+
+                if (ticks >= 1 && mc.player.isOnGround())
                     MoveUtil.setSpeed();
-                }
-                if (ticks >= 3) {
+
+                if (ticks >= 3)
                     ticks = 0;
-                }
             }
             case "Dev" -> {
                 // README: Used for testing purposes
