@@ -3,7 +3,7 @@ package neptune.ui.screens.clickgui;
 import neptune.module.ModuleManager;
 import neptune.module.api.Category;
 import neptune.utils.MinecraftInterface;
-import neptune.utils.RenderUtils;
+import neptune.utils.render.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
 import neptune.module.api.Module;
 import neptune.ui.screens.clickgui.setting.Component;

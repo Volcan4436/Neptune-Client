@@ -3,6 +3,7 @@ package neptune.utils;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
+// TODO: Rewrite to be actually be good!
 public class ChatUtils implements MinecraftInterface {
     public static final String PREFIX = Formatting.GRAY + "[" + Formatting.BLUE + "Neptune" + Formatting.GRAY + "] ";
     public static final char COLOR_CHAR = '§';

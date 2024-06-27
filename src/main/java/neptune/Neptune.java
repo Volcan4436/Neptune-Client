@@ -22,7 +22,7 @@ public class Neptune implements ClientModInitializer, MinecraftInterface {
 
     @Override
     public void onInitializeClient() {
-        LoggerUtils.logger.info("Initializing...");
+        LoggerUtils.LOGGER.info("Initializing...");
     }
 
     public ModuleManager getModuleManager() {

@@ -24,7 +24,7 @@ public class Module implements MinecraftInterface {
     private final Flags[] flags = info.flags();
     private final List<Setting> settings = new ArrayList<>();
 
-    public void onEnable () {}
+    public void onEnable() {}
     public void onDisable() {}
 
     public void setToggled(boolean toggled) {

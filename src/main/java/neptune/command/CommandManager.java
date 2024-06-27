@@ -17,6 +17,7 @@ public class CommandManager {
         commands.add(new Name());
         commands.add(new Prefix());
         commands.add(new Bind());
+        commands.add(new Panic());
     }
 
     public List<Command> getCommands() {

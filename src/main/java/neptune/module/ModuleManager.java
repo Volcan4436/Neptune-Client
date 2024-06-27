@@ -19,7 +19,7 @@ public class ModuleManager {
             try {
                 addModule(module.getDeclaredConstructor().newInstance());
             } catch (Exception e) {
-                LoggerUtils.logger.error("Failed to instantiate module: {}", module.getName(), e);
+                LoggerUtils.LOGGER.error("Failed to instantiate module: {}", module.getName(), e);
             }
         }
     }
@@ -36,7 +36,7 @@ public class ModuleManager {
         return modules.values().stream()
                 .filter(module -> module.getName().equalsIgnoreCase(name))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Module not found"));
+                .orElse(null);
     }
 
     public Collection<Module> getModules() {

@@ -4,7 +4,7 @@ import io.github.nevalackin.radbus.PubSub;
 import neptune.utils.LoggerUtils;
 
 public class EventAPI {
-    public static final PubSub<Event> EVENT_BUS = PubSub.newInstance(LoggerUtils.logger::error);
+    public static final PubSub<Event> EVENT_BUS = PubSub.newInstance(LoggerUtils.LOGGER::error);
 
     public static void register(Object object) {
         EVENT_BUS.subscribe(object);

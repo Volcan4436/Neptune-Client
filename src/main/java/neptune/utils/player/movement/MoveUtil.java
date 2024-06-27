@@ -39,7 +39,7 @@ public class MoveUtil {
         float yaw = (float) getDirection();
         double motionX = -MathHelper.sin(yaw) * speed; // Inverted direction
         double motionZ = MathHelper.cos(yaw) * speed; // Inverted direction
-        mc.player.setVelocity(new Vec3d(motionX, mc.player.getVelocity().getY(), motionZ));
+        mc.player.setVelocity(motionX, mc.player.getVelocity().getY(), motionZ);
     }
 
     public static void setSpeed() {

@@ -1,9 +1,8 @@
 package neptune.utils;
 
-import neptune.Neptune;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoggerUtils {
-    public static final Logger logger = LogManager.getLogger(Neptune.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger("Neptune");
 }

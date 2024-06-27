@@ -30,7 +30,6 @@ public class Notifications extends Module {
         return chatIdMap.computeIfAbsent(entity.getUuid(), value -> random.nextInt());
     }
 
-    @Override
     public void onEnable() {
         if (popCounter.isEnabled()) {
             totemPopMap.clear();

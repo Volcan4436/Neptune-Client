@@ -11,6 +11,7 @@ public class Prefix extends Command {
     public void onExecute(String message, String[] args) {
         if (args.length != 1) {
             ChatUtils.messageBranding("Invalid syntax! Please use: .bind <prefix>");
+            error("Usage", "prefix <prefix>");
             return;
         }
         CommandManager.getInstance()

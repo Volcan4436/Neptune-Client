@@ -3,7 +3,7 @@ package neptune.ui.screens.clickgui;
 import neptune.module.api.Flags;
 import neptune.utils.MinecraftInterface;
 import neptune.utils.MiscUtils;
-import neptune.utils.RenderUtils;
+import neptune.utils.render.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
 import neptune.module.api.Module;
 import neptune.setting.impl.BooleanSetting;
@@ -17,7 +17,6 @@ import neptune.ui.screens.clickgui.setting.Slider;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ModuleButton implements MinecraftInterface {
@@ -79,8 +78,10 @@ public class ModuleButton implements MinecraftInterface {
             }
         }
 
-        for (Component component : components)
+        for (Component component : components) {
             component.mouseClicked(mouseX, mouseY, button);
+            parent.updateButtons();
+        }
     }
 
     public void mouseReleased(double mouseX, double mouseY, int button) {

@@ -179,7 +179,6 @@ public class ElytraFly extends Module {
         mc.player.setVelocity(x, y, z);
     }
 
-    @Override
     public void onDisable() {
         mc.player.setNoGravity(false);
     }
